@@ -1,6 +1,5 @@
 package edu.comillas.icai.gitt.pat.spring.mvc.api;
 
-import edu.comillas.icai.gitt.pat.spring.mvc.records.ModeloUsuarioIncorrecto;
 import edu.comillas.icai.gitt.pat.spring.mvc.service.PistaService;
 import edu.comillas.icai.gitt.pat.spring.mvc.service.ReservaService;
 import edu.comillas.icai.gitt.pat.spring.mvc.service.UsuarioService;
@@ -8,14 +7,9 @@ import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 import static edu.comillas.icai.gitt.pat.spring.mvc.data.AlmacenDatos.usuarios;
 
