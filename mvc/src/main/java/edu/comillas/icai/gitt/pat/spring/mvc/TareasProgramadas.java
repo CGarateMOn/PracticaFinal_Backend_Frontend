@@ -1,7 +1,6 @@
 package edu.comillas.icai.gitt.pat.spring.mvc;
 
 import edu.comillas.icai.gitt.pat.spring.mvc.data.AlmacenDatos;
-import edu.comillas.icai.gitt.pat.spring.mvc.records.Usuario;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
