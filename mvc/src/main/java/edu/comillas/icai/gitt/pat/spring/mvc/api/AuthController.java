@@ -1,5 +1,6 @@
 package edu.comillas.icai.gitt.pat.spring.mvc.api;
 
+import edu.comillas.icai.gitt.pat.spring.mvc.entidades.Token;
 import edu.comillas.icai.gitt.pat.spring.mvc.entidades.Usuario;
 import edu.comillas.icai.gitt.pat.spring.mvc.modelos.LoginRequest;
 import edu.comillas.icai.gitt.pat.spring.mvc.modelos.ProfileResponse;
@@ -13,7 +14,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -46,7 +49,19 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Usuario> login(@Valid @RequestBody LoginRequest){
+    public ResponseEntity<Usuario> login(@Valid @RequestBody LoginRequest loginRequest ){
+        Token token = authService.login(loginRequest.email(),loginRequest.password());
+        if(token == null){
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+        }
+
+        ResponseCookie session = ResponseCookie
+                .from("session", token.id)
+                .httpOnly(true)
+                .path("/")
+                .sameSite("Strict")
+                .build();
+        return  ResponseEntity.status(HttpStatus.CREATED).header(HttpHeaders.SET_COOKIE, session.toString()).build();
 
     }
 
