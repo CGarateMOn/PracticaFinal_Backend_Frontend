@@ -44,15 +44,4 @@ public class UsuarioService {
         return usuario.get();
     }
 
-    public Token login(String email, String password){
-        Usuario usuario = usuarioRepo.findByEmail(email);
-        if(usuario == null) return null;
-
-        Token token = tokenRepo.findByUsuario(usuario);
-        if(token != null) return token;
-
-        token = new Token();
-        token.usuario= usuario;
-        return tokenRepo.save(token);
-    }
 }
