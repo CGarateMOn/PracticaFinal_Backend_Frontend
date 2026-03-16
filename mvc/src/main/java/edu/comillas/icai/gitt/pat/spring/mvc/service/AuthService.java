@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
@@ -39,6 +40,8 @@ public class AuthService {
         usuario.setNombre(register.nombre());
         usuario.setApellidos(register.apellidos());
         usuario.setTelefono(register.telefono());
+
+        usuario.setFechaRegistro(LocalDateTime.now());
 
         Usuario usuarioGuardado = repoUsuario.save(usuario);
         return ProfileResponse.fromUsuario(usuarioGuardado);
@@ -72,15 +75,24 @@ public class AuthService {
        Optional<Token> token = repoToken.findById(tokenId);
 
        if(token.isEmpty()){
+           logger.warn("No se ha inciado sesión o la sesión ha expirado");
            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Sesion invalida");
        }
 
        Usuario usuario = token.get().usuario;
-
+       logger.info("Se ha obtenido correctamente el usuario: {}", usuario);
        return ProfileResponse.fromUsuario(usuario);
     }
 
     public void logout(String tokenId){
+        Optional<Token> token = repoToken.findById(tokenId);
+
+        if(token.isEmpty()){
+            logger.warn("No se ha inciado sesión o la sesión ha expirado");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Sesion invalida");
+        }
+
+        logger.info("Se ha cerrado correctamente la sesión");
         repoToken.deleteById(tokenId);
     }
 }

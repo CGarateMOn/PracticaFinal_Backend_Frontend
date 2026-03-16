@@ -7,8 +7,6 @@ import edu.comillas.icai.gitt.pat.spring.mvc.modelos.ProfileResponse;
 import edu.comillas.icai.gitt.pat.spring.mvc.modelos.RegisterRequest;
 import edu.comillas.icai.gitt.pat.spring.mvc.service.AuthService;
 import jakarta.validation.Valid;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -24,9 +22,6 @@ public class AuthController {
 
     @Autowired
     AuthService authService;
-
-    private final Logger logger = LoggerFactory.getLogger(getClass());
-
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
@@ -61,6 +56,7 @@ public class AuthController {
     }
 
     @PostMapping("/logout")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public ResponseEntity<Void> logout(@CookieValue(value = "session", required = true) String session){
         if(session == null){
             throw  new ResponseStatusException(HttpStatus.UNAUTHORIZED, "No autenticado");
