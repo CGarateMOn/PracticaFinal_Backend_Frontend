@@ -29,5 +29,5 @@ public class AdminReservasController {
             @RequestParam(required = false) String date,
             @RequestParam(required = false) String courtId,
             @RequestParam(required = false) String userId
-    ) {}
+    ) {return null;}
 }

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static edu.comillas.icai.gitt.pat.spring.mvc.data.AlmacenDatos.usuarios;
 
 @RestController
 @RequestMapping("/pistaPadel/users")
