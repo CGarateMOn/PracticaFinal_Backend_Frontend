@@ -7,6 +7,7 @@ import edu.comillas.icai.gitt.pat.spring.mvc.modelos.RegisterRequest;
 import edu.comillas.icai.gitt.pat.spring.mvc.modelos.Rol;
 import edu.comillas.icai.gitt.pat.spring.mvc.repositorios.RepoToken;
 import edu.comillas.icai.gitt.pat.spring.mvc.repositorios.RepoUsuarios;
+import edu.comillas.icai.gitt.pat.spring.mvc.util.Hashing;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,8 @@ public class AuthService {
     RepoUsuarios repoUsuario;
     @Autowired
     RepoToken repoToken;
-    //@Autowired
-    //Hashing hashing;
+    @Autowired
+    Hashing hashing;
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -36,7 +37,7 @@ public class AuthService {
         }
         Usuario usuario = new Usuario();
         usuario.setEmail(register.email());
-        usuario.setPassword(register.password());
+        usuario.setPassword(hashing.hash(register.password()));
         usuario.setNombre(register.nombre());
         usuario.setApellidos(register.apellidos());
         usuario.setTelefono(register.telefono());
@@ -49,16 +50,17 @@ public class AuthService {
 
     public Token login(String email, String password){
         Usuario usuario = repoUsuario.findByEmail(email);
-        if(usuario == null) return null;
-
-       // if(!hashing.compare(password, usuario.getPassword())) return null;
+        if(usuario == null || !hashing.compare(password, usuario.getPassword())){
+            throw  new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Contraseña no valida");
+        }
 
         Token token = repoToken.findByUsuario(usuario);
-        if(token != null) return token;
-
-        token = new Token();
-        token.usuario= usuario;
-        return repoToken.save(token);
+        if(token == null) {
+            token = new Token();
+            token.usuario = usuario;
+            token = repoToken.save(token);
+        }
+        return token;
     }
 
     public Usuario authentication(String tokenId){
@@ -84,6 +86,7 @@ public class AuthService {
        return ProfileResponse.fromUsuario(usuario);
     }
 
+    @Transactional
     public void logout(String tokenId){
         Optional<Token> token = repoToken.findById(tokenId);
 

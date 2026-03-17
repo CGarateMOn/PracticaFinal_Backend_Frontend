@@ -32,9 +32,6 @@ public class AuthController {
     @GetMapping("/me")
     @ResponseStatus(HttpStatus.OK)
     public ProfileResponse me(@CookieValue(value = "session", required = true) String session){
-        if(session==null){
-            throw  new ResponseStatusException(HttpStatus.UNAUTHORIZED, "No autenticado");
-        }
         return  authService.perfil(session);
     }
 
@@ -51,7 +48,7 @@ public class AuthController {
                 .path("/")
                 .sameSite("Strict")
                 .build();
-        return  ResponseEntity.status(HttpStatus.CREATED).header(HttpHeaders.SET_COOKIE, session.toString()).build();
+        return  ResponseEntity.status(HttpStatus.OK).header(HttpHeaders.SET_COOKIE, session.toString()).build();
 
     }
 
