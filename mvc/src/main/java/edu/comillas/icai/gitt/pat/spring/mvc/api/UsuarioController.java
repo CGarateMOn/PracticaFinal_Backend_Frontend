@@ -1,5 +1,6 @@
 package edu.comillas.icai.gitt.pat.spring.mvc.api;
 
+import edu.comillas.icai.gitt.pat.spring.mvc.entidades.Usuario;
 import edu.comillas.icai.gitt.pat.spring.mvc.service.PistaService;
 import edu.comillas.icai.gitt.pat.spring.mvc.service.ReservaService;
 import edu.comillas.icai.gitt.pat.spring.mvc.service.UsuarioService;
