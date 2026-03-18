@@ -1,6 +1,5 @@
 package edu.comillas.icai.gitt.pat.spring.mvc.service;
 
-import edu.comillas.icai.gitt.pat.spring.mvc.entidades.Token;
 import edu.comillas.icai.gitt.pat.spring.mvc.modelos.Rol;
 import edu.comillas.icai.gitt.pat.spring.mvc.entidades.Usuario;
 import edu.comillas.icai.gitt.pat.spring.mvc.records.UpdateUsuarioRequest;
@@ -10,12 +9,10 @@ import edu.comillas.icai.gitt.pat.spring.mvc.repositorios.RepoToken;
 import edu.comillas.icai.gitt.pat.spring.mvc.repositorios.RepoUsuarios;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.token.TokenService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UsuarioService {

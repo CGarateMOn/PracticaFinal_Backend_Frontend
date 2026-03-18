@@ -33,7 +33,7 @@ class DisponibilidadServiceTest {
     @Mock
     private RepoReserva reservaRepo;
 
-    // ¡AQUÍ ESTÁ LA MAGIA! Ahora inyectamos los mocks en tu NUEVO servicio
+    // Ahora inyectamos los mocks en el nuevo servicio
     @InjectMocks
     private DisponibilidadService disponibilidadService;
 
@@ -51,7 +51,7 @@ class DisponibilidadServiceTest {
         when(reservaRepo.findByPistaAndFechaReservaAndEstado(pistaMock, fecha, EstadoReserva.ACTIVA))
                 .thenReturn(new ArrayList<>());
 
-        // Act: Llamamos al método en DisponibilidadService
+        // Llamamos al metodo en DisponibilidadService
         Disponibilidad resultado = disponibilidadService.obtenerDisponibilidadPista(idPista, fecha);
 
         // Assert
@@ -63,7 +63,7 @@ class DisponibilidadServiceTest {
 
     @Test
     void testObtenerDisponibilidadPista_ConUnaReservaEnMedio() {
-        // Arrange
+        // Arranque
         Long idPista = 1L;
         LocalDate fecha = LocalDate.now();
 
@@ -79,10 +79,8 @@ class DisponibilidadServiceTest {
         when(reservaRepo.findByPistaAndFechaReservaAndEstado(pistaMock, fecha, EstadoReserva.ACTIVA))
                 .thenReturn(List.of(reserva));
 
-        // Act
         Disponibilidad resultado = disponibilidadService.obtenerDisponibilidadPista(idPista, fecha);
 
-        // Assert
         assertNotNull(resultado);
         assertEquals(2, resultado.tramosHorariosDisponibles().size(), "Debería haber 2 huecos libres separados por la reserva");
 
@@ -97,7 +95,7 @@ class DisponibilidadServiceTest {
 
     @Test
     void testObtenerDisponibilidadPista_FallaSiPistaInactiva() {
-        // Arrange
+        // Arranque
         Long idPista = 1L;
         LocalDate fecha = LocalDate.now();
 
@@ -107,7 +105,6 @@ class DisponibilidadServiceTest {
 
         when(pistaRepo.findById(idPista)).thenReturn(Optional.of(pistaInactiva));
 
-        // Act & Assert
         ResponseStatusException exception = assertThrows(ResponseStatusException.class, () -> {
             disponibilidadService.obtenerDisponibilidadPista(idPista, fecha);
         });

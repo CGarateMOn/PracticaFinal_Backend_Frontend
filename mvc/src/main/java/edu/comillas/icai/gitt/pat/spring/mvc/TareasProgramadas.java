@@ -2,7 +2,6 @@ package edu.comillas.icai.gitt.pat.spring.mvc;
 
 import edu.comillas.icai.gitt.pat.spring.mvc.service.PistaService;
 import edu.comillas.icai.gitt.pat.spring.mvc.service.ReservaService;
-import edu.comillas.icai.gitt.pat.spring.mvc.service.UsuarioService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -17,14 +16,11 @@ public class TareasProgramadas {
 
     // Inyectamos los SERVICIOS en lugar de los Repositorios
     private final ReservaService reservaService;
-    private final UsuarioService usuarioService;
     private final PistaService pistaService;
 
     public TareasProgramadas(ReservaService reservaService,
-                             UsuarioService usuarioService,
                              PistaService pistaService) {
         this.reservaService = reservaService;
-        this.usuarioService = usuarioService;
         this.pistaService = pistaService;
     }
 
@@ -32,23 +28,15 @@ public class TareasProgramadas {
     public void mandarRecordatorioReservas() {
         logger.info("Activando reloj: Iniciando proceso de recordatorios de reservas...");
 
-        // ¡La tarea programada solo da la orden! El servicio hace el trabajo sucio.
+        // La tarea programada da la orden. El servicio ejecuta la lógica
         reservaService.enviarRecordatoriosDiarios();
     }
-
-        /* 💡 INCLUSO MEJOR: Podrías llevarte TODO este bloque "forEach" adentro de
-        un método en ReservaService llamado "procesarRecordatoriosDiarios(hoy)",
-        y que esta clase simplemente haga:
-
-        reservaService.enviarRecordatoriosDiarios(hoy);
-        */
-
 
     @Scheduled(cron = "0 0 9 1 * *")
     public void mandarInfoMensualPistas() {
         logger.info("Activando reloj: Iniciando envío mensual de disponibilidad de pistas...");
 
-        // ¡Solo damos la orden al servicio!
+        // Damos la orden al servicio
         pistaService.enviarInfoMensualDisponibilidad();
     }
 }

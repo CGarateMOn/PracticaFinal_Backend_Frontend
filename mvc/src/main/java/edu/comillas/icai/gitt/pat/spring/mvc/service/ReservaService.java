@@ -5,11 +5,8 @@ import edu.comillas.icai.gitt.pat.spring.mvc.entidades.Pista;
 import edu.comillas.icai.gitt.pat.spring.mvc.entidades.Reserva;
 import edu.comillas.icai.gitt.pat.spring.mvc.entidades.Usuario;
 import edu.comillas.icai.gitt.pat.spring.mvc.modelos.Rol;
-import edu.comillas.icai.gitt.pat.spring.mvc.records.Disponibilidad;
-import edu.comillas.icai.gitt.pat.spring.mvc.records.TramosHorarios;
 import edu.comillas.icai.gitt.pat.spring.mvc.repositorios.RepoPistas;
 import edu.comillas.icai.gitt.pat.spring.mvc.repositorios.RepoReserva;
-import edu.comillas.icai.gitt.pat.spring.mvc.repositorios.RepoUsuarios;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,11 +35,11 @@ public class ReservaService {
     private static final LocalTime HORA_APERTURA = LocalTime.of(9, 0);
     private static final LocalTime HORA_CIERRE = LocalTime.of(22, 0);
 
-    // Creas reserva nueva asociada al usuario autenticado
+    // Crear reserva nueva asociada al usuario autenticado
     public Reserva crearReserva(Usuario usuarioAutenticado, Reserva nuevaReserva) {
         logger.info("Creando nueva reserva para usuario {}", usuarioAutenticado.getIdUsuario());
 
-        // Validas los campos básicos
+        // Validar los campos básicos
         validarDatosReserva(nuevaReserva);
 
         // Sacamos el id de la pista del JSON
@@ -305,18 +302,18 @@ public class ReservaService {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "No tienes acceso a esta reserva");
         }
     }
-    // Este es el métod0 que usa tu Tarea Programada a las 2:00 AM
+    // Este es el metodo que usa la Tarea Programada a las 2:00 AM
     @Transactional
     public void enviarRecordatoriosDiarios() {
         LocalDate hoy = LocalDate.now();
 
-        // 1. Buscamos SOLO las reservas de hoy que estén en estado ACTIVA
+        // Buscamos SOLO las reservas de hoy que estén en estado ACTIVA
         List<Reserva> reservasActivasDeHoy = reservaRepo.findByFechaReservaAndEstado(hoy, EstadoReserva.ACTIVA);
 
-        // 2. Recorremos la lista de reservas
+        // Recorremos la lista de reservas
         for (Reserva reserva : reservasActivasDeHoy) {
 
-            // 3. Sacamos el usuario (funciona perfecto gracias al @Transactional)
+            // Sacamos el usuario (funciona perfecto gracias al @Transactional)
             Usuario usuario = reserva.getUsuario();
 
             // 4. LÓGICA DE ENVIAR CORREOS
@@ -325,8 +322,7 @@ public class ReservaService {
                     "Hora de inicio: " + reserva.getHoraInicio() + "\n\n" +
                     "¡Te esperamos!";
 
-            // Si tienes configurado JavaMailSender, aquí iría el código de envío real.
-            // Por ahora, lo dejamos en el logger como pide el ejercicio:
+            // Configurar JavaMailSender, iría el código de envío real. Por ahora, logger
             logger.info("Enviando recordatorio PARA: {} - MENSAJE: \n{}", usuario.getEmail(), cuerpoMensaje);
         }
     }

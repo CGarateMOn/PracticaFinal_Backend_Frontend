@@ -45,7 +45,7 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Reserva> reservas = new ArrayList<>();
 
-    protected void Usuario() {
+    public Usuario() {
         this.fechaRegistro = LocalDateTime.now();
     }
 

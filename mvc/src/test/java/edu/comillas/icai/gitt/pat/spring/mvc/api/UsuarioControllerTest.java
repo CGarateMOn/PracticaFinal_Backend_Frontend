@@ -26,9 +26,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-// 1. Apagamos la autoconfiguración de seguridad para que no pida login
+// Apagamos la autoconfiguración de seguridad para que no pida login, ya comprobaremos la seguridad en el E2E
 @WebMvcTest(controllers = UsuarioController.class, excludeAutoConfiguration = {SecurityAutoConfiguration.class})
-// 2. Apagamos los filtros internos (como la protección CSRF) para que deje pasar los PATCH
+// Apagamos los filtros internos (como la protección CSRF) para que deje pasar los PATCH
 @AutoConfigureMockMvc(addFilters = false)
 class UsuarioControllerTest {
 

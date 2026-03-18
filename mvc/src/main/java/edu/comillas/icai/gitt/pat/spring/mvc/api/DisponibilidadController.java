@@ -2,9 +2,6 @@ package edu.comillas.icai.gitt.pat.spring.mvc.api;
 
 import edu.comillas.icai.gitt.pat.spring.mvc.records.Disponibilidad;
 import edu.comillas.icai.gitt.pat.spring.mvc.service.DisponibilidadService;
-import edu.comillas.icai.gitt.pat.spring.mvc.service.PistaService;
-import edu.comillas.icai.gitt.pat.spring.mvc.service.ReservaService;
-import edu.comillas.icai.gitt.pat.spring.mvc.service.UsuarioService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

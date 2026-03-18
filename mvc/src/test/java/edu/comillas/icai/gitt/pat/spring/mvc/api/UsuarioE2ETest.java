@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
-@AutoConfigureMockMvc // <-- Fíjate: Ya NO apagamos los filtros de seguridad. ¡Están 100% encendidos!
+@AutoConfigureMockMvc // Ya NO apagamos los filtros de seguridad.
 class UsuarioE2ETest {
 
     @Autowired

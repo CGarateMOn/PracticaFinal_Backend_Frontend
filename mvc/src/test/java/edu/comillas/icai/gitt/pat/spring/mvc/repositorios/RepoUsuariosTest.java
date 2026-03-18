@@ -10,17 +10,17 @@ import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-// 1. Levantamos SOLO la capa de base de datos de Spring
+// Levantamos solo la capa de base de datos de Spring
 @DataJpaTest
 class RepoUsuariosTest {
 
-    // 2. Inyectamos tu repositorio REAL (sin @Mock)
+    // Inyectamos el repositorio real
     @Autowired
     private RepoUsuarios repoUsuarios;
 
     @Test
     void testGuardarYBuscarPorEmail_IntegracionReal() {
-        // Arrange: Creamos un usuario de verdad para meterlo en la base de datos
+        // Creamos un usuario de verdad para meterlo en la base de datos
         Usuario nuevoUsuario = new Usuario();
         nuevoUsuario.setEmail("integracion@test.com");
         nuevoUsuario.setPassword("clave123");
@@ -30,13 +30,13 @@ class RepoUsuariosTest {
         nuevoUsuario.setRol(Rol.USER);
         nuevoUsuario.setFechaRegistro(LocalDateTime.now());
 
-        // Hacemos el INSERT en la base de datos real en memoria
+        // lo guardamos en la base de datos real en memoria
         repoUsuarios.save(nuevoUsuario);
 
-        // Act: Hacemos una consulta SELECT real a la base de datos usando tu método
+        // Hacemos una consulta SELECT real a la base de datos usando tu metodo
         Usuario encontrado = repoUsuarios.findByEmail("integracion@test.com");
 
-        // Assert: Comprobamos que la base de datos nos lo ha devuelto correctamente
+        // Comprobamos que la base de datos nos lo ha devuelto correctamente
         assertNotNull(encontrado, "El usuario debería haberse guardado y encontrado en la BD");
         assertEquals("Paco", encontrado.getNombre());
         assertEquals("Pruebas", encontrado.getApellidos());
@@ -47,7 +47,7 @@ class RepoUsuariosTest {
 
     @Test
     void testExistsByEmail_DevuelveTrueSiExiste() {
-        // Arrange: Guardamos un usuario en la BD
+        // Guardamos un usuario en la BD
         Usuario usuario = new Usuario();
         usuario.setEmail("existe@correo.com");
         usuario.setPassword("1234");
@@ -59,7 +59,7 @@ class RepoUsuariosTest {
 
         repoUsuarios.save(usuario);
 
-        // Act: Usamos tu método existsByEmail
+        // Usamos tu metodo existsByEmail
         boolean existe = repoUsuarios.existsByEmail("existe@correo.com");
         boolean noExiste = repoUsuarios.existsByEmail("fantasma@correo.com");
 

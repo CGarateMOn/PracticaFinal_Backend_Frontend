@@ -91,7 +91,7 @@ public class PistaService {
         pistaRepo.deleteById(pistaId);
     }
 
-    // Añadimos @Transactional por si la lista de Tramos Horarios es LAZY (carga perezosa)
+    // Añadimos @Transactional por si la lista de Tramos Horarios es LAZY
     @Transactional
     public void enviarInfoMensualDisponibilidad() {
 

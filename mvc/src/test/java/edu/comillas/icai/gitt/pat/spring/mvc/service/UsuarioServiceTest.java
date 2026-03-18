@@ -22,9 +22,7 @@ class UsuarioServiceTest {
 
     @Mock
     private RepoUsuarios usuarioRepo;
-
-    // AHORA TENEMOS QUE MOCKEAR TAMBIÉN EL AUTHSERVICE
-    // porque UsuarioService lo necesita para comprobar la sesión
+    // @Mock AuthService porque UsuarioService lo necesita para comprobar la sesión
     @Mock
     private AuthService authService;
 
@@ -33,7 +31,7 @@ class UsuarioServiceTest {
 
     @Test
     void testListarTodos_ExitoSiEsAdmin() {
-        // Arrange
+        // Arranque
         String sessionToken = "tokenAdminValido";
 
         Usuario admin = new Usuario();
@@ -50,10 +48,8 @@ class UsuarioServiceTest {
         // Simulamos que la base de datos devuelve una lista de usuarios
         when(usuarioRepo.findAll()).thenReturn(List.of(admin, usuarioNormal));
 
-        // Act
         List<Usuario> resultado = usuarioService.listarTodos(sessionToken);
 
-        // Assert
         assertNotNull(resultado);
         assertEquals(2, resultado.size());
         verify(usuarioRepo, times(1)).findAll();
@@ -61,7 +57,7 @@ class UsuarioServiceTest {
 
     @Test
     void testListarTodos_FallaSiNoEsAdmin() {
-        // Arrange
+        // Arranque
         String sessionToken = "tokenUserValido";
 
         Usuario usuarioNormal = new Usuario();
@@ -71,7 +67,6 @@ class UsuarioServiceTest {
         // Simulamos que AuthService devuelve a un usuario normal
         when(authService.authentication(sessionToken)).thenReturn(usuarioNormal);
 
-        // Act & Assert
         ResponseStatusException exception = assertThrows(ResponseStatusException.class, () -> {
             usuarioService.listarTodos(sessionToken);
         });
@@ -79,13 +74,13 @@ class UsuarioServiceTest {
         assertEquals(HttpStatus.FORBIDDEN, exception.getStatusCode());
         assertEquals("Solo administradores", exception.getReason());
 
-        // Verificamos que al fallar la seguridad, NUNCA llegó a pedir todos los usuarios a la BD
+        // Verificamos que al fallar la seguridad, nunca llegó a pedir todos los usuarios a la BD
         verify(usuarioRepo, never()).findAll();
     }
 
     @Test
     void testBuscarPorId_ExitoSiEsElMismoUsuario() {
-        // Arrange
+        // Arranque
         String sessionToken = "miToken";
         Long miId = 5L;
 
@@ -96,10 +91,8 @@ class UsuarioServiceTest {
         when(authService.authentication(sessionToken)).thenReturn(yo);
         when(usuarioRepo.findById(miId)).thenReturn(Optional.of(yo));
 
-        // Act
         Usuario resultado = usuarioService.buscarPorId(miId, sessionToken);
 
-        // Assert
         assertNotNull(resultado);
         assertEquals(miId, resultado.getIdUsuario());
     }
@@ -118,7 +111,7 @@ class UsuarioServiceTest {
         // AuthService dice que soy yo (id 5)
         when(authService.authentication(sessionToken)).thenReturn(yo);
 
-        // Act & Assert: Intento buscar al usuario 10
+        // Intento buscar al usuario 10
         ResponseStatusException exception = assertThrows(ResponseStatusException.class, () -> {
             usuarioService.buscarPorId(idDeOtro, sessionToken);
         });
