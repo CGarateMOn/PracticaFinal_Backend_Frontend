@@ -3,12 +3,14 @@ package edu.comillas.icai.gitt.pat.spring.mvc.service;
 import edu.comillas.icai.gitt.pat.spring.mvc.entidades.Token;
 import edu.comillas.icai.gitt.pat.spring.mvc.modelos.Rol;
 import edu.comillas.icai.gitt.pat.spring.mvc.entidades.Usuario;
+import edu.comillas.icai.gitt.pat.spring.mvc.records.UpdateUsuarioRequest;
 import edu.comillas.icai.gitt.pat.spring.mvc.repositorios.RepoPistas;
 import edu.comillas.icai.gitt.pat.spring.mvc.repositorios.RepoReserva;
 import edu.comillas.icai.gitt.pat.spring.mvc.repositorios.RepoToken;
 import edu.comillas.icai.gitt.pat.spring.mvc.repositorios.RepoUsuarios;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.token.TokenService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -25,35 +27,62 @@ public class UsuarioService {
     private RepoUsuarios usuarioRepo;
     @Autowired
     private RepoToken tokenRepo;
+    @Autowired
+    private AuthService authService;
 
-    public Usuario Autentica(String password) {
-        Optional<Usuario> usuario = usuarioRepo.findByPassword(password);
-        if (!usuario.isPresent()) {
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Credenciales no encontrados");
+    public List<Usuario> listarTodos(String session) {
+        Usuario admin = autenticarAdmin(session);
+        return usuarioRepo.findAll();
+    }
+
+    public Usuario buscarPorId(Long id, String session) {
+        Usuario autenticado = autenticarConAcceso(session, id);
+        return usuarioRepo.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado"));
+    }
+
+    public Usuario actualizar(Long id, UpdateUsuarioRequest request, String session) {
+        Usuario autenticado = autenticarConAcceso(session, id);
+        Usuario usuario = usuarioRepo.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado"));
+
+        if (request.nombre() != null) usuario.setNombre(request.nombre());
+        if (request.apellidos() != null) usuario.setApellidos(request.apellidos());
+        if (request.telefono() != null) usuario.setTelefono(request.telefono());
+        if (request.email() != null && !request.email().equals(usuario.getEmail())) {
+            if (usuarioRepo.existsByEmail(request.email())) {
+                throw new ResponseStatusException(HttpStatus.CONFLICT, "Email ya existe");
+            }
+            usuario.setEmail(request.email());
         }
-        return usuario.get();
+
+        return usuarioRepo.save(usuario);
     }
 
-    public Usuario AutenticaAdmin(String password) {
-        Optional<Usuario> usuario = usuarioRepo.findByPassword(password);
-        if (!usuario.isPresent()) {
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Credenciales no encontrados");
+    public Usuario autenticar(String session) {
+        if (session == null) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "No autenticado");
         }
-        if(!usuario.get().getRol().equals(Rol.ADMIN)){
-            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "No es administrador");
+        Usuario usuario = authService.authentication(session);
+        if (usuario == null) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Token no válido");
         }
-        return usuario.get();
+        return usuario;
     }
 
-    //ver si necesario para tareasProgramadas
-    // Llama al repositorio para buscar por ID
-    public Optional<Usuario> obtenerUsuarioPorId(Long id) {
-        return usuarioRepo.findById(id);
+    public Usuario autenticarAdmin(String session) {
+        Usuario usuario = autenticar(session);
+        if (!usuario.getRol().equals(Rol.ADMIN)) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Solo administradores");
+        }
+        return usuario;
     }
 
-    // Llama al repositorio usando el método personalizado que creamos
-    public List<Usuario> obtenerUsuariosActivos() {
-        return usuarioRepo.findByActivoTrue();
+    public Usuario autenticarConAcceso(String session, Long userId) {
+        Usuario usuario = autenticar(session);
+        if (!usuario.getRol().equals(Rol.ADMIN) && !usuario.getIdUsuario().equals(userId)) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Sin permisos");
+        }
+        return usuario;
     }
-
 }
