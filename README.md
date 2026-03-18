@@ -16,33 +16,48 @@ A continuación se hará una breve explicación de cada una de las clases.
 edu.comillas.icai.gitt.pat.spring.mvc
 │
 ├── api
+│   ├── AdminReservasController
 │   ├── AuthController
-│   ├── UsuarioController
+│   ├── DisponibilidadController
+│   ├── HealthController
 │   ├── PistaController
 │   ├── ReservasController
-│   ├── AdminReservasController
-│   ├── DisponibilidadController
-│   └── HealthController
+│   └── UsuarioController
 │
 ├── service
-│   └── DisponibilidadService
+│   ├── AuthService
+│   ├── DisponibilidadService
+│   ├── PistaService
+│   ├── ReservaService
+│   └── UsuarioService
 │
-├── data
-│   └── AlmacenDatos
+├── repositorios
+│   ├── RepoPistas
+│   ├── RepoReserva
+│   ├── RepoToken
+│   └── RepoUsuarios
 │
-├── records
-│   ├── Usuario
-│   ├── Rol
+├── entidades
+│   ├── EstadoReserva
 │   ├── Pista
 │   ├── Reserva
+│   ├── Token
+│   └── Usuario
+│
+├── modelos
+│   ├── LoginRequest
+│   ├── RegisterRequest
+│   ├── ProfileResponse
+│   └── Role
+│
+├── records
 │   ├── Disponibilidad
-│   └── TramosHorarios
+│   ├── PistaPatchForm
+│   ├── TramosHorarios
+│   └── UpdateUsuarioRequest
 │
-├── seguridad
-│   └── ConfiguracionSeguridad
-│
-├── excepciones
-│   └── GestorErrores
+├── util
+│   └── Hashing
 │
 ├── TareasProgramadas
 └── MvcApplication
@@ -61,14 +76,17 @@ Controller (api)
       ↓
 Service
       ↓
-Data (memoria)
+Repositorio (persistencia)
+      ↓
+Base de datos / almacenamiento
 ```
 
 * Controllers → Gestionan peticiones HTTP.
 * Services → Contienen la lógica de negocio.
-* Data → Simula persistencia en memoria.
-* Records → Modelan el dominio.
-
+* Repositiorios → Encapsulan el acceso a datos (persistencia).
+* Entidades → Son las clases que se almacenan en base de datos.
+* Modelos → DTOs específicos.
+* Records → DTOs funcionales del dominio.
 ---
 
 # Controllers
