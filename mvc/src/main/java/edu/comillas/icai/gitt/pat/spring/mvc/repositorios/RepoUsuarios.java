@@ -18,4 +18,7 @@ public interface RepoUsuarios extends CrudRepository<Usuario, Long> {
     List<Usuario> findAll();
 
     Usuario findByEmail(String email);
+
+    // Devuelve directamente solo los usuarios donde activo = true
+    List<Usuario> findByActivoTrue(); //añadido amrtina, ver si es totalmente necesario
 }

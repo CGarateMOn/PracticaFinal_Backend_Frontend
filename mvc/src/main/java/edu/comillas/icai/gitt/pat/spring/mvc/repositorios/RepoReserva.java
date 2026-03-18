@@ -27,4 +27,6 @@ public interface RepoReserva extends CrudRepository<Reserva, Long> {
     boolean existsByPistaAndFechaReservaAfterAndEstado(
             Pista pista, LocalDate fecha, EstadoReserva estado);
 
+    // Spring genera la consulta SQL automáticamente solo con leer el nombre del método
+    List<Reserva> findByFechaReserva(LocalDate fecha); //añadido amrtina, ver si es totalmente necesario
 }

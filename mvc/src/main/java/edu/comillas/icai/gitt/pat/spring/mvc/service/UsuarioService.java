@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -42,6 +43,17 @@ public class UsuarioService {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "No es administrador");
         }
         return usuario.get();
+    }
+
+    //ver si necesario para tareasProgramadas
+    // Llama al repositorio para buscar por ID
+    public Optional<Usuario> obtenerUsuarioPorId(Long id) {
+        return usuarioRepo.findById(id);
+    }
+
+    // Llama al repositorio usando el método personalizado que creamos
+    public List<Usuario> obtenerUsuariosActivos() {
+        return usuarioRepo.findByActivoTrue();
     }
 
 }
