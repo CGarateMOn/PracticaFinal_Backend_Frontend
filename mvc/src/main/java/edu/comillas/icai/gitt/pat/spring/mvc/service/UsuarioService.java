@@ -59,7 +59,7 @@ public class UsuarioService {
         return usuarioRepo.save(usuario);
     }
 
-    private Usuario autenticar(String session) {
+    public Usuario autenticar(String session) {
         if (session == null) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "No autenticado");
         }
@@ -70,7 +70,7 @@ public class UsuarioService {
         return usuario;
     }
 
-    private Usuario autenticarAdmin(String session) {
+    public Usuario autenticarAdmin(String session) {
         Usuario usuario = autenticar(session);
         if (!usuario.getRol().equals(Rol.ADMIN)) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Solo administradores");
@@ -78,7 +78,7 @@ public class UsuarioService {
         return usuario;
     }
 
-    private Usuario autenticarConAcceso(String session, Long userId) {
+    public Usuario autenticarConAcceso(String session, Long userId) {
         Usuario usuario = autenticar(session);
         if (!usuario.getRol().equals(Rol.ADMIN) && !usuario.getIdUsuario().equals(userId)) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Sin permisos");

@@ -16,57 +16,53 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/pistaPadel")
-
 public class PistaControler {
+
     @Autowired
     PistaService pistaService;
     @Autowired
     UsuarioService usuarioService;
-    @Autowired
-    ReservaService reservaService;
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    @PostMapping("/courts")@ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/courts")
+    @ResponseStatus(HttpStatus.CREATED)
     public Pista crearPista(@RequestBody Pista pista,
-                            @RequestHeader ("Authorization") String password) {
-        Usuario usuario = usuarioService.AutenticaAdmin(password);
+                            @CookieValue(value = "session", required = true) String session) {
+        usuarioService.autenticarAdmin(session);
         return pistaService.crearPista(pista);
     }
 
     @GetMapping("/courts")
     public List<Pista> obtenerPistas(@RequestParam(required = false) Boolean activa,
-                                     @RequestHeader ("Authorization") String password) {
-        Usuario usuario = usuarioService.Autentica(password);
-        List<Pista> pistas;
-        if (activa!=null) {
-            pistas = pistaService.getActivas(activa);
-        }else{
-            pistas = pistaService.getTodas();
+                                     @CookieValue(value = "session", required = true) String session) {
+        usuarioService.autenticar(session);
+        if (activa != null) {
+            return pistaService.getActivas(activa);
         }
-        return pistas;
+        return pistaService.getTodas();
     }
 
     @GetMapping("/courts/{courtId}")
     public Pista obtenerPista(@PathVariable("courtId") Long courtId,
-                              @RequestHeader ("Authorization") String password) {
-        Usuario usuario = usuarioService.Autentica(password);
+                              @CookieValue(value = "session", required = true) String session) {
+        usuarioService.autenticar(session);
         return pistaService.getById(courtId);
     }
 
     @PatchMapping("/courts/{courtId}")
     public Pista modificarPista(@PathVariable("courtId") Long courtId,
                                 @RequestBody PistaPatchForm pistaForm,
-                                @RequestHeader ("Authorization") String password){
-        Usuario usuario = usuarioService.AutenticaAdmin(password);
+                                @CookieValue(value = "session", required = true) String session) {
+        usuarioService.autenticarAdmin(session);
         return pistaService.modificarPista(courtId, pistaForm);
     }
 
-    @DeleteMapping("/courts/{courtId}")@ResponseStatus(HttpStatus.NO_CONTENT)
-    public void EliminarPista(@PathVariable("courtId") Long courtId,
-                               @RequestHeader ("Authorization") String password){
-        Usuario usuario = usuarioService.AutenticaAdmin(password);
+    @DeleteMapping("/courts/{courtId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void eliminarPista(@PathVariable("courtId") Long courtId,
+                              @CookieValue(value = "session", required = true) String session) {
+        usuarioService.autenticarAdmin(session);
         pistaService.eliminaPista(courtId);
     }
-
 }
