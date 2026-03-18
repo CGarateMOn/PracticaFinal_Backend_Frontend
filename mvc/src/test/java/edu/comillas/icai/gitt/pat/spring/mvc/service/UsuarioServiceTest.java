@@ -11,77 +11,119 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-//un test unitario para comporbar la lógica de UsuarioService
-
-// 1. Activamos Mockito para esta clase
 @ExtendWith(MockitoExtension.class)
 class UsuarioServiceTest {
 
-    // 2. Creamos un "doble" del repositorio. ¡No tocará la base de datos real!
     @Mock
     private RepoUsuarios usuarioRepo;
 
-    // 3. Inyectamos ese doble en nuestro servicio real
+    // AHORA TENEMOS QUE MOCKEAR TAMBIÉN EL AUTHSERVICE
+    // porque UsuarioService lo necesita para comprobar la sesión
+    @Mock
+    private AuthService authService;
+
     @InjectMocks
     private UsuarioService usuarioService;
 
     @Test
-    void testAutentica_Exito() {
-        // Arrange: Preparamos la mentira
-        Usuario usuarioFalso = new Usuario();
-        usuarioFalso.setPassword("claveSecreta");
+    void testListarTodos_ExitoSiEsAdmin() {
+        // Arrange
+        String sessionToken = "tokenAdminValido";
 
-        // Le decimos al mock: "Cuando te busquen por esta clave, devuelve este usuario"
-        when(usuarioRepo.findByPassword("claveSecreta")).thenReturn(Optional.of(usuarioFalso));
+        Usuario admin = new Usuario();
+        admin.setIdUsuario(1L);
+        admin.setRol(Rol.ADMIN); // Es Admin
 
-        // Act: Llamamos al servicio real
-        Usuario resultado = usuarioService.Autentica("claveSecreta");
-
-        // Assert: Comprobamos que nos devuelve el usuario correcto
-        assertNotNull(resultado);
-        assertEquals("claveSecreta", resultado.getPassword());
-
-        // Verificamos que el servicio efectivamente consultó al repositorio
-        verify(usuarioRepo, times(1)).findByPassword("claveSecreta");
-    }
-
-    @Test
-    void testAutentica_FallaPorCredencialesIncorrectas() {
-        // Arrange: Mentimos diciendo que no hay nadie con esa clave (Optional.empty)
-        when(usuarioRepo.findByPassword("claveErronea")).thenReturn(Optional.empty());
-
-        // Act & Assert: Comprobamos que lanza la excepción exacta que tú programaste
-        ResponseStatusException exception = assertThrows(ResponseStatusException.class, () -> {
-            usuarioService.Autentica("claveErronea");
-        });
-
-        // Verificamos que el código HTTP es 401 UNAUTHORIZED
-        assertEquals(HttpStatus.UNAUTHORIZED, exception.getStatusCode());
-        assertEquals("Credenciales no encontrados", exception.getReason());
-    }
-
-    @Test
-    void testAutenticaAdmin_FallaPorNoTenerRolAdmin() {
-        // Arrange: Creamos un usuario pero le ponemos un rol distinto a ADMIN
         Usuario usuarioNormal = new Usuario();
-        usuarioNormal.setPassword("claveUser");
-        // Nota: Asumo que tienes un Rol.USER u otro distinto a ADMIN en tu Enum
+        usuarioNormal.setIdUsuario(2L);
         usuarioNormal.setRol(Rol.USER);
 
-        when(usuarioRepo.findByPassword("claveUser")).thenReturn(Optional.of(usuarioNormal));
+        // Simulamos que AuthService reconoce el token como válido y devuelve al Admin
+        when(authService.authentication(sessionToken)).thenReturn(admin);
+
+        // Simulamos que la base de datos devuelve una lista de usuarios
+        when(usuarioRepo.findAll()).thenReturn(List.of(admin, usuarioNormal));
+
+        // Act
+        List<Usuario> resultado = usuarioService.listarTodos(sessionToken);
+
+        // Assert
+        assertNotNull(resultado);
+        assertEquals(2, resultado.size());
+        verify(usuarioRepo, times(1)).findAll();
+    }
+
+    @Test
+    void testListarTodos_FallaSiNoEsAdmin() {
+        // Arrange
+        String sessionToken = "tokenUserValido";
+
+        Usuario usuarioNormal = new Usuario();
+        usuarioNormal.setIdUsuario(2L);
+        usuarioNormal.setRol(Rol.USER); // NO es Admin
+
+        // Simulamos que AuthService devuelve a un usuario normal
+        when(authService.authentication(sessionToken)).thenReturn(usuarioNormal);
 
         // Act & Assert
         ResponseStatusException exception = assertThrows(ResponseStatusException.class, () -> {
-            usuarioService.AutenticaAdmin("claveUser");
+            usuarioService.listarTodos(sessionToken);
         });
 
-        // Verificamos que el código HTTP es 403 FORBIDDEN
         assertEquals(HttpStatus.FORBIDDEN, exception.getStatusCode());
-        assertEquals("No es administrador", exception.getReason());
+        assertEquals("Solo administradores", exception.getReason());
+
+        // Verificamos que al fallar la seguridad, NUNCA llegó a pedir todos los usuarios a la BD
+        verify(usuarioRepo, never()).findAll();
+    }
+
+    @Test
+    void testBuscarPorId_ExitoSiEsElMismoUsuario() {
+        // Arrange
+        String sessionToken = "miToken";
+        Long miId = 5L;
+
+        Usuario yo = new Usuario();
+        yo.setIdUsuario(miId);
+        yo.setRol(Rol.USER);
+
+        when(authService.authentication(sessionToken)).thenReturn(yo);
+        when(usuarioRepo.findById(miId)).thenReturn(Optional.of(yo));
+
+        // Act
+        Usuario resultado = usuarioService.buscarPorId(miId, sessionToken);
+
+        // Assert
+        assertNotNull(resultado);
+        assertEquals(miId, resultado.getIdUsuario());
+    }
+
+    @Test
+    void testBuscarPorId_FallaSiIntentaVerAOtroYNoEsAdmin() {
+        // Arrange
+        String sessionToken = "miToken";
+        Long miId = 5L;
+        Long idDeOtro = 10L; // Quiero ver los datos de este usuario
+
+        Usuario yo = new Usuario();
+        yo.setIdUsuario(miId);
+        yo.setRol(Rol.USER); // No soy admin
+
+        // AuthService dice que soy yo (id 5)
+        when(authService.authentication(sessionToken)).thenReturn(yo);
+
+        // Act & Assert: Intento buscar al usuario 10
+        ResponseStatusException exception = assertThrows(ResponseStatusException.class, () -> {
+            usuarioService.buscarPorId(idDeOtro, sessionToken);
+        });
+
+        assertEquals(HttpStatus.FORBIDDEN, exception.getStatusCode());
+        assertEquals("Sin permisos", exception.getReason());
     }
 }

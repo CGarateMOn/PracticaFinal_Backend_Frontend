@@ -24,16 +24,18 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class ReservaServiceTest {
+class DisponibilidadServiceTest {
 
+    // Mockeamos los repositorios igual que antes
     @Mock
     private RepoPistas pistaRepo;
 
     @Mock
     private RepoReserva reservaRepo;
 
+    // ¡AQUÍ ESTÁ LA MAGIA! Ahora inyectamos los mocks en tu NUEVO servicio
     @InjectMocks
-    private ReservaService reservaService;
+    private DisponibilidadService disponibilidadService;
 
     @Test
     void testObtenerDisponibilidadPista_TodoElDiaLibre() {
@@ -49,13 +51,12 @@ class ReservaServiceTest {
         when(reservaRepo.findByPistaAndFechaReservaAndEstado(pistaMock, fecha, EstadoReserva.ACTIVA))
                 .thenReturn(new ArrayList<>());
 
-        // Act
-        Disponibilidad resultado = reservaService.obtenerDisponibilidadPista(idPista, fecha);
+        // Act: Llamamos al método en DisponibilidadService
+        Disponibilidad resultado = disponibilidadService.obtenerDisponibilidadPista(idPista, fecha);
 
         // Assert
         assertNotNull(resultado);
         assertEquals(1, resultado.tramosHorariosDisponibles().size(), "Debería haber solo 1 hueco gigante");
-
         assertEquals(LocalTime.of(9, 0), resultado.tramosHorariosDisponibles().get(0).inicio());
         assertEquals(LocalTime.of(22, 0), resultado.tramosHorariosDisponibles().get(0).fin());
     }
@@ -72,14 +73,14 @@ class ReservaServiceTest {
 
         Reserva reserva = new Reserva();
         reserva.setHoraInicio(LocalTime.of(10, 0));
-        reserva.setDuracionMinutos(90); // 90 minutos = 1 hora y media (hasta las 11:30)
+        reserva.setDuracionMinutos(90);
 
         when(pistaRepo.findById(idPista)).thenReturn(Optional.of(pistaMock));
         when(reservaRepo.findByPistaAndFechaReservaAndEstado(pistaMock, fecha, EstadoReserva.ACTIVA))
                 .thenReturn(List.of(reserva));
 
         // Act
-        Disponibilidad resultado = reservaService.obtenerDisponibilidadPista(idPista, fecha);
+        Disponibilidad resultado = disponibilidadService.obtenerDisponibilidadPista(idPista, fecha);
 
         // Assert
         assertNotNull(resultado);
@@ -108,12 +109,11 @@ class ReservaServiceTest {
 
         // Act & Assert
         ResponseStatusException exception = assertThrows(ResponseStatusException.class, () -> {
-            reservaService.obtenerDisponibilidadPista(idPista, fecha);
+            disponibilidadService.obtenerDisponibilidadPista(idPista, fecha);
         });
 
         assertEquals(HttpStatus.NOT_FOUND, exception.getStatusCode());
         assertEquals("La pista no está activa", exception.getReason());
-
         verify(reservaRepo, never()).findByPistaAndFechaReservaAndEstado(any(), any(), any());
     }
 }
