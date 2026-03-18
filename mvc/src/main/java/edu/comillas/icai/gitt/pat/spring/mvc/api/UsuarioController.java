@@ -31,6 +31,7 @@ public class UsuarioController {
 
     @GetMapping
     public ResponseEntity<List<Usuario>> listarUsuarios(){
+        //añadir logica
     }
 
     @GetMapping("/{userId}")
