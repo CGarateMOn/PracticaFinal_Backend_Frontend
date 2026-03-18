@@ -249,11 +249,9 @@ public class ReservaService {
 
     // Valida que la hora esté dentro del horario del club
     private void validarHorario(LocalTime horaInicio, Integer duracionMinutos) {
-        LocalTime apertura = LocalTime.of(9, 0);
-        LocalTime cierre = LocalTime.of(22, 0);
         LocalTime horaFin = horaInicio.plusMinutes(duracionMinutos);
 
-        if (horaInicio.isBefore(apertura) || horaFin.isAfter(cierre) || !horaFin.isAfter(horaInicio)) {
+        if (horaInicio.isBefore(HORA_APERTURA) || horaFin.isAfter(HORA_CIERRE) || !horaFin.isAfter(horaInicio)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La reserva está fuera del horario permitido");
         }
     }
