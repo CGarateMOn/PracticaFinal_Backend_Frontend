@@ -24,7 +24,7 @@ edu.comillas.icai.gitt.pat.spring.mvc
 │   ├── ReservasController
 │   └── UsuarioController
 │
-├── service
+├── service (Lógica de Negocio)
 │   ├── AuthService
 │   ├── DisponibilidadService
 │   ├── PistaService
@@ -38,7 +38,7 @@ edu.comillas.icai.gitt.pat.spring.mvc
 │   └── RepoUsuarios
 │
 ├── entidades
-│   ├── EstadoReserva
+│   ├── EstadoReserva (enum)
 │   ├── Pista
 │   ├── Reserva
 │   ├── Token
@@ -48,7 +48,7 @@ edu.comillas.icai.gitt.pat.spring.mvc
 │   ├── LoginRequest
 │   ├── RegisterRequest
 │   ├── ProfileResponse
-│   └── Role
+│   └── Rol (enum)
 │
 ├── records
 │   ├── Disponibilidad
@@ -81,10 +81,10 @@ Repositorio (persistencia)
 Base de datos / almacenamiento
 ```
 
-* Controllers → Gestionan peticiones HTTP.
+* Controllers → Gestionan peticiones HTTP y validan los datos de entrada
 * Services → Contienen la lógica de negocio.
 * Repositiorios → Encapsulan el acceso a datos (persistencia).
-* Entidades → Son las clases que se almacenan en base de datos.
+* Entidades → Son las clases que srepresentan las tablas de la base de datos.
 * Modelos → DTOs específicos.
 * Records → DTOs funcionales del dominio.
 ---
@@ -92,7 +92,7 @@ Base de datos / almacenamiento
 # Controllers
 
 ## AuthController
-
+Gestiona el ciclo de vida de la sesión del usuario:
 Tenemos los siguientes endpoints:
 
 1. **POST /register** donde se autentifica y crea el nuevo usuario y por defecto se crea con el rol de usuario. Si intentas crearte otra cuenta con el mismo correo te salta un error.
@@ -102,67 +102,38 @@ Tenemos los siguientes endpoints:
 
 ---
 
-## UserController
+## UsuarioController
 
-Es un controlador REST para gestionar los perfiles de usuarios del sistema de pádel, interactuando directamente con el AlmacenDatos.
+Gestión administrativa y personal de usuarios:
 
-Sus funciones clave son:
-
-* Gestión de Perfiles: Permite listar todos los usuarios, consultar un perfil específico y actualizar datos mediante PATCH.
-* Seguridad Granular: Implementa reglas de acceso inteligentes:
-
-  * listarUsuarios: Solo accesible para el ADMIN.
-  * obtener / actualizar: Accesible para el ADMIN o para el propio usuario dueño de la cuenta (authentication.name == #userId).
-* Integridad de Datos: Valida que el cuerpo de la petición sea correcto (@Valid) y prohíbe explícitamente modificar el ID del usuario para evitar inconsistencias.
-* Persistencia Volátil: Las actualizaciones se guardan directamente en el mapa estático de AlmacenDatos, permitiendo que los cambios se mantengan mientras la aplicación esté ejecutándose.
+- Permite listar todos los usuarios (solo ADMIN).
+- Permite consultar y actualizar (PATCH) datos de perfil.
+- Implementa seguridad para que un usuario solo pueda editar su propio perfil o lo haga un administrador.
 
 ---
 
 ## PistaController
 
-Es un controlador REST para gestionar pistas de pádel con un CRUD completo bajo la ruta /pistaPadel/courts.
-
-Sus funciones clave son:
-
-* Operaciones: Permite listar, ver detalles, crear, modificar (vía PATCH) y eliminar pistas.
-* Seguridad: Restringe la creación, edición y borrado solo a usuarios con rol ADMIN.
-* Validación: Comprueba que los datos recibidos sean correctos (@Valid) y bloquea cambios accidentales de ID.
-* Trazabilidad: Registra en el log tanto las acciones exitosas como los errores de validación.
+CRUD completo de las instalaciones:
+- Público: Listar pistas y ver detalles.
+- Privado (ADMIN): Crear, modificar (precio, nombre) y eliminar pistas.
 
 ---
 
 ## ReservasController
 
-Es el controlador encargado de gestionar las reservas de los usuarios autenticados.
-
-Sus funciones clave son:
-
-* Creación de reservas con validación de solapamientos horarios.
-* Listado de reservas propias con filtros opcionales por rango de fechas.
-* Consulta individual de una reserva.
-* Cancelación de reservas futuras.
-* Modificación parcial (PATCH) con validación de conflictos.
-* Seguridad basada en roles USER y ADMIN.
-* Control de acceso para que un usuario solo pueda ver o modificar sus propias reservas (salvo ADMIN).
+El núcleo operativo para el usuario:
+- Permite crear reservas validando que no existan solapamientos.
+- Listado de reservas propias con filtros de fecha.
+- Cancelación de reservas existentes.
 
 ---
 
 ## AdminReservasController
 
-Es un controlador REST exclusivo para administradores que permite visualizar todas las reservas del sistema.
-
-Sus funciones clave son:
-
-* Endpoint: **GET /pistaPadel/admin/reservations**
-* Permite aplicar filtros opcionales por:
-
-  * date
-  * courtId
-  * userId
-* Seguridad: Solo accesible mediante rol ADMIN (@PreAuthorize).
-* Permite una visión global del sistema para tareas de supervisión y gestión.
-
-La diferencia con ReservasController es que este último gestiona únicamente las reservas del usuario autenticado, mientras que AdminReservasController permite una visión completa del sistema.
+Panel de control para administradores:
+- Visualización global de todas las reservas del sistema.
+- Filtros avanzados por fecha, ID de pista o ID de usuario para labores de supervisión.
 
 ---
 
@@ -205,7 +176,14 @@ Sus funciones clave son:
 * Devuelve únicamente los intervalos disponibles.
 * Separa la lógica del controlador, manteniendo una arquitectura limpia.
 
+## AuthService & Hashing
+El AuthService gestiona la lógica de autenticación, apoyándose en la utilidad Hashing para asegurar que las contraseñas nunca se guarden en texto plano, utilizando algoritmos de cifrado seguros.
+
 ---
+## Persistencia (Datos)
+- Entidades: Clases como Usuario y Reserva están mapeadas a una base de datos relacional.
+- Repositorios: permiten realizar consultas complejas (como buscar reservas por rango de fechas) de forma eficiente.
+- Estado: Se utiliza el enum EstadoReserva para gestionar el ciclo de vida de una reserva (Confirmada, Pendiente, Cancelada).
 
 # Seguridad
 
@@ -218,19 +196,6 @@ Configura quién puede entrar y qué puede hacer cada usuario.
 * Usuarios Dinámicos: El método UserDetailsService conecta Spring Security con tu AlmacenDatos. Permite que los usuarios registrados en tu mapa estático puedan loguearse usando su email como nombre de usuario.
 * Flexibilidad: Desactiva la protección CSRF para las rutas de la API, facilitando las pruebas desde herramientas como Postman.
 * Seguridad por Anotaciones: Al usar @EnableMethodSecurity, permite que funcionen los @PreAuthorize que vimos en los otros controladores.
-
----
-
-# Data
-
-## AlmacenDatos
-
-Es un almacén de datos en memoria que simula una base de datos mediante mapas estáticos (ConcurrentHashMap).
-
-* Propósito: Centralizar y precargar información de prueba (Semillas/Seeds).
-* Contenido: Define roles (Admin/User), usuarios, pistas, horarios disponibles y reservas activas.
-* Seguridad: Usa colecciones concurrentes para evitar errores si varios usuarios acceden a la vez.
-* Acceso: No se puede instanciar (constructor privado); se accede a los datos de forma directa y global.
 
 ---
 
@@ -251,14 +216,28 @@ Representan la estructura de datos utilizada en toda la aplicación.
 
 # Tareas Programadas
 
-Esta clase TareasProgramadas es un servicio de automatización de Spring que ejecuta procesos en segundo plano de forma periódica sin intervención humana.
+Esta clase TareasProgramadas actua como el reloj interno y orquestador temporal del sistema. Su función principal es disparar procesos automáticos en momentos específicos del tiempo, garantizando que el sistema realice tareas de mantenimiento y comunicación
 
-Es un @Service que utiliza @Scheduled con expresiones Cron para disparar tareas en momentos específicos.
+- Recordatorios Diarios de Reservas: * Ejecución: Cada día a las 2:00 AM (0 0 2 * * *).
 
-* Tarea 1: Recordatorios Diarios (2:00 AM): Recorre todas las reservas del AlmacenDatos. Si una reserva coincide con la fecha de "hoy", identifica al usuario para enviarle un aviso (actualmente solo deja el rastro en el log).
-* Tarea 2: Boletín Mensual (Día 1 a las 9:00 AM): Genera un resumen de la disponibilidad de todas las pistas y lo "envía" (mediante logs) a todos los usuarios que estén marcados como activos en el sistema.
-* Dependencia: Se apoya totalmente en los datos estáticos de AlmacenDatos para obtener la información de usuarios, pistas y reservas.
+* Acción: Ordena a ReservaService que procese y envíe recordatorios a los usuarios que tienen una reserva para el día que comienza.
+
+* Propósito: Reducir el absentismo y mejorar la experiencia del usuario.
+
+- Boletín Mensual de Disponibilidad: * Ejecución: El día 1 de cada mes a las 9:00 AM (0 0 9 1 * *).
+
+* Acción: Invoca a PistaService para generar y distribuir un resumen informativo sobre la disponibilidad de las pistas para el nuevo mes.
+* Propósito: Fomentar la reserva anticipada y mantener informada a la comunidad de jugadores.
 
 ---
+
+# Pruebas (Testing)
+El proyecto cuenta con una robusta suite de tests en src/test/java:
+
+- Unitarios: Pruebas de servicios (UsuarioServiceTest, DisponibilidadServiceTest) aislados de la base de datos.
+
+- Integración/Repositorios: Validación de consultas en RepoUsuariosTest.
+
+- E2E (End-to-End): Pruebas completas de flujo de usuario en UsuarioE2ETest para asegurar que los endpoints responden correctamente.
 
 
