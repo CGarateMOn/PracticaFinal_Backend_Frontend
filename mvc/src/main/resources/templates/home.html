@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PistaPadel | La forma más fácil de reservar tu próximo partido</title>
+    <meta name="description" content="Consulta disponibilidad, accede a tu cuenta y gestiona tus reservas.">
+    <link rel="stylesheet" href="../static/css/home.css" th:href="@{/css/home.css}">
+</head>
+<body>
+<div class="site-shell">
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <header class="site-header">
+        <div class="shell">
+            <nav class="nav">
+                <a class="brand" href="#top" aria-label="Ir al inicio de PistaPadel">
+                    <span class="brand-mark" aria-hidden="true"></span>
+                    <span class="brand-name">PistaPadel</span>
+                </a>
+
+                <div class="nav-links">
+                    <a href="#experiencia">Experiencia</a>
+                    <a href="#disponibilidad">Disponibilidad</a>
+                    <a href="#acceso">Acceso</a>
+                </div>
+
+                <div class="nav-actions">
+                    <span class="status-pill" id="statusPill">Sesión no iniciada</span>
+                    <button class="button button-secondary" type="button" data-open-auth="login">Entrar</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="top">
+        <section class="hero shell section">
+            <div class="hero-copy" data-reveal>
+                <p class="eyebrow">Reservas sin fricción para clubes de pádel</p>
+                <h1>La manera más fácil de empezar cada partido.</h1>
+                <p class="lead">
+                    Una home pensada para entrar, consultar disponibilidad y moverse por el club con la misma
+                    sensación de calma con la que debería empezar un buen juego.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#disponibilidad">Ver disponibilidad</a>
+                    <button class="button button-secondary" type="button" data-open-auth="register">Crear cuenta</button>
+                </div>
+
+                <div class="hero-meta">
+                    <div class="meta-card">
+                        <span class="meta-value">09:00 - 22:00</span>
+                        <span class="meta-label">Ritmo diario del club</span>
+                    </div>
+                    <div class="meta-card">
+                        <span class="meta-value">Acceso privado</span>
+                        <span class="meta-label">Sesión segura y discreta</span>
+                    </div>
+                    <div class="meta-card">
+                        <span class="meta-value">Siempre fluido</span>
+                        <span class="meta-label">Diseñado para móvil y desktop</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-showcase" data-reveal>
+                <div class="showcase-panel showcase-primary">
+                    <div class="showcase-header">
+                        <span class="showcase-label">Vista del día</span>
+                        <span class="showcase-dot"></span>
+                    </div>
+
+                    <div class="showcase-story">
+                        <h2>Todo lo importante, en una sola mirada.</h2>
+                        <p>
+                            Encuentra huecos libres y entra a tu cuenta.
+                        </p>
+                    </div>
+
+                    <div class="showcase-slots">
+                        <article>
+                            <span>Pista 1</span>
+                            <strong>17:00 - 18:30</strong>
+                        </article>
+                        <article>
+                            <span>Pista 2</span>
+                            <strong>18:00 - 19:00</strong>
+                        </article>
+                        <article>
+                            <span>Pista 3</span>
+                            <strong>19:30 - 21:00</strong>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="showcase-grid">
+                    <article class="showcase-panel">
+                        <span class="showcase-label">Acceso</span>
+                        <h3 id="sessionHeadline">Sesión lista cuando tú lo estés</h3>
+                        <p id="sessionSummary">
+                            Accede a tu cuenta y recupera tu perfil.
+                        </p>
+                    </article>
+
+                    <article class="showcase-panel">
+                        <span class="showcase-label">Disponibilidad</span>
+                        <h3>Consulta rápida y limpia</h3>
+                        <p>Una lectura de la agenda para decidir en segundos.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    
+        <section class="section shell showcase-section">
+            <div class="editorial-grid">
+                <div class="editorial-copy" data-reveal>
+                    <p class="eyebrow">Showcase</p>
+                    <h2>Un diseño que acompaña al ritmo del club.</h2>
+                    <p class="section-copy">
+                        La home combina claridad editorial y sensación de producto cuidado para que el acceso, la
+                        consulta y la decisión de reservar tengan continuidad visual.
+                    </p>
+                </div>
+
+                <div class="product-surface" data-reveal>
+                    <div class="surface-window">
+                        <div class="surface-topbar">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="surface-layout">
+                            <aside class="surface-sidebar">
+                                <span class="surface-kicker">Hoy</span>
+                                <strong>Agenda ligera</strong>
+                                <p>Una forma de revisar el día.</p>
+                            </aside>
+
+                            <div class="surface-main">
+                                <div class="surface-row">
+                                    <span>17:00</span>
+                                    <div class="surface-bar is-open"></div>
+                                </div>
+                                <div class="surface-row">
+                                    <span>18:00</span>
+                                    <div class="surface-bar is-busy"></div>
+                                </div>
+                                <div class="surface-row">
+                                    <span>19:00</span>
+                                    <div class="surface-bar is-open"></div>
+                                </div>
+                                <div class="surface-row">
+                                    <span>20:00</span>
+                                    <div class="surface-bar is-open"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section shell availability-section" id="disponibilidad">
+            <div class="section-heading" data-reveal>
+                <p class="eyebrow">Disponibilidad por fecha</p>
+                <h2>Consulta las franjas libres y decide.</h2>
+                <p class="section-copy">
+                    Elige un día y obtén una vista clara de las pistas disponibles.
+                </p>
+            </div>
+
+            <div class="availability-shell" data-reveal>
+                <form class="availability-form" id="availabilityForm">
+                    <label class="field">
+                        <span>Fecha</span>
+                        <input name="date" type="date" th:value="${today}" required>
+                    </label>
+
+                    <button class="button button-primary" type="submit">Actualizar agenda</button>
+                </form>
+
+                <p class="feedback" id="availabilityFeedback" aria-live="polite">
+                    Selecciona una fecha para ver la agenda disponible.
+                </p>
+
+                <div class="availability-grid" id="availabilityResults">
+                    <article class="availability-empty">
+                        <h3>Sin consulta todavía</h3>
+                        <p>La agenda del día aparecerá aquí en cuanto selecciones una fecha.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section shell access-section" id="acceso">
+            <div class="cta-panel" data-reveal>
+                <div class="cta-copy">
+                    <p class="eyebrow">Acceso</p>
+                    <h2>Entra a tu cuenta o crea la tuya en segundos.</h2>
+                </div>
+
+                <div class="cta-actions">
+                    <button class="button button-primary" type="button" data-open-auth="login">Entrar ahora</button>
+                    <button class="button button-secondary" type="button" data-open-auth="register">Crear cuenta</button>
+                    <button class="button button-ghost hidden" type="button" id="logoutButton">Cerrar sesión</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="shell footer-grid">
+            <div>
+                <span class="footer-brand">PistaPadel</span>
+               
+            </div>
+
+            <div class="footer-links">
+                <a href="#experiencia">Experiencia</a>
+                <a href="#disponibilidad">Disponibilidad</a>
+                <a href="#acceso">Acceso</a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<div class="modal-backdrop hidden" id="authModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+        <button class="modal-close" type="button" id="closeModalButton" aria-label="Cerrar panel de acceso">+</button>
+
+        <div class="modal-tabs" role="tablist" aria-label="Acceso">
+            <button class="tab-button is-active" type="button" role="tab" aria-selected="true" data-tab-target="loginPanel">Entrar</button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" data-tab-target="registerPanel">Crear cuenta</button>
+        </div>
+
+        <div class="modal-panels">
+            <section class="tab-panel is-active" id="loginPanel">
+                <p class="eyebrow">Acceso privado</p>
+                <h2 id="authModalTitle">Bienvenido de nuevo</h2>
+                <p class="modal-copy">Recupera tu sesión y entra al club sin perder el ritmo.</p>
+
+                <form class="auth-form" id="loginForm">
+                    <label class="field">
+                        <span>Email</span>
+                        <input name="email" type="email" autocomplete="email" required>
+                    </label>
+
+                    <label class="field">
+                        <span>Contraseña</span>
+                        <input name="password" type="password" autocomplete="current-password" required>
+                    </label>
+
+                    <button class="button button-primary button-block" type="submit">Entrar</button>
+                </form>
+
+                <p class="feedback feedback-inline" id="loginFeedback" aria-live="polite"></p>
+            </section>
+
+            <section class="tab-panel" id="registerPanel" hidden>
+                <p class="eyebrow">Nueva cuenta</p>
+                <h2>Empieza con una experiencia mejor</h2>
+                <p class="modal-copy">Crea tu acceso y deja lista tu próxima reserva.</p>
+
+                <form class="auth-form" id="registerForm">
+                    <div class="field-grid">
+                        <label class="field">
+                            <span>Nombre</span>
+                            <input name="nombre" type="text" autocomplete="given-name" required>
+                        </label>
+
+                        <label class="field">
+                            <span>Apellidos</span>
+                            <input name="apellidos" type="text" autocomplete="family-name" required>
+                        </label>
+                    </div>
+
+                    <div class="field-grid">
+                        <label class="field">
+                            <span>Email</span>
+                            <input name="email" type="email" autocomplete="email" required>
+                        </label>
+
+                        <label class="field">
+                            <span>Teléfono</span>
+                            <input name="telefono" type="tel" autocomplete="tel" required>
+                        </label>
+                    </div>
+
+                    <label class="field">
+                        <span>Contraseña</span>
+                        <input name="password" type="password" autocomplete="new-password" required>
+                    </label>
+
+                    <button class="button button-primary button-block" type="submit">Crear cuenta</button>
+                </form>
+
+                <p class="feedback feedback-inline" id="registerFeedback" aria-live="polite"></p>
+            </section>
+
+            <section class="account-panel hidden" id="accountPanel">
+                <p class="eyebrow">Sesión activa</p>
+                <h2>Tu cuenta está lista</h2>
+                <dl class="account-details">
+                    <div>
+                        <dt>Nombre</dt>
+                        <dd id="profileName">-</dd>
+                    </div>
+                    <div>
+                        <dt>Email</dt>
+                        <dd id="profileEmail">-</dd>
+                    </div>
+                    <div>
+                        <dt>Rol</dt>
+                        <dd id="profileRole">-</dd>
+                    </div>
+                </dl>
+                <button class="button button-ghost button-block" type="button" id="logoutModalButton">Cerrar sesión</button>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script src="../static/js/home.js" th:src="@{/js/home.js}"></script>
+</body>
+</html>
