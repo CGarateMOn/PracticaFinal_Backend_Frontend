@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestión de usuario</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" type="image/png" href="src/Captura de pantalla 2026-04-15 171537.png">
+    </head>
+    <body>
+        <header class="cabecera">
+            <div class="nav-grupo">
+                <span class="logo">&#127934 Premium Padel</span>
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="admin.html" class="nav-link">Panel Admin</a>
+                <a href="adminUsuarios.html" class="nav-link">Usuarios</a>
+                <a href="adminPistas.html" class="nav-link">Pistas</a>
+                <a href="adminReservas.html" class="nav-link">Reservas</a>
+            </div>
+            <div class="nav-grupo">
+                <span class="admin-badge">ÁREA ADMIN</span>
+                <a href="notificaciones.html" class="nav-link icono">&#128276</a>
+                <a href="perfil.html" class="nav-link icono">&#128100</a>
+            </div>
+        </header>
+        <div class="espacio"></div>
+        <main class="contenedor-principal admin-dashboard">
+            <section class="intro admin-intro">
+                <h2>Gestión de usuario</h2>
+            </section>
+            <div class="espacio"></div>
+
+            <section class="admin-formulario-bloque">
+                <div class="admin-formulario-header">
+                    <h3>Datos del usuario</h3>
+                    <a href="adminUsuarios.html" class="btn-filtro">Volver a usuarios</a>
+                </div>
+
+                <form class="admin-formulario-pista admin-formulario-usuario">
+                    <div class="form-group">
+                        <label for="idUsuario">ID de usuario</label>
+                        <input type="text" id="idUsuario" name="idUsuario" value="03" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fechaRegistro">Fecha de registro</label>
+                        <input type="date" id="fechaRegistro" name="fechaRegistro" value="2026-01-12" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" value="Lucía" placeholder="Nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="apellidos">Apellidos</label>
+                        <input type="text" id="apellidos" name="apellidos" value="Pérez" placeholder="Apellidos" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" value="lucia.perez@email.com" placeholder="correo@ejemplo.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" value="+34 622 444 555" placeholder="+34 600 000 000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rol">Rol</label>
+                        <select id="rol" name="rol" class="select-admin">
+                            <option value="USER" selected>USER</option>
+                            <option value="ADMIN">ADMIN</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="activo">Estado</label>
+                        <select id="activo" name="activo" class="select-admin">
+                            <option value="true">Activo</option>
+                            <option value="false" selected>Inactivo</option>
+                        </select>
+                    </div>
+
+                    <div class="admin-formulario-acciones">
+                        <a href="adminUsuarios.html" class="btn-filtro">Cancelar</a>
+                        <button type="submit" class="btn-login btn-guardar-pista">Guardar cambios</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </body>        
+    <footer class="login-footer">
+        <p>@ 2026 Premium Padel Club</p>
+    </footer>
+</html>

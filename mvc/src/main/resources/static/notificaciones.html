@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Notificaciones</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <header class="cabecera">
+        <div class="nav-grupo">
+            <span class="logo">&#127934 Premium Padel</span>
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="reservas.html" class="nav-link">Reservar</a>
+            <a href="misReservas.html" class="nav-link">Mis reservas</a>
+        </div>
+        <div class="nav-grupo">
+            <a href="logIn.html" class="nav-link">LogIn</a>
+            <a href="SignIn.html" class="nav-link"> SignIn</a>
+            <a href="perfil.html" class="nav-link icono">&#128100</a>
+        </div>
+    </header>
+    <div class="espacio"></div>
+
+    <main>
+        <section class="mis-reservas">
+            <div class="intro">
+                <h2>Notificaciones</h2>
+                <p>Aquí encontrarás todas tus alertas y mensajes relacionados con tus reservas y actividades en el club.
+                </p>
+            </div>
+
+            <div class="lista-reservas">
+                <article class="card-notificacion">
+                    <div class="notificacion-info">
+                        <h3>Recordatorio de Reserva - Resumen</h3>
+                        <span class="fecha">Lun, 13 Abril 10:30</span>
+                        <span class="pista">Pista 02 - Cristal Outdoor Premium</span>
+                    </div>
+                    <div class="notificacion-estado">
+                        <span class="estado pendiente">Pendiente de pago</span>
+                        <button type="button" class="btn-accion pagar"> Pagar </button>
+                        <button type="button" class="btn-cancelar">Cancelar Reserva</button>
+                    </div>
+                </article>
+                <article class="card-notificacion">
+                    <h3>InfoMensual - Enero</h3>
+
+                    <div class="notificacion-item">
+                        <div class="notificacion-info">
+                            <span class="fecha-notif">Jue, 23 Abril 21:00</span>
+                            <span class="detalle-notif">Pista 01 - Cristal Indoor Luxury</span>
+                        </div>
+                        <div class="notificacion-estado">
+                            <span class="estado-notif finalizado">Finalizado</span>
+                            <button type="button" class="btn-borrar">Borrar Notificación</button>
+                        </div>
+                    </div>
+
+                    <div class="notificacion-item">
+                        <div class="notificacion-info">
+                            <span class="fecha-notif">Lun, 13 Abril 10:30</span>
+                            <span class="detalle-notif">Pista 02 - Cristal Outdoor Premium</span>
+                        </div>
+                        <div class="notificacion-estado">
+                            <span class="estado-notif pendiente">Pendiente de pago</span>
+                            <div class="acciones-grupo">
+                                <button type="button" class="btn-accion pagar">Pagar</button>
+                                <button type="button" class="btn-borrar">Borrar Notificación</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notificacion-item">
+                        <div class="notificacion-info">
+                            <span class="fecha-notif">Lun, 6 Abril 10:30</span>
+                            <span class="detalle-notif">Pista 03 - Cristal Sun Premium</span>
+                        </div>
+                        <div class="notificacion-estado">
+                            <span class="estado-notif finalizado">Finalizado</span>
+                            <button type="button" class="btn-borrar">Borrar Notificación</button>
+                        </div>
+                    </div>
+                </article>
+                <!-- Más notificaciones pueden añadirse aquí -->
+            </div>
+        </section>
+
+
+    </main>
+    <footer class="login-footer">
+        <p>@ 2026 Premium Padel Club</p>
+    </footer>
+</body>
+
+</html>

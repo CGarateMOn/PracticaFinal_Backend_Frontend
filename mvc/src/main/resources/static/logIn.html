@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <title>Perfil</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="src/Captura de pantalla 2026-04-15 171537.png">
+</head>
+
+<body>
+    <header class="cabecera">
+        <div class="nav-grupo">
+            <span class="logo">&#127934 Premium Padel</span>
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="reservas.html" class="nav-link">Reservar</a>
+            <a href="misReservas.html" class="nav-link">Mis reservas</a>
+        </div>
+        <div class="nav-grupo">
+            <a href="SignIn.html" class="nav-link"> SignIn</a>
+            <a href="notificaciones.html" class="nav-link icono">&#128276</a>
+            <a href="perfil.html" class="nav-link icono">&#128100</a>
+        </div>
+    </header>
+    <div class="espacio"></div>
+    <div class="login-container">
+        <h2>Iniciar sesión</h2>
+        
+        <form id="loginForm">
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="TuCorreoAqui@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" placeholder="**********" required>
+            </div>
+
+            <button type="submit" class="btn-login">Entrar</button>
+        </form>
+
+        <p class="login-footer">¿No tienes cuenta? <a href="SignIn.html">Regístrate</a></p>
+    </div>
+
+    <footer class="footer">
+        <a href="admin.html" class="footer-link">Panel de administración</a>
+    </footer>
+
+    <script src="login.js"></script>
+</body>
+</html>

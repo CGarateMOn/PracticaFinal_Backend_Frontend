@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Mis Reservas</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="src/Captura de pantalla 2026-04-15 171537.png">
+    </head>
+    <body>
+        <header class="cabecera">
+            <div class="nav-grupo">
+                <span class="logo">&#127934 Premium Padel</span>
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="reservas.html" class="nav-link">Reservar</a>
+            </div>
+            <div class="nav-grupo">
+                <a href="logIn.html" class="nav-link">Login</a>
+                <a href="SignIn.html" class="nav-link"> SignIn</a>
+                <a href="notificaciones.html" class="nav-link icono">&#128276</a>
+                <a href="perfil.html" class="nav-link icono">&#128100</a>
+            </div>
+        </header>
+        <div class="espacio"></div>
+        <main class="contenedor-principal">
+            <div class="intro">
+                <h2>Mis Reservas</h2>
+                <p>Gestiona tus próximos partidos y revisa tu historial.</p>
+            </div>
+            <input type="radio" name="filtro-pistas" id="filtro-todas" checked class="filtro-oculto">
+            <input type="radio" name="filtro-pistas" id="filtro-anteriores" class="filtro-oculto">
+            <input type="radio" name="filtro-pistas" id="filtro-actuales" class="filtro-oculto">
+
+            <div class="menu-filtros">
+                <label for="filtro-todas" class="btn-filtro">Todas</label>
+                <label for="filtro-anteriores" class="btn-filtro">Reservas anteriores</label>
+                <label for="filtro-actuales" class="btn-filtro">Reservas actuales</label>
+            </div>
+
+            <div class="lista-reservas">
+                <article class="card-reserva tipo-actual">
+                    <div class="reserva-info">
+                        <h3>Reserva #743205</h3>
+                        <span class="fecha">Lun, 13 Abril 10:30</span>
+                        <span class="pista">Pista 02 - Cristal Outdoor Premium</span>
+                    </div>
+                    <div class="reserva-estado">
+                        <span class="estado pendiente">Pendiente de pago</span>
+                        <button type="button" class="btn-accion pagar"> Pagar </button>
+                        <button type="button" class="btn-cancelar">Cancelar Reserva</button>
+                    </div>
+                </article>
+
+                <article class="card-reserva tipo-actual">
+                    <div class="reserva-info">
+                        <h3>Reserva #151743</h3>
+                        <span class="fecha">Jue, 23 Abril 21:00</span>
+                        <span class="pista">Pista 01 - Cristal Indoor Luxury</span>
+                    </div>
+                    <div class="reserva-estado">
+                        <span class="estado finalizado">Finalizado</span>
+                        <button type="button" class="btn-cancelar">Cancelar Reserva</button>
+                    </div>
+                </article>
+
+                <article class="card-reserva tipo-anterior">
+                    <div class="reserva-info">
+                        <h3>Reserva #536409</h3>
+                        <span class="fecha">Jue, 9 Abril 15:00</span>
+                        <span class="pista">Pista 8 - Cristal Sun Luxury</span>
+                    </div>
+                    <div class="reserva-estado">
+                        <span class="estado finalizado">Finalizado</span>
+                        <button type="button" class="btn-cancelar-antiguo" disabled>Cancelar Reserva</button>
+                    </div>
+                </article>
+            </div>
+        </main>
+        <footer class="login-footer">
+            <p> @ 2026 Premium Padel Club</p>
+        </footer>
+    </body>
+</html>

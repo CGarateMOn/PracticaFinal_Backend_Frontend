@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <title>Perfil</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="src/Captura de pantalla 2026-04-15 171537.png">
+</head>
+
+<body>
+    <header class="cabecera">
+        <div class="nav-grupo">
+            <span class="logo">&#127934 Premium Padel</span>
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="reservas.html" class="nav-link">Reservar</a>
+            <a href="misReservas.html" class="nav-link">Mis reservas</a>
+        </div>
+        <div class="nav-grupo">
+            <a href="logIn.html" class="nav-link">LogIn</a>
+            <a href="SignIn.html" class="nav-link"> SignIn</a>
+            <a href="notificaciones.html" class="nav-link icono">&#128276</a>
+        </div>
+    </header>
+    <div class="espacio"></div>
+
+    <main class="contenedor-principal">
+        <h1 class="intro"> Mi Perfil</h1>
+        <div class="espacio-perfil">
+            <img src="src/icono_perfil_generico.jpg" alt="Foto de perfil" class="foto-perfil">
+            <!-- en css redimensionar la imagen y colocarla en la esquina superior derecha -->
+            <!--Ir añadiendo las páginas-->
+            <!-- en css poner la barra de navegación entre pag web en la parte superior  -->
+            <section class="Descripcion-pagina">
+                <h2 class="saludo-perfil">Hola, Maria!!</h2>
+                <!-- en javascript (entrega 4) poner el nombre del usuario correcto Ahoar es genérico y elegimos Maria -->
+                <p>Bienvenido a tu perfil. Aquí puedes ver y editar tu información personal.</p>
+            </section>
+        </div>
+
+        <section class="informacion-personal">
+            <h3>Información Personal</h3>
+            <table>
+                <tr>
+                    <td>Id de usuario</td> <!-- <td> nos permite crear una celda  -->
+                    <td>12345678</td>
+                </tr>
+                <tr>
+                    <td>Estado</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Maria</td>
+                </tr>
+                <tr>
+                    <td>Apellidos</td>
+                    <td>Garcia</td>
+                </tr>
+
+                <tr>
+                    <td>Rol</td>
+                    <td>Usuario</td>
+                </tr>
+                <tr>
+                    <td>Sexo</td>
+                    <td>
+                        <select name="sexo" class="selector-genero">
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="mujer">Mujer</option>
+                            <option value="hombre">Hombre</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </td> <!--mirar como hacer un selector-->
+                </tr>
+                <tr>
+                    <td>Fecha de Nacimiento</td>
+                    <td><input type="date" value="1990-01-01"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>maria.garcia@example.com</td>
+                </tr>
+                <tr>
+                    <td>Verificar email</td>
+                    <td>maria.garcia@example.com</td>
+                </tr>
+                <tr>
+                    <td>Teléfono</td>
+                    <td>+34 600 123 456</td>
+                </tr>
+                <tr>
+                    <td>Contraseña</td>
+                    <td><textarea class="text-area">••••••••</textarea></td>
+                </tr>
+                <tr>
+                    <td>Confirmar Contraseña</td>
+                    <td><textarea class="text-area">••••••••</textarea></td>
+                </tr>
+                <tr>
+                    <td>Fecha de Registro</td>
+                    <td type="date">2023-01-01</td>
+                </tr>
+
+
+            </table>
+
+            <button class="guardar-cambios">Guardar Cambios</button>
+            <!-- en css colocar el botón debajo de la tabla y centrarlo -->
+        </section>
+    </main>
+    <footer class="login-footer">
+        <p>@ 2026 Premium Padel Club</p>
+    </footer>
+</body>
+
+</html>

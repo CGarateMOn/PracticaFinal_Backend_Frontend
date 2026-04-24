@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestión de Pistas</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" type="image/png" href="src/Captura de pantalla 2026-04-15 171537.png">
+    </head>
+    <body>
+        <header class="cabecera">
+            <div class="nav-grupo">
+                <span class="logo">&#127934 Premium Padel</span>
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="admin.html" class="nav-link">Panel Admin</a>
+                <a href="adminUsuarios.html" class="nav-link">Usuarios</a>
+                <a href="adminPistas.html" class="nav-link">Pistas</a>
+                <a href="adminReservas.html" class="nav-link">Reservas</a>
+            </div>
+            <div class="nav-grupo">
+                <span class="admin-badge">ÁREA ADMIN</span>
+                <a href="notificaciones.html" class="nav-link icono">&#128276</a>
+                <a href="perfil.html" class="nav-link icono">&#128100</a>
+            </div>
+        </header>
+        <div class="espacio"></div>
+        <main class="contenedor-principal admin-dashboard">
+            <section class="intro">
+                <h2>Gestión de pistas</h2>
+            </section>
+            <div class="espacio"></div>
+
+            <input type="radio" name="filtro-pistas-admin" id="admin-todas" checked class="filtro-oculto">
+            <input type="radio" name="filtro-pistas-admin" id="admin-activas" class="filtro-oculto">
+            <input type="radio" name="filtro-pistas-admin" id="admin-inactivas" class="filtro-oculto">
+
+            <section class="admin-bloque">
+                <div class="admin-bloque-cabecera admin-toolbar">
+                    <div class="menu-filtros admin-menu-filtros">
+                        <label for="admin-todas" class="btn-filtro">Todas</label>
+                        <label for="admin-activas" class="btn-filtro">Activas</label>
+                        <label for="admin-inactivas" class="btn-filtro">Inactivas</label>
+                    </div>
+
+                    <a href="adminFormularioPista.html" class="btn-filtro btn-admin-principal">Nueva pista</a>
+                </div>
+
+                <div class="tabla-admin-wrapper">
+                    <table class="tabla-admin tabla-pistas-admin">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Ubicación</th>
+                                <th>Precio/hora</th>
+                                <th>Estado</th>
+                                <th>Fecha alta</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="fila-pista-admin activa">
+                                <td>01</td>
+                                <td>Pista 01</td>
+                                <td>Pabellón Norte</td>
+                                <td>35€</td>
+                                <td><span class="estado-admin estado-activa">ACTIVA</span></td>
+                                <td>10/01/2026</td>
+                                <td class="acciones-tabla">
+                                    <a href="adminFormularioPista.html" class="accion-tabla editar">Editar</a>
+                                </td>
+                            </tr>
+
+                            <tr class="fila-pista-admin activa">
+                                <td>02</td>
+                                <td>Pista 02</td>
+                                <td>Pabellón Norte</td>
+                                <td>25€</td>
+                                <td><span class="estado-admin estado-activa">ACTIVA</span></td>
+                                <td>10/01/2026</td>
+                                <td class="acciones-tabla">
+                                    <a href="adminFormularioPista.html" class="accion-tabla editar">Editar</a>
+                                </td>
+                            </tr>
+                            <tr class="fila-pista-admin inactiva">
+                            <td>03</td>
+                            <td>Pista 03</td>
+                            <td>Zona Exterior A</td>
+                            <td>15€</td>
+                            <td><span class="estado-admin estado-inactiva">INACTIVA</span></td>
+                            <td>12/01/2026</td>
+                            <td class="acciones-tabla">
+                                <a href="adminFormularioPista.html" class="accion-tabla editar">Editar</a>
+                            </td>
+                        </tr>
+
+                        <tr class="fila-pista-admin activa">
+                            <td>04</td>
+                            <td>Pista 04</td>
+                            <td>Zona Exterior A</td>
+                            <td>15€</td>
+                            <td><span class="estado-admin estado-activa">ACTIVA</span></td>
+                            <td>12/01/2026</td>
+                            <td class="acciones-tabla">
+                                <a href="adminFormularioPista.html" class="accion-tabla editar">Editar</a>
+                            </td>
+                        </tr>
+
+                        <tr class="fila-pista-admin activa">
+                            <td>05</td>
+                            <td>Pista 05</td>
+                            <td>Pabellón Sur</td>
+                            <td>20€</td>
+                            <td><span class="estado-admin estado-activa">ACTIVA</span></td>
+                            <td>15/01/2026</td>
+                            <td class="acciones-tabla">
+                                <a href="adminFormularioPista.html" class="accion-tabla editar">Editar</a>
+                            </td>
+                        </tr>
+
+                        <tr class="fila-pista-admin inactiva">
+                            <td>06</td>
+                            <td>Pista 06</td>
+                            <td>Pabellón Sur</td>
+                            <td>10€</td>
+                            <td><span class="estado-admin estado-inactiva">INACTIVA</span></td>
+                            <td>15/01/2026</td>
+                            <td class="acciones-tabla">
+                                <a href="adminFormularioPista.html" class="accion-tabla editar">Editar</a>
+                            </td>
+                        </tr>
+
+                        <tr class="fila-pista-admin activa">
+                            <td>07</td>
+                            <td>Pista 07</td>
+                            <td>Zona Exterior B</td>
+                            <td>40€</td>
+                            <td><span class="estado-admin estado-activa">ACTIVA</span></td>
+                            <td>18/01/2026</td>
+                            <td class="acciones-tabla">
+                                <a href="adminFormularioPista.html" class="accion-tabla editar">Editar</a>
+                            </td>
+                        </tr>
+
+                        <tr class="fila-pista-admin activa">
+                            <td>08</td>
+                            <td>Pista 08</td>
+                            <td>Zona Exterior B</td>
+                            <td>25€</td>
+                            <td><span class="estado-admin estado-activa">ACTIVA</span></td>
+                            <td>18/01/2026</td>
+                            <td class="acciones-tabla">
+                                <a href="adminFormularioPista.html" class="accion-tabla editar">Editar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        </main>
+
+    </body>        
+    <footer class="login-footer">
+        <p>@ 2026 Premium Padel Club</p>
+    </footer>
+</html>

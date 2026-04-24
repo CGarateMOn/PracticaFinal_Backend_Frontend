@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Reservar pista</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" type="image/png" href="src/Captura de pantalla 2026-04-15 171537.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header class="cabecera">
+            <div class="nav-grupo">
+                <span class="logo">&#127934 Premium Padel</span>
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="misReservas.html" class="nav-link">Mis reservas</a>
+            </div>
+            <div class="nav-grupo">
+                <a href="logIn.html" class="nav-link">Login</a>
+                <a href="SignIn.html" class="nav-link"> SignIn</a>
+                <a href="notificaciones.html" class="nav-link icono">&#128276</a>
+                <a href="perfil.html" class="nav-link icono">&#128100</a>
+            </div>
+        </header>
+ 
+        <div class="espacio"></div>
+ 
+        <main class="contenedor-principal">
+            <div class="intro">
+                <h2>Reserva tu pista de padel</h2>
+                <p class="subtitulo">Selecciona la fecha y el horario para tu próximo partido.</p>
+            </div>
+ 
+            <div class="fecha-reserva">
+                <label for="reserva">Fecha del partido: </label>
+                <input type="date" id="reserva" name="reserva">
+            </div>
+ 
+            <div class="mapa">
+                <h2>Aquí puede encontrar un mapa de nuestras pistas</h2>
+                <img src="src/mapa.png" alt="mapa">
+            </div>
+ 
+            <div id="contenedor-pistas" class="pistas">
+                <p id="msg-selecciona" class="subtitulo">
+                    Selecciona una fecha para ver la disponibilidad.
+                </p>
+            </div>
+ 
+        </main>
+ 
+        <footer class="login-footer">
+            <p>@ 2026 Premium Padel Club</p>
+        </footer>
+ 
+        <script src="reservas.js"></script>
+    </body>
+</html>
