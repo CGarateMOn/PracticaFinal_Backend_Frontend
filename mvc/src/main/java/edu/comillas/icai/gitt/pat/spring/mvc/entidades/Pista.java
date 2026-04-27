@@ -1,5 +1,7 @@
 package edu.comillas.icai.gitt.pat.spring.mvc.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.OnDelete;
@@ -13,6 +15,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "pistas")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Pista {
 
     @Id
@@ -34,19 +37,20 @@ public class Pista {
     @Column(nullable = false, updatable = false)
     private LocalDate fechaAlta;
 
+    @JsonIgnore
     @OnDelete(action = OnDeleteAction.CASCADE)
     @OneToMany(mappedBy = "pista")
     private List<Reserva> reservas = new ArrayList<>();
 
-   public Pista() {
-       this.fechaAlta = LocalDate.now();
-    }
-    public Pista(String nombre, String ubicacion, BigDecimal precioHora, Boolean activa) {
-       this.nombre = nombre;
-       this.ubicacion = ubicacion;
-       this.precioHora = precioHora;
-       this.activa = activa;
-       this.fechaAlta = LocalDate.now();
+    public Pista() {
+        this.fechaAlta = LocalDate.now();
     }
 
+    public Pista(String nombre, String ubicacion, BigDecimal precioHora, Boolean activa) {
+        this.nombre = nombre;
+        this.ubicacion = ubicacion;
+        this.precioHora = precioHora;
+        this.activa = activa;
+        this.fechaAlta = LocalDate.now();
+    }
 }

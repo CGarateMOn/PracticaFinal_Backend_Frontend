@@ -1,5 +1,7 @@
 package edu.comillas.icai.gitt.pat.spring.mvc.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import edu.comillas.icai.gitt.pat.spring.mvc.modelos.Rol;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -11,6 +13,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "usuarios")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Usuario {
 
     @Id
@@ -26,6 +29,7 @@ public class Usuario {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @JsonIgnore
     @Column(nullable = false)
     private String password;
 
@@ -42,6 +46,7 @@ public class Usuario {
     @Column(nullable = false)
     private Boolean activo = true;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Reserva> reservas = new ArrayList<>();
 
