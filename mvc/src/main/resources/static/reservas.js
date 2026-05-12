@@ -16,7 +16,7 @@ async function cargarDisponibilidad(){
 
     try{
         //ahora le pedimos al servidor que nos enseñe las pistas disponibles
-        const respuesta = await fetch(`/pistaPadel/availability?date=${fecha}`,{
+        const respuesta = await fetch(`http://localhost:8080/pistaPadel/availability?date=${fecha}`,{
             method: "GET",
             credentials: "include"
         });

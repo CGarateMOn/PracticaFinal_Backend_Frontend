@@ -15,6 +15,7 @@ import java.time.format.DateTimeParseException;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/pistaPadel")
 public class DisponibilidadController {
 
