@@ -87,7 +87,7 @@ function generarBotonesHoras(tramos, idPista){
     }).join('');
 }
 
-function seleccionarHora(boton){
+ async function seleccionarHora(boton){
     // Leemos los datos que guardamos en los atributos data-* del botón
     const idPista = boton.dataset.pista;   // ej: "3"
     const hora    = boton.dataset.hora;    // ej: "09:00:00"
@@ -99,15 +99,45 @@ function seleccionarHora(boton){
         `¿Reservar Pista ${idPista} el ${fecha} de ${hora.slice(0,5)} a ${horaFin.slice(0,5)}?`
     );
 
-    if (confirmar) {
-        // Guardamos los datos en sessionStorage para usarlos en la página de confirmación
-        // sessionStorage es como una memoria temporal que dura mientras el navegador está abierto
-        sessionStorage.setItem('reserva_pista', idPista);
-        sessionStorage.setItem('reserva_fecha', fecha);
-        sessionStorage.setItem('reserva_hora',  hora);
-        sessionStorage.setItem('reserva_fin',   horaFin);
+    const textoOriginal = boton.innerText;
+    boton.disabled = true;
+    boton.innerText = "Reservando";
 
-        // Redirigimos a la página donde se completará y enviará la reserva al backend
-        window.location.href = 'confirmarReserva.html';
+    if(!confirmar){
+        return;
+    }
+
+    const datosReserva = {
+        idPista: parseInt(idPista),
+        fecha: fecha,
+        inicio: hora,
+        fin: horaFin
+    }
+
+    try{
+        const respuesta = await fetch(`http://localhost:8080/pistaPadel/reservations`,{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+            body: JSON.stringify(datosReserva),
+            credentials: 'include'
+        });
+
+        if(respuesta.status === 401 || respuesta.status === 400 || respuesta.status === 500){
+            alert("Tu sesión ha caducado. Por favor, inicia sesión.");
+            window.location.href = 'logIn.html';
+            return;
+        }
+
+        if(!respuesta.ok){
+            throw  new Error(`Error del servidor : ${respuesta.status}`);
+        }
+
+        alert("¡Reserva realizada con éxito");
+        window.location.href = 'misReservas.html';
+    } catch (error){
+        console.error("Error al realizar la reserva: ", error);
+        alert("Intentalo de nuevo.");
+        boton.disabled = false;
+        boton.innerText = textoOriginal;
     }
 }

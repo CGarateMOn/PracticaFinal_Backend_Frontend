@@ -22,6 +22,7 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/pistaPadel/reservations")
+@CrossOrigin(origins = "http://localhost:8080/reservas.html", allowCredentials = "true")
 public class ReservasController {
     @Autowired
     PistaService pistaService;
