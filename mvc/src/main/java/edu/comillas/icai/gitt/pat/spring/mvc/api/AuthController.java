@@ -73,6 +73,29 @@ public class AuthController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).header(HttpHeaders.SET_COOKIE, expireSession.toString()).build();
     }
 
+    @PutMapping("/actualizar")
+    @ResponseStatus(HttpStatus.OK)
+    public void actualizarPerfil(@RequestBody Usuario datosRecibidos,
+                                 @CookieValue(value = "session", required = true) String session) {
 
+        // 1. Usamos el authService para identificar al usuario a través de su cookie
+        Usuario usuarioActual = authService.authentication(session);
+
+        if (usuarioActual == null) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Sesión no válida");
+        }
+
+        // 2. Si el JSON trae una contraseña, la actualizamos en el objeto de la base de datos
+        if (datosRecibidos.getPassword() != null && !datosRecibidos.getPassword().isEmpty()) {
+
+
+            usuarioActual.setPassword(datosRecibidos.getPassword());
+
+            // 3. Guardamos los cambios en la base de datos a través del servicio
+            authService.actualizarUsuario(usuarioActual);
+        } else {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No se proporcionó una contraseña nueva");
+        }
+    }
 
 }

@@ -9,12 +9,12 @@ async function cargarNotificaciones(){
             credentials:'include'
         });
         if(!respuesta.ok){
-            throw  new Error('Error del servidor: ${respuesta.status}');
+            throw new Error(`Error del servidor: ${respuesta.status}`);
         }
-        const reservars = await respuesta.json();
-        renderizarNotificaciones(reservars, contenedor);
+        const reservas = await respuesta.json();
+        renderizarNotificaciones(reservas, contenedor);
     } catch (error){
-        consol.error()('Error al cargar notificaciones', error);
+        console.error()('Error al cargar notificaciones', error);
         contenedor.innerHTML='<p class="subtitulo">No se han podido cargar las notificaicones.</p>';
     }
 }
