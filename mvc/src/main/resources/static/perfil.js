@@ -6,7 +6,7 @@ async function cargarPerfil(){
     console.log("Status recibido:", respuesta.status);
 
     if(respuesta.status===401){
-        window.location.href="logIn.html";
+        mostrarAlertaLogin();
         return;
     }
 
@@ -24,6 +24,18 @@ async function cargarPerfil(){
         document.getElementById("tdTelefono").textContent = "No disponible";
     }
 
+}
+
+function mostrarAlertaLogin() {
+    const contenedorPrincipal = document.querySelector("main");
+    contenedorPrincipal.innerHTML = `
+        <div class="intro" style="text-align: center; padding: 50px 20px;">
+            <h2>Acceso Restringido</h2>
+            <p>Necesitas iniciar sesión para ver tu perfil y gestionar tus datos.</p>
+            <div class="espacio"></div>
+            <a href="logIn.html" class="btn-login" style="text-decoration: none; display: inline-block; padding: 10px 30px;">Ir a Iniciar Sesión</a>
+        </div>
+    `;
 }
 
 // 2. LÓGICA PARA GUARDAR CAMBIOS
