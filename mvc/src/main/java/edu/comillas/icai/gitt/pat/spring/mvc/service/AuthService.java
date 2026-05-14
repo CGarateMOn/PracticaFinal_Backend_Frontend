@@ -98,4 +98,8 @@ public class AuthService {
         logger.info("Se ha cerrado correctamente la sesión");
         repoToken.deleteById(tokenId);
     }
+
+    public void actualizarUsuario(Usuario usuario) {
+        repoUsuario.save(usuario);
+    }
 }

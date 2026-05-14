@@ -6,9 +6,10 @@ public record ProfileResponse(
         String nombre,
         String apellidos,
         String email,
-        Rol rol
+        Rol rol,
+        String telefono
 ) {
     public static ProfileResponse fromUsuario(Usuario usuario){
-        return new ProfileResponse(usuario.getNombre(), usuario.getApellidos(), usuario.getEmail(), usuario.getRol());
+        return new ProfileResponse(usuario.getNombre(), usuario.getApellidos(), usuario.getEmail(), usuario.getRol(), usuario.getTelefono());
     }
 }

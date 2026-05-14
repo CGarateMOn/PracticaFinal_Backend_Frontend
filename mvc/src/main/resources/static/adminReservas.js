@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
 async function cargarReservas(){
     //leemos los valores que introduce el ususario en el html
-    const date=document.getElementById("imputFecha").value;
-    const courtId=document.getElementById("imputPista").value;
-    const userId=document.getElementById("imputUsuario").value;
+    const date=document.getElementById("inputFecha").value;
+    const courtId=document.getElementById("inputPista").value;
+    const userId=document.getElementById("inputUsuario").value;
 
     const params = new URLSearchParams();
     if(date) params.set("date", date);
@@ -45,7 +45,7 @@ async function cargarReservas(){
 }
 
 function renderizarTabla(reservas){
-    const tbody = document.getElementsById("tablaReservas");
+    const tbody = document.getElementById("tablaReservas");
     tbody.innerHTML = reservas.map(r=>`
         <tr>
             <td>${r.idReserva}</td>
