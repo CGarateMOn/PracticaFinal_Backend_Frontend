@@ -18,7 +18,60 @@ async function cargarPerfil(){
     document.getElementById("tdApellidos").textContent=perfil.apellidos;
     document.getElementById("tdEmail").textContent=perfil.email;
     document.getElementById("tdRol").textContent=perfil.rol;
-    document.getElementById("tdTelefono").textContent = perfil.telefono ?? "No disponible";
+    if (perfil.telefono !== null && perfil.telefono !== undefined) {
+        document.getElementById("tdTelefono").textContent = perfil.telefono;
+    } else {
+        document.getElementById("tdTelefono").textContent = "No disponible";
+    }
+
 }
+
+// 2. LÓGICA PARA GUARDAR CAMBIOS
+document.querySelector(".guardar-cambios").addEventListener("click", async () => {
+    const p1 = document.getElementById("pass1").value;
+    const p2 = document.getElementById("pass2").value;
+
+    // Objeto que enviaremos al backend
+    const datosParaActualizar = {};
+
+    // Solo validamos y añadimos la contraseña si el usuario escribió algo
+    if (p1.length > 0 || p2.length > 0) {
+        if (p1 !== p2) {
+            alert("Las contraseñas no coinciden.");
+            return;
+        }
+        if (p1.length < 4) {
+            alert("La contraseña debe tener al menos 4 caracteres.");
+            return;
+        }
+        // Añadimos la nueva contraseña al objeto
+        datosParaActualizar.password = p1;
+    } else {
+        alert("No has introducido ninguna nueva contraseña.");
+        return;
+    }
+
+    try {
+        const respuesta = await fetch("pistaPadel/auth/actualizar", {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: "include", // Vital para enviar la cookie de sesión
+            body: JSON.stringify(datosParaActualizar)
+        });
+
+        if (respuesta.ok) {
+            alert("¡Contraseña actualizada correctamente!");
+            // Limpiamos los inputs por seguridad
+            document.getElementById("pass1").value = "";
+            document.getElementById("pass2").value = "";
+        } else {
+            const errorData = await respuesta.json().catch(() => ({}));
+            alert("Error al actualizar: " + (errorData.message || "Consulte al administrador"));
+        }
+    } catch (error) {
+        console.error("Error en la conexión:", error);
+        alert("No se pudo conectar con el servidor.");
+    }
+});
 
 cargarPerfil();
