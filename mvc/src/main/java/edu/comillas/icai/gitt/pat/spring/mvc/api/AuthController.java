@@ -36,11 +36,13 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Usuario> login(@Valid @RequestBody LoginRequest loginRequest ){
-        Token token = authService.login(loginRequest.email(),loginRequest.password());
+    public ResponseEntity<Usuario> login(@Valid @RequestBody LoginRequest loginRequest){
+        Token token = authService.login(loginRequest.email(), loginRequest.password());
         if(token == null){
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
         }
+
+        Usuario usuario = token.getUsuario();
 
         ResponseCookie session = ResponseCookie
                 .from("session", token.id)
@@ -48,8 +50,10 @@ public class AuthController {
                 .path("/")
                 .sameSite("Strict")
                 .build();
-        return  ResponseEntity.status(HttpStatus.OK).header(HttpHeaders.SET_COOKIE, session.toString()).build();
 
+        return ResponseEntity.status(HttpStatus.OK)
+                .header(HttpHeaders.SET_COOKIE, session.toString())
+                .body(usuario);
     }
 
     @PostMapping("/logout")
