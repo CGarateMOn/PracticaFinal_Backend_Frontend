@@ -110,7 +110,7 @@ function renderizarReservas(reservas) {
 
         const claseEstado = estado === "ACTIVA"
             ? "estado-admin estado-activa"
-            : "estado-admin estado-cancelada";
+            : "estado-admin estado-inactiva";
 
         return `
             <tr>
