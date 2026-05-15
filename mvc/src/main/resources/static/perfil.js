@@ -20,6 +20,13 @@ async function cargarPerfil() {
         document.getElementById("inputApellidos").value = perfil.apellidos;
         document.getElementById("inputEmail").value = perfil.email;
         document.getElementById("inputTelefono").value = perfil.telefono || "";
+        // Si el usuario es admin, mostramos el enlace al panel de administración
+        if (perfil.rol === "ADMIN") {
+            const enlaceAdmin = document.getElementById("enlaceAdmin");
+            if (enlaceAdmin) {
+                enlaceAdmin.style.display = "inline-block";
+            }
+        }
 
     } catch (error) {
         console.error("Error al cargar perfil:", error);

@@ -1,3 +1,4 @@
+const API_BASE = "http://localhost:8080";
 let usuariosGlobal = [];
 
 document.addEventListener("DOMContentLoaded", async () => {

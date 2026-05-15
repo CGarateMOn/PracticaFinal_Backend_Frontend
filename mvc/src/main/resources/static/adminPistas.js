@@ -1,27 +1,27 @@
-const API_BASE = "http://localhost:8080";
+
 
 document.addEventListener("DOMContentLoaded", async () => {
 
+    // 1. Verificamos que el usuario sea admin antes de hacer nada más
     const esAdmin = await comprobarAdmin();
     if (!esAdmin) return;
 
-    document.getElementById("btnFiltrarPistas")
-        .addEventListener("click", cargarPistas);
+    // 2. Conectamos los radios de filtro: cada cambio recarga la tabla
+    document.getElementById("admin-todas")
+        .addEventListener("change", cargarPistas);
+    document.getElementById("admin-activas")
+        .addEventListener("change", cargarPistas);
+    document.getElementById("admin-inactivas")
+        .addEventListener("change", cargarPistas);
 
-    document.getElementById("btnLimpiarFiltroPistas")
-        .addEventListener("click", limpiarFiltros);
-
-    document.getElementById("btnNuevaPista")
-        .addEventListener("click", () => {
-            window.location.href = "adminFormularioPista.html";
-        });
-
+    // 3. Carga inicial de la tabla
     await cargarPistas();
 });
 
+
 async function comprobarAdmin() {
 
-    const respuesta = await fetch(`${API_BASE}/pistaPadel/auth/me`, {
+    const respuesta = await fetch("/pistaPadel/auth/me", {
         credentials: "include"
     });
 
@@ -40,54 +40,44 @@ async function comprobarAdmin() {
     return true;
 }
 
-function limpiarFiltros() {
-    document.getElementById("filtroEstado").value = "";
-    cargarPistas();
-}
 
 async function cargarPistas() {
 
-    const tabla = document.getElementById("tablaPistas");
+    const cuerpo = document.getElementById("cuerpoTablaPistas");
     const mensaje = document.getElementById("mensajePistas");
 
-    tabla.innerHTML = "";
+    cuerpo.innerHTML = "";
     mensaje.textContent = "Cargando pistas...";
 
     try {
-
-        const estado = document.getElementById("filtroEstado").value;
-
         let url = "/pistaPadel/courts";
 
-        if (estado !== "") {
-            url += `?activa=${estado}`;
+        if (document.getElementById("admin-activas").checked) {
+            url += "?activa=true";
+        } else if (document.getElementById("admin-inactivas").checked) {
+            url += "?activa=false";
         }
+        // Si "admin-todas" está marcado, no añadimos query param
 
-        const respuesta = await fetch(url, {
-            credentials: "include"
-        });
+        const respuesta = await fetch(url, { credentials: "include" });
 
         if (respuesta.status === 401) {
             window.location.href = "logIn.html";
             return;
         }
-
         if (respuesta.status === 403) {
             window.location.href = "index.html";
             return;
         }
-
         if (!respuesta.ok) {
             mensaje.textContent = `Error cargando pistas (${respuesta.status})`;
             return;
         }
 
         const pistas = await respuesta.json();
-
         renderizarPistas(pistas);
 
     } catch (error) {
-
         console.error(error);
         mensaje.textContent = "Error de conexión con el servidor.";
     }
@@ -95,67 +85,54 @@ async function cargarPistas() {
 
 function renderizarPistas(pistas) {
 
-    const tabla = document.getElementById("tablaPistas");
+    const cuerpo = document.getElementById("cuerpoTablaPistas");
     const mensaje = document.getElementById("mensajePistas");
 
     if (!pistas || pistas.length === 0) {
         mensaje.textContent = "No hay pistas.";
-        tabla.innerHTML = "";
+        cuerpo.innerHTML = "";
         return;
     }
 
     mensaje.textContent = `${pistas.length} pista(s) encontrada(s).`;
 
-    tabla.innerHTML = pistas.map(pista => {
+    cuerpo.innerHTML = pistas.map(pista => {
 
         const id = pista.idPista ?? "";
         const nombre = pista.nombre ?? "";
         const ubicacion = pista.ubicacion ?? "";
         const precio = pista.precioHora ?? "";
+        const fechaAlta = pista.fechaAlta ?? "";
         const activa = pista.activa === true;
 
-        const textoEstado = activa ? "Activa" : "Inactiva";
-
+        const textoEstado = activa ? "ACTIVA" : "INACTIVA";
         const claseEstado = activa
             ? "estado-admin estado-activa"
-            : "estado-admin estado-cancelada";
+            : "estado-admin estado-inactiva";
+        const claseFila = activa
+            ? "fila-pista-admin activa"
+            : "fila-pista-admin inactiva";
 
         return `
-            <tr>
-                <td>#${id}</td>
+            <tr class="${claseFila}">
+                <td>${id}</td>
                 <td>${nombre}</td>
                 <td>${ubicacion}</td>
-                <td>${precio} €</td>
-                <td>
-                    <span class="${claseEstado}">
-                        ${textoEstado}
-                    </span>
-                </td>
-
-                <td>
-                    <button
-                        class="btn-accion btn-editar"
-                        onclick="editarPista(${id})"
-                    >
-                        Editar
-                    </button>
-                    <button
-                        class="btn-accion btn-eliminar"
-                        onclick="eliminarPista(${id})"
-                    >
-                        Eliminar
-                    </button>
+                <td>${precio}€</td>
+                <td><span class="${claseEstado}">${textoEstado}</span></td>
+                <td>${fechaAlta}</td>
+                <td class="acciones-tabla">
+                    <a href="adminFormularioPista.html?id=${id}" class="accion-tabla editar">Editar</a>
+                    <button class="accion-tabla btn-eliminar" onclick="eliminarPista(${id})">Eliminar</button>
                 </td>
             </tr>
         `;
     }).join("");
 }
 
-function editarPista(idPista) {
-    window.location.href = `adminFormularioPista.html?id=${idPista}`;
-}
 
 async function eliminarPista(idPista) {
+
     const confirmar = confirm("¿Seguro que quieres eliminar esta pista?");
     if (!confirmar) return;
 
@@ -164,10 +141,12 @@ async function eliminarPista(idPista) {
             method: "DELETE",
             credentials: "include"
         });
+
         if (!respuesta.ok) {
             alert("No se pudo eliminar la pista.");
             return;
         }
+
         await cargarPistas();
 
     } catch (error) {
