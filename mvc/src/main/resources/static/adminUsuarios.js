@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function comprobarAdmin() {
-    const respuesta = await fetch("/pistaPadel/auth/me", {
+    const respuesta = await fetch(`${API_BASE}/pistaPadel/auth/me`, {
         credentials: "include"
     });
 
@@ -41,7 +41,7 @@ async function cargarUsuarios() {
     mensaje.textContent = "Cargando usuarios...";
 
     try {
-        const respuesta = await fetch("/pistaPadel/users", {
+        const respuesta = await fetch(`${API_BASE}/pistaPadel/users`, {
             method: "GET",
             credentials: "include"
         });

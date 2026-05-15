@@ -1,3 +1,5 @@
+const API_BASE = "http://localhost:8080";
+
 document.addEventListener("DOMContentLoaded", async () => {
     marcarPaginaActual();
 
@@ -6,15 +8,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     const adminBadge = document.querySelector(".admin-badge");
 
     try {
-        const respuesta = await fetch("/pistaPadel/auth/me", {
+        const respuesta = await fetch(`${API_BASE}/pistaPadel/auth/me`, {
             credentials: "include"
         });
 
         if (respuesta.ok) {
             const perfil = await respuesta.json();
 
-            // Si hay sesión, ocultamos SOLO login y registro.
-            // No ocultamos Reservar, Mis reservas, Perfil, Notificaciones, etc.
             if (linkLogin) linkLogin.style.display = "none";
             if (linkSignIn) linkSignIn.style.display = "none";
 
@@ -25,20 +25,14 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
 
         } else {
-            // Si no hay sesión, mostramos login/signin y ocultamos badge admin.
             if (linkLogin) linkLogin.style.display = "inline-block";
             if (linkSignIn) linkSignIn.style.display = "inline-block";
-
-            if (adminBadge) {
-                adminBadge.style.display = "none";
-            }
+            if (adminBadge) adminBadge.style.display = "none";
         }
 
     } catch (error) {
         console.error("Error al cargar la barra de navegación:", error);
 
-        // En caso de error, no redirigimos ni rompemos la cabecera.
-        // Simplemente dejamos la navegación visible.
         if (linkLogin) linkLogin.style.display = "inline-block";
         if (linkSignIn) linkSignIn.style.display = "inline-block";
         if (adminBadge) adminBadge.style.display = "none";
@@ -51,7 +45,6 @@ function marcarPaginaActual() {
 
     enlaces.forEach(enlace => {
         const href = enlace.getAttribute("href");
-
         if (!href) return;
 
         const paginaEnlace = href.split("/").pop();
@@ -68,12 +61,9 @@ function insertarBotonLogout() {
     if (document.getElementById("nav-logout")) return;
 
     const navGroups = document.querySelectorAll(".nav-grupo");
-
     if (navGroups.length === 0) return;
 
-    const navDerecha = navGroups.length > 1
-        ? navGroups[1]
-        : navGroups[0];
+    const navDerecha = navGroups.length > 1 ? navGroups[1] : navGroups[0];
 
     const btnLogout = document.createElement("a");
     btnLogout.href = "#";
@@ -88,7 +78,7 @@ function insertarBotonLogout() {
         if (!confirmar) return;
 
         try {
-            await fetch("/pistaPadel/auth/logout", {
+            await fetch(`${API_BASE}/pistaPadel/auth/logout`, {
                 method: "POST",
                 credentials: "include"
             });

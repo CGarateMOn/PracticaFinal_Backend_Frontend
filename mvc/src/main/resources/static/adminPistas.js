@@ -1,3 +1,5 @@
+const API_BASE = "http://localhost:8080";
+
 document.addEventListener("DOMContentLoaded", async () => {
 
     const esAdmin = await comprobarAdmin();
@@ -19,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function comprobarAdmin() {
 
-    const respuesta = await fetch("/pistaPadel/auth/me", {
+    const respuesta = await fetch(`${API_BASE}/pistaPadel/auth/me`, {
         credentials: "include"
     });
 
