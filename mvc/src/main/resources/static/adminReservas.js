@@ -1,61 +1,127 @@
-//para este tipo siempre esperamos a que el dom este listo
-document.addEventListener("DOMContentLoaded", async()=>{
-    //hay que optener la cookie de admin
-    const respuesta = await fetch("/pistaPadel/auth/me", {
-        credentials: "include"
+document.addEventListener("DOMContentLoaded", async () => {
+    const esAdmin = await comprobarAdmin();
+    if (!esAdmin) return;
+
+    document.getElementById("btnFiltrarReservas").addEventListener("click", cargarReservas);
+
+    document.getElementById("btnLimpiarFiltros").addEventListener("click", () => {
+        document.getElementById("inputFecha").value = "";
+        document.getElementById("inputPista").value = "";
+        document.getElementById("inputUsuario").value = "";
+        cargarReservas();
     });
-
-    if(!respuesta.ok){
-        window.location.href="login.html";
-        return;
-    }
-
-    //ahora compruebo si es admin
-    const perfil = await respuesta.json();
-    if(perfil.rol!="ADMIN"){
-        window.location.href="index.html";
-        return;
-    }
 
     await cargarReservas();
 });
 
-async function cargarReservas(){
-    //leemos los valores que introduce el ususario en el html
-    const date=document.getElementById("inputFecha").value;
-    const courtId=document.getElementById("inputPista").value;
-    const userId=document.getElementById("inputUsuario").value;
-
-    const params = new URLSearchParams();
-    if(date) params.set("date", date);
-    if(courtId) params.set("courtId", courtId);
-    if(userId) params.set("userId", userId);
-
-    const res= await fetch(`/pistaPadel/admin/reservations?${params}`, {
+async function comprobarAdmin() {
+    const respuesta = await fetch("/pistaPadel/auth/me", {
         credentials: "include"
     });
 
-    if(!res.ok){
-        mostrarError("Error al cargar reservas: " + res.status);
+    if (!respuesta.ok) {
+        window.location.href = "logIn.html";
+        return false;
+    }
+
+    const perfil = await respuesta.json();
+
+    if (perfil.rol !== "ADMIN") {
+        window.location.href = "index.html";
+        return false;
+    }
+
+    return true;
+}
+
+async function cargarReservas() {
+    const mensaje = document.getElementById("mensajeReservas");
+    const tabla = document.getElementById("tablaReservas");
+
+    mensaje.textContent = "Cargando reservas...";
+    tabla.innerHTML = "";
+
+    const date = document.getElementById("inputFecha").value;
+    const courtId = document.getElementById("inputPista").value;
+    const userId = document.getElementById("inputUsuario").value;
+
+    const params = new URLSearchParams();
+
+    if (date) params.set("date", date);
+    if (courtId) params.set("courtId", courtId);
+    if (userId) params.set("userId", userId);
+
+    try {
+        const respuesta = await fetch(`/pistaPadel/admin/reservations?${params.toString()}`, {
+            method: "GET",
+            credentials: "include"
+        });
+
+        if (respuesta.status === 401) {
+            window.location.href = "logIn.html";
+            return;
+        }
+
+        if (respuesta.status === 403) {
+            window.location.href = "index.html";
+            return;
+        }
+
+        if (!respuesta.ok) {
+            mensaje.textContent = `Error al cargar reservas. Código: ${respuesta.status}`;
+            return;
+        }
+
+        const reservas = await respuesta.json();
+        renderizarReservas(reservas);
+
+    } catch (error) {
+        console.error("Error cargando reservas admin:", error);
+        mensaje.textContent = "No se pudo conectar con el servidor.";
+    }
+}
+
+function renderizarReservas(reservas) {
+    const mensaje = document.getElementById("mensajeReservas");
+    const tabla = document.getElementById("tablaReservas");
+
+    if (!reservas || reservas.length === 0) {
+        mensaje.textContent = "No hay reservas con esos filtros.";
+        tabla.innerHTML = "";
         return;
     }
 
-    const reservas=await res.json();
-    renderizarTabla(reservas);
-}
+    mensaje.textContent = `${reservas.length} reserva(s) encontrada(s).`;
 
-function renderizarTabla(reservas){
-    const tbody = document.getElementById("tablaReservas");
-    tbody.innerHTML = reservas.map(r=>`
-        <tr>
-            <td>${r.idReserva}</td>
-            <td>${r.usuario?.nombre ?? r.idUsuario}</td>
-            <td>${r.pista?.nombre ?? r.idPista}</td>
-            <td>${r.fechaReserva}</td>
-            <td>${r.horaInicio}</td>
-            <td>${r.duracionMinutos} min</td>
-            <td>${r.estado}</td>
-            <td><button onclick="cancelar(${r.idReserva})">Cancelar</button></td>
-        </tr>
-    `).join("");
+    tabla.innerHTML = reservas.map(reserva => {
+        const idReserva = reserva.idReserva ?? "";
+        const usuario = reserva.usuario
+            ? `${reserva.usuario.nombre ?? ""} ${reserva.usuario.apellidos ?? ""}`.trim()
+            : "Sin usuario";
+
+        const pista = reserva.pista
+            ? reserva.pista.nombre
+            : "Sin pista";
+
+        const fecha = reserva.fechaReserva ?? "";
+        const hora = reserva.horaInicio ? reserva.horaInicio.slice(0, 5) : "";
+        const duracion = reserva.duracionMinutos ? `${reserva.duracionMinutos} min` : "";
+        const estado = reserva.estado ?? "";
+
+        const claseEstado = estado === "ACTIVA"
+            ? "estado-admin estado-activa"
+            : "estado-admin estado-cancelada";
+
+        return `
+            <tr>
+                <td>#${idReserva}</td>
+                <td>${usuario}</td>
+                <td>${pista}</td>
+                <td>${fecha}</td>
+                <td>${hora}</td>
+                <td>${duracion}</td>
+                <td><span class="${claseEstado}">${estado}</span></td>
+            </tr>
+        `;
+    }).join("");
 }
