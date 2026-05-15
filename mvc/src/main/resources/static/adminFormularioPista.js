@@ -1,3 +1,5 @@
+const API_BASE = "http://localhost:8080";
+
 document.addEventListener("DOMContentLoaded", async () => {
     const esAdmin = await comprobarAdmin();
     if (!esAdmin) return;
@@ -24,7 +26,7 @@ function obtenerIdPistaDeUrl() {
 }
 
 async function comprobarAdmin() {
-    const respuesta = await fetch("/pistaPadel/auth/me", {
+    const respuesta = await fetch(`${API_BASE}/pistaPadel/auth/me`, {
         credentials: "include"
     });
 
@@ -56,7 +58,7 @@ function prepararModoCrear() {
 
 async function cargarPista(idPista) {
     try {
-        const respuesta = await fetch(`/pistaPadel/courts/${idPista}`, {
+        const respuesta = await fetch(`${API_BASE}/pistaPadel/courts/${idPista}`, {
             credentials: "include"
         });
 
@@ -115,8 +117,8 @@ async function guardarPista(event) {
 
     try {
         const url = idPista
-            ? `/pistaPadel/courts/${idPista}`
-            : "/pistaPadel/courts";
+            ? `${API_BASE}/pistaPadel/courts/${idPista}`
+            : `${API_BASE}/pistaPadel/courts`;
 
         const metodo = idPista ? "PATCH" : "POST";
 
@@ -165,7 +167,7 @@ async function eliminarPista() {
     if (!confirmar) return;
 
     try {
-        const respuesta = await fetch(`/pistaPadel/courts/${idPista}`, {
+        const respuesta = await fetch(`${API_BASE}/pistaPadel/courts/${idPista}`, {
             method: "DELETE",
             credentials: "include"
         });
