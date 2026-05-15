@@ -28,34 +28,34 @@ INSERT INTO pistas (nombre, ubicacion, precio_hora, activa, fecha_alta)
 SELECT 'Pista 4', 'Zona Sur', 20.00, FALSE, CURRENT_DATE
     WHERE NOT EXISTS (SELECT 1 FROM pistas WHERE nombre = 'Pista 4');
 
--- Reservas para Admin (ahora es el id=1)
+-- Reservas para Admin
 INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
-VALUES (1, 1, '2026-04-28', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'admin@premium.com'), 1, '2026-05-28', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
 INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
-VALUES (1, 2, '2026-05-05', '12:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP);
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'admin@premium.com'), 2, '2026-05-05', '12:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP);
 INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
-VALUES (1, 3, '2026-05-15', '18:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'admin@premium.com'), 3, '2026-05-15', '18:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
 INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
-VALUES (1, 1, '2026-04-20', '10:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP);
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'admin@premium.com'), 1, '2026-04-20', '10:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP);
 
--- Reservas para Carlos (ahora es el id=2)
+-- Reservas para Carlos
 INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
-VALUES (2, 1, '2026-04-29', '09:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'carlos@premium.com'), 1, '2026-04-29', '09:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
 INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
-VALUES (2, 3, '2026-05-10', '17:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP);
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'carlos@premium.com'), 3, '2026-05-10', '17:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP);
 INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
-VALUES (2, 2, '2026-05-20', '11:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'carlos@premium.com'), 2, '2026-05-20', '11:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
 INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
-VALUES (2, 1, '2026-04-15', '16:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP);
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'carlos@premium.com'), 1, '2026-04-15', '16:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP);
 
--- Reservas para Maria (ahora es el id=3)
+-- Reservas para Maria
 INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
-VALUES (3, 2, '2026-04-30', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'maria@premium.com'), 2, '2026-04-30', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
 INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
-VALUES (3, 1, '2026-05-08', '19:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP);
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'maria@premium.com'), 1, '2026-05-08', '19:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP);
 INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
-VALUES (3, 3, '2026-05-25', '12:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'maria@premium.com'), 3, '2026-05-25', '12:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
 INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
-VALUES (3, 2, '2026-06-01', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'maria@premium.com'), 2, '2026-06-01', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
 INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
-VALUES (3, 1, '2026-04-10', '15:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP);
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'maria@premium.com'), 1, '2026-04-10', '15:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP);

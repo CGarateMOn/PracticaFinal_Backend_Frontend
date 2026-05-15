@@ -1714,3 +1714,679 @@ INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion
 org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
 Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
 INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-04-10', '15:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 11:56:17.518403+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 1, '2026-04-28', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 11:56:17.524399+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 2, '2026-05-05', '12:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 11:56:17.525405+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 3, '2026-05-15', '18:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 11:56:17.526404+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 1, '2026-04-20', '10:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 11:56:17.526404+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 1, '2026-04-29', '09:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 11:56:17.526404+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 3, '2026-05-10', '17:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 11:56:17.529902+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 2, '2026-05-20', '11:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 11:56:17.530926+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 1, '2026-04-15', '16:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 11:56:17.530926+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 2, '2026-04-30', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 11:56:17.531905+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-05-08', '19:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 11:56:17.532904+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 3, '2026-05-25', '12:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 11:56:17.534903+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 2, '2026-06-01', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 11:56:17.535907+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-04-10', '15:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:00:13.539339+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 1, '2026-04-28', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:00:13.542519+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 2, '2026-05-05', '12:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:00:13.542519+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 3, '2026-05-15', '18:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:00:13.542519+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 1, '2026-04-20', '10:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:00:13.542519+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 1, '2026-04-29', '09:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:00:13.542519+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 3, '2026-05-10', '17:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:00:13.542519+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 2, '2026-05-20', '11:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:00:13.542519+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 1, '2026-04-15', '16:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:00:13.542519+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 2, '2026-04-30', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:00:13.542519+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-05-08', '19:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:00:13.542519+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 3, '2026-05-25', '12:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:00:13.542519+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 2, '2026-06-01', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:00:13.557282+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-04-10', '15:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:02:59.550998+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 1, '2026-04-28', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:02:59.557032+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 2, '2026-05-05', '12:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:02:59.557997+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 3, '2026-05-15', '18:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:02:59.559997+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 1, '2026-04-20', '10:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:02:59.560996+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 1, '2026-04-29', '09:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:02:59.562246+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 3, '2026-05-10', '17:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:02:59.562246+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 2, '2026-05-20', '11:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:02:59.563270+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 1, '2026-04-15', '16:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:02:59.564282+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 2, '2026-04-30', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:02:59.564282+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-05-08', '19:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:02:59.565270+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 3, '2026-05-25', '12:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:02:59.566269+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 2, '2026-06-01', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:02:59.566269+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-04-10', '15:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:06:17.675937+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 1, '2026-04-28', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:06:17.675937+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 2, '2026-05-05', '12:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:06:17.675937+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 3, '2026-05-15', '18:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:06:17.675937+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 1, '2026-04-20', '10:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:06:17.687702+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 1, '2026-04-29', '09:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:06:17.690630+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 3, '2026-05-10', '17:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:06:17.691344+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 2, '2026-05-20', '11:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:06:17.691810+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 1, '2026-04-15', '16:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:06:17.692975+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 2, '2026-04-30', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:06:17.693370+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-05-08', '19:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:06:17.693370+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 3, '2026-05-25', '12:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:06:17.693370+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 2, '2026-06-01', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:06:17.693370+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-04-10', '15:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:08:31.351094+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 1, '2026-04-28', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:08:31.366946+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 2, '2026-05-05', '12:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:08:31.366946+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 3, '2026-05-15', '18:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:08:31.370398+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 1, '2026-04-20', '10:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:08:31.372920+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 1, '2026-04-29', '09:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:08:31.375186+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 3, '2026-05-10', '17:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:08:31.375186+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 2, '2026-05-20', '11:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:08:31.375186+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 1, '2026-04-15', '16:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:08:31.375186+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 2, '2026-04-30', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:08:31.375186+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-05-08', '19:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:08:31.375186+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 3, '2026-05-25', '12:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:08:31.375186+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 2, '2026-06-01', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:08:31.383243+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-04-10', '15:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:11:17.517200+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 1, '2026-04-28', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:11:17.526651+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 2, '2026-05-05', '12:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:11:17.526651+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 3, '2026-05-15', '18:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:11:17.527650+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 1, '2026-04-20', '10:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:11:17.527650+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 1, '2026-04-29', '09:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:11:17.528649+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 3, '2026-05-10', '17:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:11:17.529649+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 2, '2026-05-20', '11:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:11:17.530650+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 1, '2026-04-15', '16:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:11:17.530650+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 2, '2026-04-30', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:11:17.532648+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-05-08', '19:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:11:17.532648+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 3, '2026-05-25', '12:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:11:17.534651+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 2, '2026-06-01', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:11:17.534651+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-04-10', '15:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:14:39.745520+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 1, '2026-04-28', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:14:39.750893+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 2, '2026-05-05', '12:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:14:39.751935+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 3, '2026-05-15', '18:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:14:39.752921+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 1, '2026-04-20', '10:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:14:39.752921+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 1, '2026-04-29', '09:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:14:39.754242+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 3, '2026-05-10', '17:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:14:39.754760+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 2, '2026-05-20', '11:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:14:39.755789+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 1, '2026-04-15', '16:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:14:39.755789+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 2, '2026-04-30', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:14:39.756787+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-05-08', '19:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:14:39.757792+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 3, '2026-05-25', '12:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:14:39.757792+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 2, '2026-06-01', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:14:39.759035+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-04-10', '15:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:07.037777+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 1, '2026-04-28', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:07.040644+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 2, '2026-05-05', '12:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:07.042742+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 3, '2026-05-15', '18:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:07.042742+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 1, '2026-04-20', '10:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:07.042742+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (6, 1, '2026-04-29', '09:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:07.042742+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (6, 3, '2026-05-10', '17:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:07.044759+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ([*], 2, '2026-05-20', '11:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP)"; se esperaba "), DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ([*], 2, '2026-05-20', '11:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP)"; expected "), DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (, 2, '2026-05-20', '11:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [42001-224]
+2026-05-15 12:16:07.044759+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (2, 1, '2026-04-15', '16:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:07.044759+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 2, '2026-04-30', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:07.044759+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-05-08', '19:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:07.044759+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 3, '2026-05-25', '12:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:07.046777+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 2, '2026-06-01', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:07.046777+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-04-10', '15:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:35.368174+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 1, '2026-04-28', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:35.372216+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 2, '2026-05-05', '12:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:35.372517+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 3, '2026-05-15', '18:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:35.372885+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (1, 1, '2026-04-20', '10:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:35.373249+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (7, 1, '2026-04-29', '09:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:35.373584+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (7, 3, '2026-05-10', '17:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:35.373584+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (7, 2, '2026-05-20', '11:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:35.373584+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (7, 1, '2026-04-15', '16:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:35.373584+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 2, '2026-04-30', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:35.373584+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-05-08', '19:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:35.373584+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 3, '2026-05-25', '12:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:35.373584+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 2, '2026-06-01', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:16:35.373584+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (3, 1, '2026-04-10', '15:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:17:22.075943+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (6, 1, '2026-04-28', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:17:22.081941+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (6, 2, '2026-05-05', '12:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:17:22.081941+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (6, 3, '2026-05-15', '18:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:17:22.082942+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (6, 1, '2026-04-20', '10:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:17:22.083947+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (7, 1, '2026-04-29', '09:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:17:22.083947+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (7, 3, '2026-05-10', '17:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:17:22.084941+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (7, 2, '2026-05-20', '11:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:17:22.085945+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (7, 1, '2026-04-15', '16:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:17:22.085945+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (8, 2, '2026-04-30', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:17:22.086940+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (8, 1, '2026-05-08', '19:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:17:22.086940+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (8, 3, '2026-05-25', '12:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:17:22.087937+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (8, 2, '2026-06-01', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:17:22.088938+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (8, 1, '2026-04-10', '15:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:20:07.105701+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (6, 1, '2026-05-28', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:20:07.107232+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (6, 2, '2026-05-05', '12:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:20:07.107232+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (6, 3, '2026-05-15', '18:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:20:07.107232+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (6, 1, '2026-04-20', '10:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:20:07.107232+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (7, 1, '2026-04-29', '09:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:20:07.107232+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (7, 3, '2026-05-10', '17:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:20:07.107232+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (7, 2, '2026-05-20', '11:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:20:07.107232+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (7, 1, '2026-04-15', '16:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:20:07.107232+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (8, 2, '2026-04-30', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:20:07.107232+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (8, 1, '2026-05-08', '19:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:20:07.107232+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (8, 3, '2026-05-25', '12:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:20:07.107232+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (8, 2, '2026-06-01', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:20:07.107232+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES (8, 1, '2026-04-10', '15:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:23:35.515943+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'admin@premium.com'), 1, '2026-05-28', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:23:35.524960+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'admin@premium.com'), 2, '2026-05-05', '12:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:23:35.526963+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'admin@premium.com'), 3, '2026-05-15', '18:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:23:35.527970+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'admin@premium.com'), 1, '2026-04-20', '10:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:23:35.528963+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'carlos@premium.com'), 1, '2026-04-29', '09:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:23:35.530961+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'carlos@premium.com'), 3, '2026-05-10', '17:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:23:35.531966+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'carlos@premium.com'), 2, '2026-05-20', '11:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:23:35.532996+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'carlos@premium.com'), 1, '2026-04-15', '16:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:23:35.534962+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'maria@premium.com'), 2, '2026-04-30', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:23:35.537964+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'maria@premium.com'), 1, '2026-05-08', '19:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:23:35.540025+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'maria@premium.com'), 3, '2026-05-25', '12:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:23:35.541017+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'maria@premium.com'), 2, '2026-06-01', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:23:35.542016+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'maria@premium.com'), 1, '2026-04-10', '15:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:24:27.424930+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'admin@premium.com'), 1, '2026-05-28', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:24:27.433932+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'admin@premium.com'), 2, '2026-05-05', '12:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:24:27.435930+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'admin@premium.com'), 3, '2026-05-15', '18:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:24:27.436930+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'admin@premium.com'), 1, '2026-04-20', '10:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:24:27.439520+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'carlos@premium.com'), 1, '2026-04-29', '09:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:24:27.440674+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'carlos@premium.com'), 3, '2026-05-10', '17:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:24:27.441672+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'carlos@premium.com'), 2, '2026-05-20', '11:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:24:27.442677+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'carlos@premium.com'), 1, '2026-04-15', '16:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:24:27.444672+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'maria@premium.com'), 2, '2026-04-30', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:24:27.446673+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'maria@premium.com'), 1, '2026-05-08', '19:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:24:27.447673+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'maria@premium.com'), 3, '2026-05-25', '12:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:24:27.449673+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'ACTIVA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'maria@premium.com'), 2, '2026-06-01', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP) [22018-224]
+2026-05-15 12:24:27.452672+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"
+Data conversion error converting "'CANCELADA' (RESERVAS: ""ESTADO"" TINYINT NOT NULL)"; SQL statement:
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion) VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'maria@premium.com'), 1, '2026-04-10', '15:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP) [22018-224]
