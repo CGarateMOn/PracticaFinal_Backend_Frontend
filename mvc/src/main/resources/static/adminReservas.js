@@ -1,3 +1,5 @@
+const API_BASE = "http://localhost:8080";
+
 document.addEventListener("DOMContentLoaded", async () => {
     const esAdmin = await comprobarAdmin();
     if (!esAdmin) return;
@@ -15,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function comprobarAdmin() {
-    const respuesta = await fetch("/pistaPadel/auth/me", {
+    const respuesta = await fetch(`${API_BASE}/pistaPadel/auth/me`, {
         credentials: "include"
     });
 
@@ -52,7 +54,7 @@ async function cargarReservas() {
     if (userId) params.set("userId", userId);
 
     try {
-        const respuesta = await fetch(`/pistaPadel/admin/reservations?${params.toString()}`, {
+        const respuesta = await fetch(`${API_BASE}/pistaPadel/admin/reservations?${params.toString()}`, {
             method: "GET",
             credentials: "include"
         });
