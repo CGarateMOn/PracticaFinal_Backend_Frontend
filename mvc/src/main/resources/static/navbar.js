@@ -1,66 +1,104 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    // 1. Buscamos los enlaces de Login, SignIn y la etiqueta de Admin
+    marcarPaginaActual();
+
     const linkLogin = document.querySelector('a[href*="logIn.html"]');
     const linkSignIn = document.querySelector('a[href*="SignIn.html"]');
-    const adminBadge = document.querySelector('.admin-badge');
+    const adminBadge = document.querySelector(".admin-badge");
 
     try {
-        // 2. Comprobamos si hay sesión iniciada
-        const respuesta = await fetch('/pistaPadel/auth/me', { credentials: 'include' });
+        const respuesta = await fetch("/pistaPadel/auth/me", {
+            credentials: "include"
+        });
 
         if (respuesta.ok) {
-            // === USUARIO CON SESIÓN INICIADA ===
             const perfil = await respuesta.json();
 
-            // Ocultamos Login y SignIn
-            if (linkLogin) linkLogin.style.display = 'none';
-            if (linkSignIn) linkSignIn.style.display = 'none';
+            // Si hay sesión, ocultamos SOLO login y registro.
+            // No ocultamos Reservar, Mis reservas, Perfil, Notificaciones, etc.
+            if (linkLogin) linkLogin.style.display = "none";
+            if (linkSignIn) linkSignIn.style.display = "none";
 
-            // Buscamos el grupo derecho de la barra de navegación para inyectar "Cerrar sesión"
-            const navGroups = document.querySelectorAll('.nav-grupo');
-            const navDerecha = navGroups.length > 1 ? navGroups[1] : navGroups[0];
+            insertarBotonLogout();
 
-            if (navDerecha && !document.getElementById('nav-logout')) {
-                // Creamos el botón de Cerrar Sesión
-                const btnLogout = document.createElement('a');
-                btnLogout.href = "#";
-                btnLogout.className = "nav-link";
-                btnLogout.id = "nav-logout";
-                btnLogout.textContent = "Cerrar sesión";
-                btnLogout.style.color = "#ff4c4c"; // Para que destaque un poco en rojo
-                btnLogout.style.fontWeight = "bold";
-
-                // Le damos la funcionalidad de salir
-                btnLogout.addEventListener("click", async (e) => {
-                    e.preventDefault();
-                    if (!confirm("¿Seguro que quieres cerrar sesión?")) return;
-
-                    await fetch('/pistaPadel/auth/logout', { method: 'POST', credentials: 'include' });
-                    sessionStorage.clear();
-                    window.location.href = "index.html";
-                });
-
-                // Lo añadimos al final de la barra (después de Perfil y Notificaciones)
-                navDerecha.appendChild(btnLogout);
-            }
-
-            // Mostramos u ocultamos el botón de Admin según su rol
-            if (perfil.rol === "ADMIN") {
-                if (adminBadge) adminBadge.style.display = 'inline-block';
-            } else {
-                if (adminBadge) adminBadge.style.display = 'none';
+            if (adminBadge) {
+                adminBadge.style.display = perfil.rol === "ADMIN" ? "inline-block" : "none";
             }
 
         } else {
-            // === USUARIO SIN SESIÓN ===
-            // Ocultamos el badge de Admin por seguridad
-            if (adminBadge) adminBadge.style.display = 'none';
+            // Si no hay sesión, mostramos login/signin y ocultamos badge admin.
+            if (linkLogin) linkLogin.style.display = "inline-block";
+            if (linkSignIn) linkSignIn.style.display = "inline-block";
 
-            // Aseguramos que Login y SignIn se vean (Perfil y Notificaciones no los tocamos, se quedan visibles)
-            if (linkLogin) linkLogin.style.display = 'inline-block';
-            if (linkSignIn) linkSignIn.style.display = 'inline-block';
+            if (adminBadge) {
+                adminBadge.style.display = "none";
+            }
         }
+
     } catch (error) {
         console.error("Error al cargar la barra de navegación:", error);
+
+        // En caso de error, no redirigimos ni rompemos la cabecera.
+        // Simplemente dejamos la navegación visible.
+        if (linkLogin) linkLogin.style.display = "inline-block";
+        if (linkSignIn) linkSignIn.style.display = "inline-block";
+        if (adminBadge) adminBadge.style.display = "none";
     }
 });
+
+function marcarPaginaActual() {
+    const paginaActual = window.location.pathname.split("/").pop() || "index.html";
+    const enlaces = document.querySelectorAll(".nav-link, .logo");
+
+    enlaces.forEach(enlace => {
+        const href = enlace.getAttribute("href");
+
+        if (!href) return;
+
+        const paginaEnlace = href.split("/").pop();
+
+        if (paginaEnlace === paginaActual) {
+            enlace.classList.add("nav-activo");
+        } else {
+            enlace.classList.remove("nav-activo");
+        }
+    });
+}
+
+function insertarBotonLogout() {
+    if (document.getElementById("nav-logout")) return;
+
+    const navGroups = document.querySelectorAll(".nav-grupo");
+
+    if (navGroups.length === 0) return;
+
+    const navDerecha = navGroups.length > 1
+        ? navGroups[1]
+        : navGroups[0];
+
+    const btnLogout = document.createElement("a");
+    btnLogout.href = "#";
+    btnLogout.className = "nav-link";
+    btnLogout.id = "nav-logout";
+    btnLogout.textContent = "Cerrar sesión";
+
+    btnLogout.addEventListener("click", async (event) => {
+        event.preventDefault();
+
+        const confirmar = confirm("¿Seguro que quieres cerrar sesión?");
+        if (!confirmar) return;
+
+        try {
+            await fetch("/pistaPadel/auth/logout", {
+                method: "POST",
+                credentials: "include"
+            });
+        } catch (error) {
+            console.error("Error cerrando sesión:", error);
+        }
+
+        sessionStorage.clear();
+        window.location.href = "index.html";
+    });
+
+    navDerecha.appendChild(btnLogout);
+}

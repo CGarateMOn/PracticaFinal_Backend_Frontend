@@ -93,6 +93,30 @@
     column-gap: 20px;
 }
 
+.nav-link{
+    color: #166534;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    padding: 8px 14px;
+    border-radius: 20px;
+}
+
+.nav-activo {
+    background-color: #166534;
+    color: white !important;
+}
+
+.logo.nav-activo {
+    background-color: transparent;
+    color: #166534 !important;
+    padding: 0;
+}
+
+.icono.nav-activo {
+    padding: 6px 10px;
+}
+
 @media only screen and (max-width: 899px){
     .cabecera{
         flex-direction: column;
@@ -113,10 +137,6 @@
         font-size: 1.5rem;
     }
 
-    .nav-link{
-        font-size: 1.1rem;
-        width: 100%;
-    }
 }
 @media only screen and (min-width: 900px){
     .pistas{
