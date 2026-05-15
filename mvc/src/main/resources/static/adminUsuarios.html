@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Gestión de Pistas</title>
+        <title>Gestión de Usuarios</title>
         <link rel="stylesheet" href="styles.css">
         <link rel="icon" type="image/png" href="src/Captura de pantalla 2026-04-15 171537.png">
     </head>
@@ -27,125 +27,58 @@
         <main class="contenedor-principal admin-dashboard">
             <section class="intro">
                 <h2>Gestión de usuarios</h2>
+                <p>Consulta y administra los usuarios registrados.</p>
             </section>
-            <div class="espacio"></div>
-            
-            <input type="radio" name="filtro-usuarios-admin" id="usuarios-todos" checked class="filtro-oculto">
-            <input type="radio" name="filtro-usuarios-admin" id="usuarios-activos" class="filtro-oculto">
-            <input type="radio" name="filtro-usuarios-admin" id="usuarios-inactivos" class="filtro-oculto">
-            <input type="radio" name="filtro-usuarios-admin" id="usuarios-admins" class="filtro-oculto">
-            <input type="radio" name="filtro-usuarios-admin" id="usuarios-users" class="filtro-oculto">
-
             <section class="admin-bloque">
                 <div class="admin-bloque-cabecera admin-toolbar">
-                    <div class="menu-filtros admin-menu-filtros">
-                        <label for="usuarios-todos" class="btn-filtro">Todos</label>
-                        <label for="usuarios-activos" class="btn-filtro">Activos</label>
-                        <label for="usuarios-inactivos" class="btn-filtro">Inactivos</label>
-                        <label for="usuarios-admins" class="btn-filtro">Admins</label>
-                        <label for="usuarios-users" class="btn-filtro">Users</label>
+                    <div class="form-group">
+                        <label for="filtroRol">Rol</label>
+                        <select id="filtroRol" class="select-admin">
+                            <option value="">Todos</option>
+                            <option value="ADMIN">Admin</option>
+                            <option value="USER">User</option>
+                        </select>
                     </div>
+                    <div class="form-group">
+                        <label for="filtroActivo">Estado</label>
+                        <select id="filtroActivo" class="select-admin">
+                            <option value="">Todos</option>
+                            <option value="true">Activos</option>
+                            <option value="false">Inactivos</option>
+                        </select>
+                    </div>
+                    <button type="button" id="btnFiltrarUsuarios" class="btn-filtro btn-admin-principal">
+                        Filtrar
+                    </button>
+                    <button type="button" id="btnLimpiarFiltrosUsuarios" class="btn-filtro">
+                        Limpiar
+                    </button>
                 </div>
-
+                <p id="mensajeUsuarios" class="login-footer"></p>
                 <div class="tabla-admin-wrapper">
                     <table class="tabla-admin tabla-usuarios-admin">
                         <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Usuario</th>
-                                <th>Email</th>
-                                <th>Teléfono</th>
-                                <th>Rol</th>
-                                <th>Estado</th>
-                                <th>Fecha registro</th>
-                                <th>Acción</th>
-                            </tr>
+                        <tr>
+                            <th>ID</th>
+                            <th>Usuario</th>
+                            <th>Email</th>
+                            <th>Teléfono</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                            <th>Fecha registro</th>
+                            <th>Acción</th>
+                        </tr>
                         </thead>
-                        <tbody>
-                            <tr class="fila-usuario-admin activo rol-user">
-                                <td>01</td>
-                                <td>María García</td>
-                                <td>maria.garcia@email.com</td>
-                                <td>+34 600 123 456</td>
-                                <td><span class="rol-admin-badge rol-user-badge">USER</span></td>
-                                <td><span class="estado-admin estado-activa">ACTIVO</span></td>
-                                <td>10/01/2026</td>
-                                <td class="acciones-tabla">
-                                    <a href="adminUsuarioDetalle.html" class="accion-tabla editar">Gestionar</a>
-                                </td>
-                            </tr>
-
-                            <tr class="fila-usuario-admin activo rol-admin">
-                                <td>02</td>
-                                <td>Carlos Martín</td>
-                                <td>carlos.martin@email.com</td>
-                                <td>+34 611 222 333</td>
-                                <td><span class="rol-admin-badge rol-admin-badge-verde">ADMIN</span></td>
-                                <td><span class="estado-admin estado-activa">ACTIVO</span></td>
-                                <td>11/01/2026</td>
-                                <td class="acciones-tabla">
-                                    <a href="adminUsuarioDetalle.html" class="accion-tabla editar">Gestionar</a>
-                                </td>
-                            </tr>
-
-                            <tr class="fila-usuario-admin inactivo rol-user">
-                                <td>03</td>
-                                <td>Lucía Pérez</td>
-                                <td>lucia.perez@email.com</td>
-                                <td>+34 622 444 555</td>
-                                <td><span class="rol-admin-badge rol-user-badge">USER</span></td>
-                                <td><span class="estado-admin estado-inactiva">INACTIVO</span></td>
-                                <td>12/01/2026</td>
-                                <td class="acciones-tabla">
-                                    <a href="adminUsuarioDetalle.html" class="accion-tabla editar">Gestionar</a>
-                                </td>
-                            </tr>
-
-                            <tr class="fila-usuario-admin activo rol-user">
-                                <td>04</td>
-                                <td>Javier Ruiz</td>
-                                <td>javier.ruiz@email.com</td>
-                                <td>+34 633 666 777</td>
-                                <td><span class="rol-admin-badge rol-user-badge">USER</span></td>
-                                <td><span class="estado-admin estado-activa">ACTIVO</span></td>
-                                <td>13/01/2026</td>
-                                <td class="acciones-tabla">
-                                    <a href="adminUsuarioDetalle.html" class="accion-tabla editar">Gestionar</a>
-                                </td>
-                            </tr>
-
-                            <tr class="fila-usuario-admin activo rol-admin">
-                                <td>05</td>
-                                <td>Ana López</td>
-                                <td>ana.lopez@email.com</td>
-                                <td>+34 644 888 999</td>
-                                <td><span class="rol-admin-badge rol-admin-badge-verde">ADMIN</span></td>
-                                <td><span class="estado-admin estado-activa">ACTIVO</span></td>
-                                <td>15/01/2026</td>
-                                <td class="acciones-tabla">
-                                    <a href="adminUsuarioDetalle.html" class="accion-tabla editar">Gestionar</a>
-                                </td>
-                            </tr>
-
-                            <tr class="fila-usuario-admin inactivo rol-user">
-                                <td>06</td>
-                                <td>Paula Sánchez</td>
-                                <td>paula.sanchez@email.com</td>
-                                <td>+34 655 111 222</td>
-                                <td><span class="rol-admin-badge rol-user-badge">USER</span></td>
-                                <td><span class="estado-admin estado-inactiva">INACTIVO</span></td>
-                                <td>18/01/2026</td>
-                                <td class="acciones-tabla">
-                                    <a href="adminUsuarioDetalle.html" class="accion-tabla editar">Gestionar</a>
-                                </td>
-                            </tr>
+                        <tbody id="tablaUsuarios">
                         </tbody>
                     </table>
                 </div>
             </section>
         </main>
-    </body>        
-    <footer class="login-footer">
-        <p>@ 2026 Premium Padel Club</p>
-    </footer>
+        <script src="adminUsuarios.js"></script>
+        <script src="navbar.js"></script>
+        <footer class="login-footer">
+            <p>@ 2026 Premium Padel Club</p>
+        </footer>
+    </body>
 </html>
