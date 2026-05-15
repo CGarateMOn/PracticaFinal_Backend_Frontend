@@ -1,3 +1,7 @@
+
+-- Se usa WHERE NOT EXISTS para evitar duplicados en cada arranque de la aplicación.
+
+
 -- Usuarios
 INSERT INTO usuarios (nombre, apellidos, email, password, telefono, rol, activo, fecha_registro)
 SELECT 'Admin', 'Premium', 'admin@premium.com', 'nbW1k43JDpIQ8yBgGHtTkg==:puWmqRLR1ftsaQLQo/V2Kg==', '+34 600000000', 'ADMIN', TRUE, CURRENT_TIMESTAMP
