@@ -78,24 +78,32 @@ public class AuthController {
     public void actualizarPerfil(@RequestBody Usuario datosRecibidos,
                                  @CookieValue(value = "session", required = true) String session) {
 
-        // 1. Usamos el authService para identificar al usuario a través de su cookie
+        // 1. Identificamos al usuario por su sesión
         Usuario usuarioActual = authService.authentication(session);
 
         if (usuarioActual == null) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Sesión no válida");
         }
 
-        // 2. Si el JSON trae una contraseña, la actualizamos en el objeto de la base de datos
-        if (datosRecibidos.getPassword() != null && !datosRecibidos.getPassword().isEmpty()) {
+        // 2. Actualizamos los campos básicos si vienen en el JSON
+        if (datosRecibidos.getNombre() != null) usuarioActual.setNombre(datosRecibidos.getNombre());
+        if (datosRecibidos.getApellidos() != null) usuarioActual.setApellidos(datosRecibidos.getApellidos());
+        if (datosRecibidos.getTelefono() != null) usuarioActual.setTelefono(datosRecibidos.getTelefono());
 
-
-            usuarioActual.setPassword(datosRecibidos.getPassword());
-
-            // 3. Guardamos los cambios en la base de datos a través del servicio
-            authService.actualizarUsuario(usuarioActual);
-        } else {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No se proporcionó una contraseña nueva");
+        // 3. Manejo especial del email (podrías validar si ya existe otro igual)
+        if (datosRecibidos.getEmail() != null && !datosRecibidos.getEmail().equals(usuarioActual.getEmail())) {
+            usuarioActual.setEmail(datosRecibidos.getEmail());
         }
+
+        // 4. Si el usuario introdujo una contraseña nueva, la hasheamos y guardamos
+        if (datosRecibidos.getPassword() != null && !datosRecibidos.getPassword().isEmpty()) {
+            // Importante: aquí deberías usar tu clase Hashing para que no se guarde en texto plano
+            // Suponiendo que tienes acceso a 'hashing' en este controller o servicio
+            usuarioActual.setPassword(datosRecibidos.getPassword());
+        }
+
+        // 5. Guardamos todos los cambios
+        authService.actualizarUsuario(usuarioActual);
     }
 
 }

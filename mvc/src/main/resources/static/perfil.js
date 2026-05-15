@@ -1,53 +1,45 @@
-async function cargarPerfil(){
-    const respuesta= await fetch("http://localhost:8080/pistaPadel/auth/me", {
-        credentials: "include"
-    });
+async function cargarPerfil() {
+    try {
+        const respuesta = await fetch("/pistaPadel/auth/me", { credentials: "include" });
 
-    console.log("Status recibido:", respuesta.status);
+        if (respuesta.status === 401 || respuesta.status === 400) {
+            mostrarAlertaLogin(); // La función que creamos antes
+            return;
+        }
 
-    if(respuesta.status===401){
-        mostrarAlertaLogin();
-        return;
+        const perfil = await respuesta.json();
+
+        // Rellenamos los inputs con los datos actuales del usuario
+        document.getElementById("saludo").textContent = `Hola, ${perfil.nombre}!!`;
+        document.getElementById("inputNombre").value = perfil.nombre;
+        document.getElementById("inputApellidos").value = perfil.apellidos;
+        document.getElementById("inputEmail").value = perfil.email;
+        document.getElementById("inputTelefono").value = perfil.telefono || "";
+
+    } catch (error) {
+        console.error("Error al cargar perfil:", error);
     }
-
-    const perfil = await respuesta.json();
-    console.log("Perfil recibido:", perfil);
-
-    document.getElementById("saludo").textContent = `Hola, ${perfil.nombre}!!`;
-    document.getElementById("tdNombre").textContent=perfil.nombre;
-    document.getElementById("tdApellidos").textContent=perfil.apellidos;
-    document.getElementById("tdEmail").textContent=perfil.email;
-    document.getElementById("tdRol").textContent=perfil.rol;
-    if (perfil.telefono !== null && perfil.telefono !== undefined) {
-        document.getElementById("tdTelefono").textContent = perfil.telefono;
-    } else {
-        document.getElementById("tdTelefono").textContent = "No disponible";
-    }
-
 }
 
-function mostrarAlertaLogin() {
-    const contenedorPrincipal = document.querySelector("main");
-    contenedorPrincipal.innerHTML = `
-        <div class="intro" style="text-align: center; padding: 50px 20px;">
-            <h2>Acceso Restringido</h2>
-            <p>Necesitas iniciar sesión para ver tu perfil y gestionar tus datos.</p>
-            <div class="espacio"></div>
-            <a href="logIn.html" class="btn-login" style="text-decoration: none; display: inline-block; padding: 10px 30px;">Ir a Iniciar Sesión</a>
-        </div>
-    `;
-}
-
-// 2. LÓGICA PARA GUARDAR CAMBIOS
+// Lógica para GUARDAR TODOS LOS CAMBIOS
 document.querySelector(".guardar-cambios").addEventListener("click", async () => {
+    const nombre = document.getElementById("inputNombre").value.trim();
+    const apellidos = document.getElementById("inputApellidos").value.trim();
+    const email = document.getElementById("inputEmail").value.trim();
+    const telefono = document.getElementById("inputTelefono").value.trim();
     const p1 = document.getElementById("pass1").value;
     const p2 = document.getElementById("pass2").value;
 
-    // Objeto que enviaremos al backend
-    const datosParaActualizar = {};
+    // Construimos el objeto con los datos básicos
+    const datosParaActualizar = {
+        nombre: nombre,
+        apellidos: apellidos,
+        email: email,
+        telefono: telefono
+    };
 
-    // Solo validamos y añadimos la contraseña si el usuario escribió algo
-    if (p1.length > 0 || p2.length > 0) {
+    // Si el usuario escribió algo en el campo de contraseña, validamos
+    if (p1.length > 0) {
         if (p1 !== p2) {
             alert("Las contraseñas no coinciden.");
             return;
@@ -56,29 +48,26 @@ document.querySelector(".guardar-cambios").addEventListener("click", async () =>
             alert("La contraseña debe tener al menos 4 caracteres.");
             return;
         }
-        // Añadimos la nueva contraseña al objeto
         datosParaActualizar.password = p1;
-    } else {
-        alert("No has introducido ninguna nueva contraseña.");
-        return;
     }
 
     try {
-        const respuesta = await fetch("pistaPadel/auth/actualizar", {
+        const respuesta = await fetch(`/pistaPadel/auth/actualizar`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            credentials: "include", // Vital para enviar la cookie de sesión
+            credentials: "include",
             body: JSON.stringify(datosParaActualizar)
         });
 
         if (respuesta.ok) {
-            alert("¡Contraseña actualizada correctamente!");
-            // Limpiamos los inputs por seguridad
+            alert("¡Perfil actualizado correctamente!");
+            // Actualizamos el saludo por si cambió el nombre
+            document.getElementById("saludo").textContent = `Hola, ${nombre}!!`;
+            // Limpiamos los campos de password por seguridad
             document.getElementById("pass1").value = "";
             document.getElementById("pass2").value = "";
         } else {
-            const errorData = await respuesta.json().catch(() => ({}));
-            alert("Error al actualizar: " + (errorData.message || "Consulte al administrador"));
+            alert("Error al actualizar los datos.");
         }
     } catch (error) {
         console.error("Error en la conexión:", error);
@@ -86,29 +75,4 @@ document.querySelector(".guardar-cambios").addEventListener("click", async () =>
     }
 });
 
-document.getElementById("btn-logout").addEventListener("click", async () => {
-    // Le pedimos confirmación al usuario por si ha hecho clic sin querer
-    const confirmar = confirm("¿Estás seguro de que quieres cerrar sesión?");
-    if (!confirmar) return;
-
-    try {
-        // Hacemos la petición POST a tu endpoint de logout
-        const respuesta = await fetch('/pistaPadel/auth/logout', {
-            method: 'POST',
-            credentials: 'include' // Obligatorio para enviar la cookie actual y que el backend la borre
-        });
-
-        if (respuesta.ok || respuesta.status === 204) { // Tu backend devuelve 204 NO_CONTENT
-            // Limpiamos los datos temporales del navegador por seguridad
-            sessionStorage.clear();
-            // Redirigimos al usuario a la pantalla de inicio o de login
-            window.location.href = "index.html";
-        } else {
-            alert("Hubo un problema al cerrar sesión. Código: " + respuesta.status);
-        }
-    } catch (error) {
-        console.error("Error al intentar cerrar sesión:", error);
-        alert("No se pudo conectar con el servidor.");
-    }
-});
 cargarPerfil();

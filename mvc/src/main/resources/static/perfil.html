@@ -41,39 +41,26 @@
         <table>
             <tr>
                 <td>Id de usuario</td>
-                <td>12345678</td>
-            </tr>
-            <tr>
-                <td>Estado</td>
-                <td>Activo</td>
-            </tr>
+                <td id="tdId">12345678</td> </tr>
             <tr>
                 <td>Nombre</td>
-                <td id="tdNombre"></td>
+                <td><input type="text" id="inputNombre" class="text-area"></td>
             </tr>
             <tr>
                 <td>Apellidos</td>
-                <td id="tdApellidos"></td>
-            </tr>
-            <tr>
-                <td>Rol</td>
-                <td id="tdRol"></td>
-            </tr>
-            <tr>
-                <td>Fecha de Nacimiento</td>
-                <td><input type="date" value="1990-01-01"></td>
+                <td><input type="text" id="inputApellidos" class="text-area"></td>
             </tr>
             <tr>
                 <td>Email</td>
-                <td id="tdEmail"></td>
+                <td><input type="email" id="inputEmail" class="text-area"></td>
             </tr>
             <tr>
                 <td>Teléfono</td>
-                <td id="tdTelefono"></td>
+                <td><input type="tel" id="inputTelefono" class="text-area"></td>
             </tr>
             <tr>
-                <td>Contraseña</td>
-                <td><input type="password" id="pass1" class="text-area" placeholder="Nueva contraseña"></td>
+                <td>Nueva Contraseña</td>
+                <td><input type="password" id="pass1" class="text-area" placeholder="Dejar en blanco para no cambiar"></td>
             </tr>
             <tr>
                 <td>Confirmar Contraseña</td>
@@ -84,11 +71,7 @@
                 <td>2023-01-01</td>
             </tr>
         </table>
-
-        <div style="display: flex; gap: 15px; margin-top: 20px;">
             <button class="guardar-cambios btn-login" style="padding: 10px 20px; border: none; cursor: pointer;">Guardar Cambios</button>
-            <button id="btn-logout" class="btn-cancelar" style="padding: 10px 20px; cursor: pointer;">Cerrar Sesión</button>
-        </div>
     </section>
 </main>
 <footer class="login-footer">
