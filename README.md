@@ -21,7 +21,7 @@ Todos los usuarios tienen la misma contraseña: **1234**
 | Nombre | Email | Rol |
 |---|---|---|
 | Admin Premium | admin@premium.com | **ADMIN** |
-| Carlos Martín | carlos@premium.com | Cliente |
+| Carlos III Martín | carlos@premium.com | Cliente |
 | María García | maria@premium.com | Cliente |
 | Lady Amalia IV de Inglaterra | amalia@premium.com | Cliente |
 | Asistenta Limpiadora Martina | martina@premium.com | Cliente |
