@@ -5,6 +5,7 @@ import edu.comillas.icai.gitt.pat.spring.mvc.entidades.Usuario;
 import edu.comillas.icai.gitt.pat.spring.mvc.modelos.Rol;
 import edu.comillas.icai.gitt.pat.spring.mvc.service.AuthService;
 import edu.comillas.icai.gitt.pat.spring.mvc.service.ReservaService;
+import edu.comillas.icai.gitt.pat.spring.mvc.util.Hashing;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
