@@ -33,6 +33,7 @@ public class Reserva {
     @Column(nullable = false)
     private Integer duracionMinutos;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private EstadoReserva estado = EstadoReserva.ACTIVA;
 
