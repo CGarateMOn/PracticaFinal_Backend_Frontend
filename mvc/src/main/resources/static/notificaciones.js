@@ -37,7 +37,7 @@ function mostrarAlertaLogin() {
         <div style="text-align: center; padding: 50px 20px; background-color: #f8f9fa; border-radius: 10px; border: 1px solid #ddd; margin-top: 20px;">
             <h3 style="margin-bottom: 15px; color: #333;">Acceso Restringido</h3>
             <p style="margin-bottom: 25px; color: #666;">Necesitas iniciar sesión para ver tus notificaciones.</p>
-            <a href="logIn.html" class="btn-login" style="text-decoration: none; display: inline-block; padding: 10px 30px;">Ir a Iniciar Sesión</a>
+            <a href="logIn.html" class="btn-login" style="text-decoration: none; display: inline-block; width: max-content; margin: 0 auto; padding: 10px 30px;">Ir a Iniciar Sesión</a>
         </div>
     `;
 }
