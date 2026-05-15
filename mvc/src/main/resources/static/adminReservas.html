@@ -23,8 +23,61 @@
                 <a href="perfil.html" class="nav-link icono">&#128100</a>
             </div>
         </header>
-        <div class="espacio"></div>
+        <main class="contenedor-principal admin-dashboard">
+            <section class="intro">
+                <h2>Gestión de reservas</h2>
+                <p>Consulta y filtra las reservas realizadas en el club.</p>
+            </section>
 
+            <section class="admin-bloque">
+                <div class="admin-bloque-cabecera admin-toolbar">
+                    <div class="form-group">
+                        <label for="inputFecha">Fecha</label>
+                        <input type="date" id="inputFecha">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPista">ID pista</label>
+                        <input type="number" id="inputPista" placeholder="Ej: 1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputUsuario">ID usuario</label>
+                        <input type="number" id="inputUsuario" placeholder="Ej: 3">
+                    </div>
+
+                    <button type="button" id="btnFiltrarReservas" class="btn-filtro btn-admin-principal">
+                        Filtrar
+                    </button>
+
+                    <button type="button" id="btnLimpiarFiltros" class="btn-filtro">
+                        Limpiar
+                    </button>
+                </div>
+
+                <p id="mensajeReservas" class="login-footer"></p>
+
+                <div class="tabla-admin-wrapper">
+                    <table class="tabla-admin">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Usuario</th>
+                            <th>Pista</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Duración</th>
+                            <th>Estado</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tablaReservas">
+                        <!-- JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+        <div class="espacio"></div>
     <script src="adminReservas.js"></script>
 </body>
 </html>
