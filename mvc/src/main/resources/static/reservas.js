@@ -107,12 +107,12 @@ function generarBotonesHoras(tramos, idPista){
         return;
     }
 
-    const datosReserva = {
-        idPista: parseInt(idPista),
-        fecha: fecha,
-        inicio: hora,
-        fin: horaFin
-    }
+     const datosReserva = {
+         pista: { idPista: parseInt(idPista) },
+         fechaReserva: fecha,
+         horaInicio: hora,
+         duracionMinutos: calcularDuracion(hora, horaFin)
+     };
 
     try{
         const respuesta = await fetch(`http://localhost:8080/pistaPadel/reservations`,{
@@ -122,14 +122,16 @@ function generarBotonesHoras(tramos, idPista){
             credentials: 'include'
         });
 
-        if(respuesta.status === 401 || respuesta.status === 400 || respuesta.status === 500){
+        if (respuesta.status === 401) {
             alert("Tu sesión ha caducado. Por favor, inicia sesión.");
             window.location.href = 'logIn.html';
             return;
         }
 
-        if(!respuesta.ok){
-            throw  new Error(`Error del servidor : ${respuesta.status}`);
+        if (!respuesta.ok) {
+            const textoError = await respuesta.text();
+            console.error("Error del backend:", respuesta.status, textoError);
+            throw new Error(`Error del servidor: ${respuesta.status}`);
         }
 
         alert("¡Reserva realizada con éxito");
@@ -140,4 +142,10 @@ function generarBotonesHoras(tramos, idPista){
         boton.disabled = false;
         boton.innerText = textoOriginal;
     }
+}
+
+function calcularDuracion(horaInicio, horaFin) {
+    const [h1, m1] = horaInicio.split(":").map(Number);
+    const [h2, m2] = horaFin.split(":").map(Number);
+    return (h2 * 60 + m2) - (h1 * 60 + m1);
 }
