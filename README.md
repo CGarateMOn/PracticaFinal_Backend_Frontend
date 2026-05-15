@@ -112,7 +112,7 @@ static/
 └── styles.css                    (hoja de estilos compartida)
 ```
  
-> Todos los HTMLs están implementados. Algunos JavaScripts están aún en desarrollo; el patrón de nomenclatura es `nombrePagina.js` para cada `nombrePagina.html`.
+
  
 ---
  
