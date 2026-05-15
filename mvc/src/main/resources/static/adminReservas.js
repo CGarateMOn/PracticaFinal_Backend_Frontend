@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const esAdmin = await comprobarAdmin();
     if (!esAdmin) return;
 
+    await cargarFiltros();
+
     document.getElementById("btnFiltrarReservas").addEventListener("click", cargarReservas);
 
     document.getElementById("btnLimpiarFiltros").addEventListener("click", () => {
@@ -15,7 +17,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     await cargarReservas();
 });
-
 async function comprobarAdmin() {
     const respuesta = await fetch(`${API_BASE}/pistaPadel/auth/me`, {
         credentials: "include"
@@ -126,4 +127,36 @@ function renderizarReservas(reservas) {
             </tr>
         `;
     }).join("");
+}
+async function cargarFiltros() {
+    try {
+        const [respPistas, respUsuarios] = await Promise.all([
+            fetch(`${API_BASE}/pistaPadel/courts`, { credentials: "include" }),
+            fetch(`${API_BASE}/pistaPadel/users`, { credentials: "include" })
+        ]);
+
+        if (respPistas.ok) {
+            const pistas = await respPistas.json();
+            const selectPista = document.getElementById("inputPista");
+            pistas.forEach(pista => {
+                const option = document.createElement("option");
+                option.value = pista.idPista;
+                option.textContent = pista.nombre;
+                selectPista.appendChild(option);
+            });
+        }
+
+        if (respUsuarios.ok) {
+            const usuarios = await respUsuarios.json();
+            const selectUsuario = document.getElementById("inputUsuario");
+            usuarios.forEach(usuario => {
+                const option = document.createElement("option");
+                option.value = usuario.idUsuario;
+                option.textContent = `${usuario.nombre} ${usuario.apellidos}`;
+                selectUsuario.appendChild(option);
+            });
+        }
+    } catch (error) {
+        console.error("Error cargando filtros:", error);
+    }
 }

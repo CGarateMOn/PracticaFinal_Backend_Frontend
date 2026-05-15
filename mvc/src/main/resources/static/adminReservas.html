@@ -37,13 +37,17 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="inputPista">ID pista</label>
-                        <input type="number" id="inputPista" placeholder="Ej: 1">
+                        <label for="inputPista">Pista</label>
+                        <select id="inputPista">
+                            <option value="">Todas las pistas</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="inputUsuario">ID usuario</label>
-                        <input type="number" id="inputUsuario" placeholder="Ej: 3">
+                        <label for="inputUsuario">Usuario</label>
+                        <select id="inputUsuario">
+                            <option value="">Todos los usuarios</option>
+                        </select>
                     </div>
 
                     <button type="button" id="btnFiltrarReservas" class="btn-filtro btn-admin-principal">
@@ -78,7 +82,9 @@
             </section>
         </main>
         <div class="espacio"></div>
+
     <script src="adminReservas.js"></script>
-    <script src="navbar.js"></script>
+        <script src="navbar.js"></script>
+
 </body>
 </html>
