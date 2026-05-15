@@ -86,4 +86,29 @@ document.querySelector(".guardar-cambios").addEventListener("click", async () =>
     }
 });
 
+document.getElementById("btn-logout").addEventListener("click", async () => {
+    // Le pedimos confirmación al usuario por si ha hecho clic sin querer
+    const confirmar = confirm("¿Estás seguro de que quieres cerrar sesión?");
+    if (!confirmar) return;
+
+    try {
+        // Hacemos la petición POST a tu endpoint de logout
+        const respuesta = await fetch('/pistaPadel/auth/logout', {
+            method: 'POST',
+            credentials: 'include' // Obligatorio para enviar la cookie actual y que el backend la borre
+        });
+
+        if (respuesta.ok || respuesta.status === 204) { // Tu backend devuelve 204 NO_CONTENT
+            // Limpiamos los datos temporales del navegador por seguridad
+            sessionStorage.clear();
+            // Redirigimos al usuario a la pantalla de inicio o de login
+            window.location.href = "index.html";
+        } else {
+            alert("Hubo un problema al cerrar sesión. Código: " + respuesta.status);
+        }
+    } catch (error) {
+        console.error("Error al intentar cerrar sesión:", error);
+        alert("No se pudo conectar con el servidor.");
+    }
+});
 cargarPerfil();
