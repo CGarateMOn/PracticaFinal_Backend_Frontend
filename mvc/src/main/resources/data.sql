@@ -11,6 +11,13 @@ INSERT INTO usuarios (nombre, apellidos, email, password, telefono, rol, activo,
 SELECT 'María', 'García', 'maria@premium.com', 'nbW1k43JDpIQ8yBgGHtTkg==:puWmqRLR1ftsaQLQo/V2Kg==', '+34 622222222', 'USER', TRUE, CURRENT_TIMESTAMP
     WHERE NOT EXISTS (SELECT 1 FROM usuarios WHERE email = 'maria@premium.com');
 
+-- Usuario Amalia
+INSERT INTO usuarios (nombre, apellidos, email, password, telefono, rol, activo, fecha_registro)
+SELECT 'Lady Amalia IV de Inglaterra', 'Amalia', 'amalia@premium.com', 'nbW1k43JDpIQ8yBgGHtTkg==:puWmqRLR1ftsaQLQo/V2Kg==', '+34 633333333', 'USER', TRUE, CURRENT_TIMESTAMP
+    WHERE NOT EXISTS (SELECT 1 FROM usuarios WHERE email = 'amalia@premium.com');
+
+
+
 -- Pistas
 INSERT INTO pistas (nombre, ubicacion, precio_hora, activa, fecha_alta)
 SELECT 'Pista 1', 'Zona Norte', 15.00, TRUE, CURRENT_DATE
@@ -59,3 +66,54 @@ INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion
 VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'maria@premium.com'), 2, '2026-06-01', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
 INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
 VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'maria@premium.com'), 1, '2026-04-10', '15:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP);
+
+
+-- Reservas Amalia
+-- Reservas para Amalia
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'amalia@premium.com'), 3, '2026-05-22', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'amalia@premium.com'), 1, '2026-06-03', '16:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP);
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'amalia@premium.com'), 2, '2026-06-10', '12:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'amalia@premium.com'), 1, '2026-04-18', '11:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP);
+
+-- Usuario Martina
+INSERT INTO usuarios (nombre, apellidos, email, password, telefono, rol, activo, fecha_registro)
+SELECT 'Asistenta Limpiadora Martina', 'Asistenta Martina Limpiadora', 'martina@premium.com', 'nbW1k43JDpIQ8yBgGHtTkg==:puWmqRLR1ftsaQLQo/V2Kg==', '+34 644444444', 'USER', TRUE, CURRENT_TIMESTAMP
+    WHERE NOT EXISTS (SELECT 1 FROM usuarios WHERE email = 'martina@premium.com');
+
+-- Reservas para Martina
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'martina@premium.com'), 2, '2026-05-27', '09:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'martina@premium.com'), 3, '2026-06-05', '14:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP);
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'martina@premium.com'), 1, '2026-04-22', '17:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP);
+
+-- Usuario Raffaella
+INSERT INTO usuarios (nombre, apellidos, email, password, telefono, rol, activo, fecha_registro)
+SELECT 'Raffaella Peruana Acevichada', 'Raffaella', 'raffaella@premium.com', 'nbW1k43JDpIQ8yBgGHtTkg==:puWmqRLR1ftsaQLQo/V2Kg==', '+34 655555555', 'USER', TRUE, CURRENT_TIMESTAMP
+    WHERE NOT EXISTS (SELECT 1 FROM usuarios WHERE email = 'raffaella@premium.com');
+
+-- Reservas para Raffaella
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'raffaella@premium.com'), 1, '2026-05-30', '11:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'raffaella@premium.com'), 3, '2026-06-08', '18:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP);
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'raffaella@premium.com'), 2, '2026-04-25', '10:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP);
+
+-- Usuario Irene
+INSERT INTO usuarios (nombre, apellidos, email, password, telefono, rol, activo, fecha_registro)
+SELECT 'Irene Paseadora de Perros Dueña de Tres Chihuahuas', 'Irene', 'irene@premium.com', 'nbW1k43JDpIQ8yBgGHtTkg==:puWmqRLR1ftsaQLQo/V2Kg==', '+34 666666666', 'USER', TRUE, CURRENT_TIMESTAMP
+    WHERE NOT EXISTS (SELECT 1 FROM usuarios WHERE email = 'irene@premium.com');
+
+-- Reservas para Irene
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'irene@premium.com'), 2, '2026-06-02', '10:00:00', 60, 'ACTIVA', CURRENT_TIMESTAMP);
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'irene@premium.com'), 1, '2026-06-12', '17:00:00', 90, 'ACTIVA', CURRENT_TIMESTAMP);
+INSERT INTO reservas (id_usuario, id_pista, fecha_reserva, hora_inicio, duracion_minutos, estado, fecha_creacion)
+VALUES ((SELECT id_usuario FROM usuarios WHERE email = 'irene@premium.com'), 3, '2026-04-28', '12:00:00', 60, 'CANCELADA', CURRENT_TIMESTAMP);
