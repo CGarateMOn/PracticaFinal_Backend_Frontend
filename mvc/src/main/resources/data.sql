@@ -14,19 +14,19 @@ SELECT 'María', 'García', 'maria@premium.com', 'gmOTRSaEv8lRmI7uKMRGkg==:s/UYg
     WHERE NOT EXISTS (SELECT 1 FROM usuarios WHERE email = 'maria@premium.com');
 
 INSERT INTO usuarios (nombre, apellidos, email, password, telefono, rol, activo, fecha_registro)
-SELECT 'Lady Amalia IV de Inglaterra', 'Amalia', 'amalia@premium.com', 'gmOTRSaEv8lRmI7uKMRGkg==:s/UYg36zeow6MIi7JAz9fg==', '+34 633333333', 'USER', TRUE, CURRENT_TIMESTAMP
+SELECT 'Lady Amalia IV de Inglaterra', 'Varo', 'amalia@premium.com', 'gmOTRSaEv8lRmI7uKMRGkg==:s/UYg36zeow6MIi7JAz9fg==', '+34 633333333', 'USER', TRUE, CURRENT_TIMESTAMP
     WHERE NOT EXISTS (SELECT 1 FROM usuarios WHERE email = 'amalia@premium.com');
 
 INSERT INTO usuarios (nombre, apellidos, email, password, telefono, rol, activo, fecha_registro)
-SELECT 'Asistenta Limpiadora Martina', 'Asistenta Martina Limpiadora', 'martina@premium.com', 'gmOTRSaEv8lRmI7uKMRGkg==:s/UYg36zeow6MIi7JAz9fg==', '+34 644444444', 'USER', TRUE, CURRENT_TIMESTAMP
+SELECT 'Asistenta Limpiadora Martina', 'Iscar', 'martina@premium.com', 'gmOTRSaEv8lRmI7uKMRGkg==:s/UYg36zeow6MIi7JAz9fg==', '+34 644444444', 'USER', TRUE, CURRENT_TIMESTAMP
     WHERE NOT EXISTS (SELECT 1 FROM usuarios WHERE email = 'martina@premium.com');
 
 INSERT INTO usuarios (nombre, apellidos, email, password, telefono, rol, activo, fecha_registro)
-SELECT 'Raffaella Peruana Acevichada', 'Raffaella', 'raffaella@premium.com', 'gmOTRSaEv8lRmI7uKMRGkg==:s/UYg36zeow6MIi7JAz9fg==', '+34 655555555', 'USER', TRUE, CURRENT_TIMESTAMP
+SELECT 'Raffaella Peruana Acevichada', 'Boccacci', 'raffaella@premium.com', 'gmOTRSaEv8lRmI7uKMRGkg==:s/UYg36zeow6MIi7JAz9fg==', '+34 655555555', 'USER', TRUE, CURRENT_TIMESTAMP
     WHERE NOT EXISTS (SELECT 1 FROM usuarios WHERE email = 'raffaella@premium.com');
 
 INSERT INTO usuarios (nombre, apellidos, email, password, telefono, rol, activo, fecha_registro)
-SELECT 'Irene Paseadora de Perros Dueña de Tres Chihuahuas', 'Irene', 'irene@premium.com', 'gmOTRSaEv8lRmI7uKMRGkg==:s/UYg36zeow6MIi7JAz9fg==', '+34 666666666', 'USER', TRUE, CURRENT_TIMESTAMP
+SELECT 'Irene Paseadora de Perros Dueña de Tres Chihuahuas', 'Morales', 'irene@premium.com', 'gmOTRSaEv8lRmI7uKMRGkg==:s/UYg36zeow6MIi7JAz9fg==', '+34 666666666', 'USER', TRUE, CURRENT_TIMESTAMP
     WHERE NOT EXISTS (SELECT 1 FROM usuarios WHERE email = 'irene@premium.com');
 
 -- Pistas
