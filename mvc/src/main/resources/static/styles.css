@@ -1,494 +1,28 @@
-.contenedor-principal{
+/* =========================
+   BASE / LAYOUT GENERAL
+   ========================= */
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #f9fafb;
+}
+
+.contenedor-principal {
     width: 90%;
     max-width: 1240px;
     margin: 0 auto 40px auto;
 }
 
-.mapa{
-    width: 100%;
-    height:600px;
-    margin-bottom: 30px;
+.espacio {
+    height: 20px;
 }
 
-.mapa img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding-bottom: 30px;
-}
-
-.mapa h2{
-    color: #166534;
-    text-align: center;
-}
-
-
-.filtro-oculto{
-    display: none;
-}
-
-.menu-filtros{
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 60px 10px;
-    flex-wrap: wrap;
-}
-
-.btn-filtro{
-    padding: 10px 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: 500;
-    color: #556;
-    transition: all 0.3s ease;
-}
-
-.btn-filtro:hover{
-    border-color: #166534;
-    color:#166534;
-}
-
-#filtro-todas:checked ~ .menu-filtros label[for="filtro-todas"],
-#filtro-interior:checked ~ .menu-filtros label[for="filtro-interior"],
-#filtro-techo:checked ~ .menu-filtros label[for="filtro-techo"],
-#filtro-sin:checked ~ .menu-filtros label[for="filtro-sin"],
-#filtro-actuales:checked ~ .menu-filtros label[for="filtro-actuales"],
-#filtro-anteriores:checked ~ .menu-filtros label[for="filtro-anteriores"],
-#filtro-todas:checked ~ .menu-filtros label[for="filtro-todas"]{
-    background-color: #166534;
-    color: white;
-    border-color: #166534;
-}
-
-#filtro-interior:checked ~ .pistas .card:not(.tipo-interior){
-    display: none;
-}
-
-#filtro-techo:checked ~ .pistas .card:not(.tipo-techo){
-    display: none;
-}
-
-#filtro-sin:checked ~ .pistas .card:not(.tipo-sin){
-    display: none;
-}
-
-#filtro-anteriores:checked ~ .lista-reservas .card-reserva:not(.tipo-anterior){
-    display: none;
-}
-#filtro-actuales:checked ~ .lista-reservas .card-reserva:not(.tipo-actual){
-    display: none;
-}
-
-.pistas{
-    width: 90%;
-    max-width: 1240px;
-    display: grid;
-    margin: 0 auto;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    position: relative;
-    column-gap: 20px;
-}
-
-.nav-link{
-    color: #166534;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: all 0.2s ease;
-    padding: 8px 14px;
-    border-radius: 20px;
-}
-
-.nav-activo {
-    background-color: #166534;
-    color: white !important;
-}
-
-.logo.nav-activo {
-    background-color: transparent;
-    color: #166534 !important;
-    padding: 0;
-}
-
-.icono.nav-activo {
-    padding: 6px 10px;
-}
-
-@media only screen and (max-width: 899px){
-    .cabecera{
-        flex-direction: column;
-        grid-area: 20px;
-        padding: 20px 10px;
-        text-align: center;
-    }
-
-    .nav-grupo{
-        flex-direction: column;
-        width: 100%;
-        gap: 15px;
-    }
-
-    .logo{
-        margin-right: 0;
-        margin-bottom: 5px;
-        font-size: 1.5rem;
-    }
-
-}
-@media only screen and (min-width: 900px){
-    .pistas{
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media only screen and (min-width: 1500px){
-    .pistas{
-        grid-template-columns:repeat(3, 1fr);
-    }
-}
-
-.info-pist{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
-    border: 1px solid #eee;
-    padding: 10px 10px;
-}
-
-.card{
-    display: flex;
-    flex-direction: column;
-    width:100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    overflow: hidden;
-    margin-bottom: 40px;
-}
-
-.imagen-pist{
-    position: relative;
-    width: 100%;
-    height: 220px;
-    overflow: hidden;
-    margin: 0;
-}
-
-.foto-principal, .foto-secundaria{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: opacity 0.3s ease;
-}
-
-.foto-secundaria{
-    opacity: 0;
-}
-
-.flecha{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    background-color: #ddd4;
-    width: 35px;
-    height: 35px;
-    border: none;
-    cursor: pointer;
-}
-
-.flecha:hover{
-    background-color: white;
-}
-
-.pasar-derecha{
-    right: 10px;
-}
-
-.pasar-izquierda{
-    left: 10px;
-}
-
-.pasar-derecha:focus ~ .foto-secundaria{
-    opacity: 1;
-}
-
-.pasar-derecha:focus ~ .foto-principal{
-    opacity: 0;
-}
-
-.flecha:focus{
-    outline: none;
-}
-.horarios{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 15px 15px;
-    position: relative;
-}
-
-.hora-disponible{
-    background-color: #ada;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    color: #fff;
-    padding: 10px;
-}
-
-.hora-ocupada{
-    background-color: #daa;
-    border: none;
-    border-radius: 2px;
-    color: #ddd;
-    padding: 10px;
-}
-
-.hora-disponible:hover{
-    border: 1px solid #166534;
-    color: #166534;
-}
-
-/*Login*/
-body {
-  margin: 0;
-  font-family: sans-serif;
-  background-color: #f9fafb;
-}
-
-.login-container {
-  max-width: 420px;
-  margin: 80px auto;
-  background-color: #fff;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  padding: 2.5rem 2rem;
-}
-
-.login-container h2 {
-  color: #166534;
-  text-align: center;
-  margin-bottom: 1.8rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1.2rem;
-}
-
-.form-group label {
-  margin-bottom: 0.4rem;
-  font-weight: 500;
-  color: #556;
-}
-
-.form-group input {
-  padding: 0.65rem 0.9rem;
-  border: 1px solid #ddd;
-  border-radius: 20px;   /* mismo radio que btn-filtro */
-  font-size: 1rem;
-  color: #333;
-  transition: border-color 0.3s ease;
-  outline: none;
-}
-
-.form-group input:focus {
-  border-color: #166534;
-}
-
-.btn-login {
-  width: 100%;
-  padding: 10px 20px;
-  background-color: #166534;
-  color: white;
-  border: 1px solid #166534;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  margin-top: 0.5rem;
-}
-
-.btn-login:hover {
-  background-color: #fff;
-  color: #166534;
-}
-
-.login-footer {
-  text-align: center;
-  margin-top: 1.2rem;
-  color: #556;
-  font-size: 0.9rem;
-}
-
-.login-footer a {
-  color: #166534;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.login-footer a:hover {
-  text-decoration: underline;
-}
-
-.footer {
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-  color: #888;
-  font-size: 0.8rem;
-}
-
-.footer-link {
-  color: #aaa;
-  text-decoration: none;
-}
-
-.footer-link:hover {
-  color: #166534;
-  text-decoration: underline;
-}
-
-/*SignIn*/
-.Signin-container {
-  max-width: 420px;
-  margin: 60px auto;
-  background-color: #fff;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  padding: 2.5rem 2rem;
-}
-
-.Signin-container h2 {
-  color: #166534;
-  text-align: center;
-  margin-bottom: 1.8rem;
-}
-
-.card-reserva{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card-reserva:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.08);
-}
-
-.reserva-info{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.reserva-info h3{
-    margin: 0;
-    color: #166534;
-    font-size: 1.25rem;
-}
-
-.fecha{
-    font-weight: 600;
-    color: #166534;
-    font-size: 1rem;
-}
-.btn-cancelar, .btn-accion, .btn-cancelar-antiguo{
-    padding: 10px 18px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.btn-accion.pagar{
-    background-color: #166534;
-    color: white;
-    box-shadow: 0 2px 4px rgba(22, 101, 52, 0.2);
-}
-
-.btn-accion.pagar:hover{
-    background-color: #14532d;
-}
-
-.btn-cancelar{
-    background-color: transparent;
-    color: #dc2626;
-    border: 1px solid #fca5a5;
-}
-.btn-cancelar:hover{
-    color: #fef2f2;
-    border-color: #dc2626;
-}
-
-
-.lista-reservas{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 90%;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.reserva-estado{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.btn-cancelar-antiguo{
-    background-color: #fca5a5;
-    border: 1px solid #fca5a5;
-    color: #ddd;
-    padding: 10px;
-    cursor: not-allowed;
-}
-
-.intro{
-    display: flex;
-    flex-direction: column;
-    background-color: #14532d;
-    color: white;
-    text-align: center;
-    border-radius: 10px;
-    padding: 2px 2px;
-    border: 1px solid #166534;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-
-.tipo-anterior{
-    background-color: #ddd;
-}
-
-.fecha-reserva{
-    margin: 0 auto;
-    margin-top: 10px;
-    padding: 10px 2px;
-    border: 1px solid rgba(0,0,0,0.05);
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    width: 90%;
-    text-align: center;
-}
+/* =========================
+   CABECERA / NAVBAR
+   ========================= */
 
-.cabecera{
+.cabecera {
     background-color: #fff;
     padding: 10px 40px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -505,14 +39,14 @@ body {
     z-index: 1000;
 }
 
-.nav-grupo{
+.nav-grupo {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 25px;
 }
 
-.logo{
+.logo {
     font-size: 1.3rem;
     font-weight: 800;
     color: #166534;
@@ -522,50 +56,524 @@ body {
     cursor: pointer;
 }
 
-.nav-link{
+.nav-link {
     color: #166534;
     text-decoration: none;
     font-size: 1rem;
     transition: all 0.2s ease;
+    padding: 8px 14px;
+    border-radius: 20px;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     transform: scale(1.05);
 }
 
-.icono{
+.nav-activo {
+    background-color: #166534;
+    color: white !important;
+}
+
+.logo.nav-activo {
+    background-color: transparent;
+    color: #166534 !important;
+    padding: 0;
+}
+
+.icono {
     font-size: 1.4rem;
 }
 
-.espacio{
-    height: 20px;
+.icono.nav-activo {
+    padding: 6px 10px;
 }
-/* 1. SECCIÓN SUPERIOR (Foto + Textos) */
+
+.admin-badge {
+    font-weight: 700;
+    color: #111827;
+}
+
+/* =========================
+   FILTROS / BOTONES GENERALES
+   ========================= */
+
+.filtro-oculto {
+    display: none;
+}
+
+.menu-filtros {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 60px 10px;
+    flex-wrap: wrap;
+}
+
+.btn-filtro {
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #556;
+    transition: all 0.3s ease;
+}
+
+.btn-filtro:hover {
+    border-color: #166534;
+    color: #166534;
+}
+
+.btn-admin-principal {
+    background-color: #166534;
+    color: white;
+    border-color: #166534;
+}
+
+.btn-admin-principal:hover {
+    background-color: white;
+    color: #166534;
+}
+
+/* Filtros antiguos de reservas/pistas públicas */
+#filtro-todas:checked ~ .menu-filtros label[for="filtro-todas"],
+#filtro-interior:checked ~ .menu-filtros label[for="filtro-interior"],
+#filtro-techo:checked ~ .menu-filtros label[for="filtro-techo"],
+#filtro-sin:checked ~ .menu-filtros label[for="filtro-sin"],
+#filtro-actuales:checked ~ .menu-filtros label[for="filtro-actuales"],
+#filtro-anteriores:checked ~ .menu-filtros label[for="filtro-anteriores"] {
+    background-color: #166534;
+    color: white;
+    border-color: #166534;
+}
+
+#filtro-interior:checked ~ .pistas .card:not(.tipo-interior) {
+    display: none;
+}
+
+#filtro-techo:checked ~ .pistas .card:not(.tipo-techo) {
+    display: none;
+}
+
+#filtro-sin:checked ~ .pistas .card:not(.tipo-sin) {
+    display: none;
+}
+
+#filtro-anteriores:checked ~ .lista-reservas .card-reserva:not(.tipo-anterior) {
+    display: none;
+}
+
+#filtro-actuales:checked ~ .lista-reservas .card-reserva:not(.tipo-actual) {
+    display: none;
+}
+
+/* =========================
+   MAPA / PISTAS PÚBLICAS
+   ========================= */
+
+.mapa {
+    width: 100%;
+    height: 600px;
+    margin-bottom: 30px;
+}
+
+.mapa img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding-bottom: 30px;
+}
+
+.mapa h2 {
+    color: #166534;
+    text-align: center;
+}
+
+.pistas {
+    width: 90%;
+    max-width: 1240px;
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    position: relative;
+    column-gap: 20px;
+}
+
+.info-pist {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    border: 1px solid #eee;
+    padding: 10px 10px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.imagen-pist {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    margin: 0;
+}
+
+.foto-principal,
+.foto-secundaria {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+    transition: opacity 0.3s ease;
+}
+
+.foto-secundaria {
+    opacity: 0;
+}
+
+.flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: #ddd4;
+    width: 35px;
+    height: 35px;
+    border: none;
+    cursor: pointer;
+}
+
+.flecha:hover {
+    background-color: white;
+}
+
+.pasar-derecha {
+    right: 10px;
+}
+
+.pasar-izquierda {
+    left: 10px;
+}
+
+.pasar-derecha:focus ~ .foto-secundaria {
+    opacity: 1;
+}
+
+.pasar-derecha:focus ~ .foto-principal {
+    opacity: 0;
+}
+
+.flecha:focus {
+    outline: none;
+}
+
+.horarios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 15px 15px;
+    position: relative;
+}
+
+.hora-disponible {
+    background-color: #ada;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    color: #fff;
+    padding: 10px;
+}
+
+.hora-ocupada {
+    background-color: #daa;
+    border: none;
+    border-radius: 2px;
+    color: #ddd;
+    padding: 10px;
+}
+
+.hora-disponible:hover {
+    border: 1px solid #166534;
+    color: #166534;
+}
+
+/* =========================
+   LOGIN / SIGN IN
+   ========================= */
+
+.login-container,
+.Signin-container {
+    max-width: 420px;
+    margin: 80px auto;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    padding: 2.5rem 2rem;
+}
+
+.Signin-container {
+    margin: 60px auto;
+}
+
+.login-container h2,
+.Signin-container h2 {
+    color: #166534;
+    text-align: center;
+    margin-bottom: 1.8rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+    color: #556;
+}
+
+.form-group input {
+    padding: 0.65rem 0.9rem;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #166534;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #166534;
+    color: white;
+    border: 1px solid #166534;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.btn-login:hover {
+    background-color: #fff;
+    color: #166534;
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 1.2rem;
+    color: #556;
+    font-size: 0.9rem;
+}
+
+.login-footer a {
+    color: #166534;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    color: #888;
+    font-size: 0.8rem;
+}
+
+.footer-link {
+    color: #aaa;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: #166534;
+    text-decoration: underline;
+}
+
+/* =========================
+   RESERVAS USUARIO
+   ========================= */
+
+.card-reserva {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-reserva:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+}
+
+.reserva-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.reserva-info h3 {
+    margin: 0;
+    color: #166534;
+    font-size: 1.25rem;
+}
+
+.fecha {
+    font-weight: 600;
+    color: #166534;
+    font-size: 1rem;
+}
+
+.btn-cancelar,
+.btn-accion,
+.btn-cancelar-antiguo {
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-accion.pagar {
+    background-color: #166534;
+    color: white;
+    box-shadow: 0 2px 4px rgba(22, 101, 52, 0.2);
+}
+
+.btn-accion.pagar:hover {
+    background-color: #14532d;
+}
+
+.btn-cancelar {
+    background-color: transparent;
+    color: #dc2626;
+    border: 1px solid #fca5a5;
+}
+
+.btn-cancelar:hover {
+    color: #fef2f2;
+    border-color: #dc2626;
+}
+
+.lista-reservas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.reserva-estado {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-cancelar-antiguo {
+    background-color: #fca5a5;
+    border: 1px solid #fca5a5;
+    color: #ddd;
+    padding: 10px;
+    cursor: not-allowed;
+}
+
+.tipo-anterior {
+    background-color: #ddd;
+}
+
+.fecha-reserva {
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 10px 2px;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    width: 90%;
+    text-align: center;
+}
+
+/* =========================
+   INTRO / BLOQUES GENERALES
+   ========================= */
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    background-color: #14532d;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 22px 16px;
+    border: 1px solid #166534;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.intro h1,
+.intro h2 {
+    margin: 0;
+}
+
+.intro p {
+    margin-bottom: 0;
+}
+
+/* =========================
+   PERFIL
+   ========================= */
 
 .espacio-perfil {
     display: grid;
-    /* Columna 1 para foto (20%), Columna 2 para textos (80%) */
-    grid-template-columns: 20% 80%; 
+    grid-template-columns: 20% 80%;
     gap: 2rem;
-    border-bottom: 1px solid #eee; 
-    border-radius: 12px; /* Esquinas muy redondeadas */
-    padding: 3rem 2rem; /* Mucho padding vertical para dar altura */
-    margin: 2rem; /* Separación del resto de la página */
-    align-items: center; /* Centrado horizontal */
-    justify-content: left; /* Centrado vertical */
-    text-align: left;    
+    border-bottom: 1px solid #eee;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    margin: 2rem;
+    align-items: center;
+    justify-content: left;
+    text-align: left;
 }
 
 .foto-perfil {
     grid-column: 1;
-    /* Ajustamos el tamaño para que no sea gigante */
-    width: 80%; 
+    width: 80%;
     height: auto;
-    object-fit: cover; /* Para que la foto no se deforme al ser circular */
+    object-fit: cover;
     border-radius: 50%;
 }
 
-/* Contenedor de los textos a la derecha de la foto */
 .Descripcion-pagina {
     grid-column: 2;
     display: flex;
@@ -573,30 +581,20 @@ body {
     gap: 0.5rem;
     margin-left: 20px;
 }
-.admin-dashboard{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
 
-
-/* El H2 "Hola Maria" */
 .Descripcion-pagina h2 {
     margin: 0;
     font-size: 1.5rem;
 }
 
-/* 2. SECCIÓN INFERIOR (Información Personal) */
 .informacion-personal {
-    
-
     width: 90%;
     display: flex;
     flex-direction: column;
     text-align: center;
     border-radius: 10px;
     padding: 2px 2px;
-    margin: 0 auto; 
+    margin: 0 auto;
     border: 1px solid #166534;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
@@ -608,7 +606,6 @@ body {
     align-items: center;
 }
 
-/* Estilo de la tabla para que ocupe su propio espacio */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -619,14 +616,12 @@ td {
     border-bottom: 1px solid #f0f0f0;
 }
 
-/* Estilo para las etiquetas (DNI, Nombre, etc) */
 td:first-child {
     font-weight: bold;
     width: 30%;
     color: #555;
 }
 
-/* Botón centrado */
 .guardar-cambios {
     display: block;
     margin: 3rem auto;
@@ -639,8 +634,10 @@ td:first-child {
     cursor: pointer;
 }
 
+/* =========================
+   NOTIFICACIONES
+   ========================= */
 
-/* El contenedor principal de la notificación */
 .card-notificacion {
     background: #fff;
     border-radius: 12px;
@@ -648,10 +645,11 @@ td:first-child {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     margin-bottom: 2rem;
 }
+
 .lista-reservas article:first-of-type {
-    margin-top: 3rem; /* Ajusta este valor (rem o px) según el espacio que quieras */
+    margin-top: 3rem;
 }
-/* Columna de Información (Izquierda) */
+
 .notificacion-info {
     display: flex;
     flex-direction: column;
@@ -667,7 +665,7 @@ td:first-child {
 .fecha-notif {
     display: block;
     font-weight: bold;
-    color: #1a4d2e; /* Verde Premium */
+    color: #1a4d2e;
     margin-top: 0.5rem;
 }
 
@@ -678,15 +676,13 @@ td:first-child {
     margin-bottom: 0.5rem;
 }
 
-/* Columna de Estados y Botones (Derecha) */
 .notificacion-estado {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Empuja todo a la derecha */
+    align-items: flex-end;
     gap: 1rem;
 }
 
-/* Etiquetas de estado */
 .estado-notif {
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
@@ -694,11 +690,18 @@ td:first-child {
     font-weight: bold;
 }
 
-.estado-notif.finalizado { background: #e0e0e0; color: #666; }
-.estado-notif.pendiente { background: #fff3cd; color: #856404; }
+.estado-notif.finalizado {
+    background: #e0e0e0;
+    color: #666;
+}
 
-/* Botones de acción */
-.btn-borrar, .btn-accion {
+.estado-notif.pendiente {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.btn-borrar,
+.btn-accion {
     padding: 0.5rem 1rem;
     border-radius: 6px;
     border: none;
@@ -712,78 +715,209 @@ td:first-child {
     color: white;
 }
 
-.btn-accion.pagar {
-    background-color: #28a745;
-    color: white;
-}
-
 .btn-borrar:hover {
     background-color: #cc0000;
 }
-.admin-toolbar{
+
+/* =========================
+   ADMIN DASHBOARD / TABLAS
+   ========================= */
+
+.admin-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.admin-resumen {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.admin-card-resumen {
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.admin-card-resumen h3 {
+    margin: 0 0 12px 0;
+    color: #166534;
+    font-size: 1rem;
+}
+
+.dato-admin {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #14532d;
+}
+
+.admin-panel-central {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.admin-bloque {
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.admin-bloque-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
     flex-wrap: wrap;
 }
 
-.admin-menu-filtros{
+.admin-bloque-cabecera h3 {
+    margin: 0;
+    color: #166534;
+    font-size: 1.25rem;
+}
+
+.admin-toolbar {
+    flex-wrap: wrap;
+}
+
+.admin-menu-filtros {
     justify-content: flex-start;
     margin: 0;
 }
 
-.btn-admin-principal{
-    background-color: #166534;
-    color: white;
-    border-color: #166534;
+.admin-acciones {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
 }
 
-.btn-admin-principal:hover{
-    background-color: white;
+.admin-actividad {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.admin-actividad p {
+    margin: 0;
+    color: #374151;
+}
+
+.admin-tabla-bloque {
+    overflow-x: auto;
+}
+
+.tabla-admin-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tabla-admin {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+.tabla-admin th,
+.tabla-admin td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.tabla-admin th {
     color: #166534;
+    font-weight: 700;
+    background-color: #f9fafb;
 }
 
-.acciones-tabla{
+.tabla-admin td:first-child {
+    width: auto;
+    color: #374151;
+}
+
+.acciones-tabla {
     display: flex;
     align-items: center;
     gap: 18px;
     white-space: nowrap;
 }
 
-.accion-tabla{
+.accion-tabla {
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
     display: inline-block;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
 }
 
-.accion-tabla:hover{
+.accion-tabla:hover {
     text-decoration: underline;
 }
 
-.accion-tabla.editar{
+.accion-tabla.editar {
     color: #166534;
 }
 
-.estado-inactiva{
+.estado-admin {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.estado-activa {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.estado-cancelada {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.estado-inactiva {
     background-color: #f3f4f6;
     color: #6b7280;
 }
 
-#admin-todas:checked ~ .admin-bloque .admin-menu-filtros label[for="admin-todas"],
-#admin-activas:checked ~ .admin-bloque .admin-menu-filtros label[for="admin-activas"],
-#admin-inactivas:checked ~ .admin-bloque .admin-menu-filtros label[for="admin-inactivas"]{
-    background-color: #166534;
-    color: white;
-    border-color: #166534;
+.rol-admin-badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
 }
 
-#admin-activas:checked ~ .admin-bloque .tabla-pistas-admin .fila-pista-admin.inactiva{
-    display: none;
+.rol-user-badge {
+    background-color: #e5e7eb;
+    color: #4b5563;
 }
 
-#admin-inactivas:checked ~ .admin-bloque .tabla-pistas-admin .fila-pista-admin.activa{
-    display: none;
+.rol-admin-badge-verde {
+    background-color: #dcfce7;
+    color: #166534;
 }
 
-.admin-formulario-bloque{
+/* =========================
+   ADMIN FORMULARIOS
+   ========================= */
+
+.admin-formulario-bloque {
     max-width: 760px;
     margin: 0 auto 40px auto;
     background-color: #fff;
@@ -793,7 +927,7 @@ td:first-child {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.admin-formulario-header{
+.admin-formulario-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -802,28 +936,18 @@ td:first-child {
     flex-wrap: wrap;
 }
 
-.admin-formulario-header h3{
+.admin-formulario-header h3 {
     margin: 0;
     color: #166534;
 }
 
-.admin-formulario-pista{
+.admin-formulario-pista {
     display: grid;
     grid-template-columns: 1fr;
     gap: 18px;
 }
 
-@media only screen and (min-width: 800px){
-    .admin-formulario-pista{
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .admin-formulario-acciones{
-        grid-column: 1 / -1;
-    }
-}
-
-.select-admin{
+.select-admin {
     padding: 0.65rem 0.9rem;
     border: 1px solid #ddd;
     border-radius: 20px;
@@ -834,11 +958,11 @@ td:first-child {
     transition: border-color 0.3s ease;
 }
 
-.select-admin:focus{
+.select-admin:focus {
     border-color: #166534;
 }
 
-.admin-formulario-acciones{
+.admin-formulario-acciones {
     display: flex;
     justify-content: flex-end;
     gap: 15px;
@@ -847,62 +971,89 @@ td:first-child {
     align-items: center;
 }
 
-.btn-guardar-pista{
+.btn-guardar-pista {
     width: auto;
     min-width: 180px;
     margin-top: 0;
 }
 
-.cancelar-izquierda{
+.cancelar-izquierda {
     margin-right: auto;
 }
 
-input[readonly]{
+input[readonly] {
     background-color: #f3f4f6;
     color: #6b7280;
     cursor: not-allowed;
 }
 
-.rol-admin-badge{
-    display: inline-block;
-    padding: 6px 10px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media only screen and (max-width: 899px) {
+    .cabecera {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 10px;
+        text-align: center;
+    }
+
+    .nav-grupo {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .logo {
+        margin-right: 0;
+        margin-bottom: 5px;
+        font-size: 1.5rem;
+    }
 }
 
-.rol-user-badge{
-    background-color: #e5e7eb;
-    color: #4b5563;
+@media only screen and (min-width: 900px) {
+    .pistas {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.rol-admin-badge-verde{
-    background-color: #dcfce7;
-    color: #166534;
+@media only screen and (min-width: 1500px) {
+    .pistas {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
-#usuarios-todos:checked ~ .admin-bloque .admin-menu-filtros label[for="usuarios-todos"],
-#usuarios-activos:checked ~ .admin-bloque .admin-menu-filtros label[for="usuarios-activos"],
-#usuarios-inactivos:checked ~ .admin-bloque .admin-menu-filtros label[for="usuarios-inactivos"],
-#usuarios-admins:checked ~ .admin-bloque .admin-menu-filtros label[for="usuarios-admins"],
-#usuarios-users:checked ~ .admin-bloque .admin-menu-filtros label[for="usuarios-users"]{
-    background-color: #166534;
-    color: white;
-    border-color: #166534;
+@media only screen and (min-width: 800px) {
+    .admin-formulario-pista {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .admin-formulario-acciones {
+        grid-column: 1 / -1;
+    }
 }
 
-#usuarios-activos:checked ~ .admin-bloque .tabla-usuarios-admin .fila-usuario-admin.inactivo{
-    display: none;
+@media only screen and (max-width: 1000px) {
+    .admin-resumen {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .admin-panel-central {
+        grid-template-columns: 1fr;
+    }
 }
 
-#usuarios-inactivos:checked ~ .admin-bloque .tabla-usuarios-admin .fila-usuario-admin.activo{
-    display: none;
-}
+@media only screen and (max-width: 600px) {
+    .admin-resumen {
+        grid-template-columns: 1fr;
+    }
 
-#usuarios-admins:checked ~ .admin-bloque .tabla-usuarios-admin .fila-usuario-admin:not(.rol-admin){
-    display: none;
-}
+    .admin-bloque-cabecera {
+        align-items: flex-start;
+    }
 
-#usuarios-users:checked ~ .admin-bloque .tabla-usuarios-admin .fila-usuario-admin:not(.rol-user){
-    display: none;
+    .admin-acciones {
+        flex-direction: column;
+    }
 }
