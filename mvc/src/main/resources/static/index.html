@@ -8,36 +8,43 @@
         <link rel="icon" type="image/png" href="src/Captura de pantalla 2026-04-15 171537.png">
     </head>
     <body>
-        <header class="header">
-            <h1>Premium Padel Club</h1>
-            <nav class="nav">
-                <a href="index.html" class="logo">&#127934 Premium Padel</a>
-                <a href="index.html">Inicio</a>
-                <a href="perfil.html">Perfil</a>
-                <a href="notificaciones.html">Notificaciones</a>
+        <header class="cabecera">
+            <nav class="nav-grupo" aria-label="Navegacion principal">
+                <a href="index.html" class="logo">🎾 Premium Padel</a>
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="reservas.html" class="nav-link">Reservar</a>
+                <a href="misReservas.html" class="nav-link">Mis reservas</a>
+            </nav>
+            <nav class="nav-grupo" aria-label="Navegacion de usuario">
+                <a href="logIn.html" class="nav-link">LogIn</a>
+                <a href="SignIn.html" class="nav-link"> SignIn</a>
+                <a href="notificaciones.html" class="nav-link icono">🔔</a>
+                <a href="perfil.html" class="nav-link icono">👤</a>
             </nav>
         </header>
 
-        <main>
-            <section>
-                <p class="login-footer">Accede rapido a tus reservas, tu perfil y la disponibilidad de pistas.</p>
+        <div class="espacio"></div>
 
-                <div class="menu-filtros">
-                    <a href="reservas.html" class="btn-filtro">Reservar pista</a>
+        <main class="contenedor-principal">
+            <section class="intro hero-inicio">
+                <h1>Bienvenido a Premium Padel</h1>
+                <p id="mensaje-inicio" class="subtitulo">Accede rapido a tus reservas, tu perfil y la disponibilidad de pistas.</p>
+                <div class="menu-filtros acciones-inicio">
+                    <a href="reservas.html" class="btn-filtro btn-admin-principal">Reservar pista</a>
                     <a href="misReservas.html" class="btn-filtro">Mis reservas</a>
                     <a href="perfil.html" class="btn-filtro">Mi perfil</a>
-                    <a href="logIn.html" class="btn-filtro">Iniciar sesion</a>
-                    <a href="SignIn.html" class="btn-filtro">Crear cuenta</a>
+                    <a href="logIn.html" class="btn-filtro enlace-sin-sesion">Iniciar sesion</a>
+                    <a href="SignIn.html" class="btn-filtro enlace-sin-sesion">Crear cuenta</a>
                 </div>
             </section>
 
-            <section class="mapa" style="height: auto; margin-bottom: 40px;">
+            <section class="mapa imagen-inicio">
                 <h2>Encuentra nuestras pistas y elige la que mejor encaje con tu partido</h2>
-                <img src="src/paginaprincipal.jpg" alt="Paleta y pelotas de padel en la pista" style="display: block; width: 90%; max-width: 1200px; height: auto; margin: 0 auto 30px; padding-bottom: 0; object-fit: cover;">
+                <img src="src/paginaprincipal.jpg" alt="Paleta y pelotas de padel en la pista">
             </section>
 
-            <div class="pistas">
-                <article class="card tipo-interior">
+            <section class="pistas" aria-label="Accesos rapidos">
+                <article class="card tipo-interior tarjeta-inicio">
                     <div class="info-pist">
                         <h3>Reserva rapida</h3>
                         <span class="tipo-pist">Acceso directo</span>
@@ -53,7 +60,7 @@
                     </div>
                 </article>
 
-                <article class="card tipo-techo">
+                <article class="card tipo-techo tarjeta-inicio">
                     <div class="info-pist">
                         <h3>Mis reservas</h3>
                         <span class="tipo-pist">Consulta y gestion</span>
@@ -69,7 +76,7 @@
                     </div>
                 </article>
 
-                <article class="card tipo-sin">
+                <article class="card tipo-sin tarjeta-inicio">
                     <div class="info-pist">
                         <h3>Tu cuenta</h3>
                         <span class="tipo-pist">Perfil y acceso</span>
@@ -79,17 +86,32 @@
                         <img src="src/Imagen5.jpeg" alt="Pista exterior sin techo" class="foto-principal">
                     </div>
                     <div class="horarios">
-                        <a href="logIn.html" class="hora-disponible">Entrar</a>
-                        <a href="SignIn.html" class="hora-disponible">Registrarse</a>
+                        <a href="logIn.html" class="hora-disponible enlace-sin-sesion">Entrar</a>
+                        <a href="SignIn.html" class="hora-disponible enlace-sin-sesion">Registrarse</a>
                         <a href="perfil.html" class="hora-disponible">Perfil</a>
                     </div>
                 </article>
-            </div>
+
+                <article id="acceso-admin" class="card tarjeta-inicio" hidden>
+                    <div class="info-pist">
+                        <h3>Administracion</h3>
+                        <span class="tipo-pist">Panel interno</span>
+                        <span class="precio-pist">Admin</span>
+                    </div>
+                    <div class="horarios">
+                        <a href="admin.html" class="hora-disponible">Panel Admin</a>
+                        <a href="adminUsuarios.html" class="hora-disponible">Usuarios</a>
+                        <a href="adminReservas.html" class="hora-disponible">Reservas</a>
+                    </div>
+                </article>
+            </section>
         </main>
 
         <footer class="login-footer">
             <p>@ 2026 Premium Padel Club</p>
         </footer>
+
         <script src="navbar.js"></script>
+        <script src="index.js"></script>
     </body>
 </html>
