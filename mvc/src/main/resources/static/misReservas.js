@@ -65,7 +65,7 @@ async function cancelarReserva(idReserva) {
     const confirmar = confirm("¿Seguro que quieres cancelar esta reserva?");
     if (!confirmar) return;
 
-    const respuesta = await fetch("pistaPadel/reservations/${idReserva}", {
+    const respuesta = await fetch(`http://localhost:8080/pistaPadel/reservations/${idReserva}`, {
         method: "DELETE",
         credentials: "include"
     });
@@ -76,6 +76,8 @@ async function cancelarReserva(idReserva) {
     }
 
     if (!respuesta.ok) {
+        const textoError = await respuesta.text();
+        console.error("Error al cancelar:", respuesta.status, textoError);
         alert("No se pudo cancelar la reserva");
         return;
     }
