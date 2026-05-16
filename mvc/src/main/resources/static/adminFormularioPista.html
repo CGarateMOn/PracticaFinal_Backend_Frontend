@@ -1,84 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Formularop de pista</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <header class="cabecera">
-            <div class="nav-grupo">
-                <a href="index.html" class="logo">&#127934 Premium Padel</a>
-                <a href="index.html" class="nav-link">Inicio</a>
-                <a href="admin.html" class="nav-link">Panel Admin</a>
-                <a href="adminUsuarios.html" class="nav-link">Usuarios</a>
-                <a href="adminPistas.html" class="nav-link">Pistas</a>
-                <a href="adminReservas.html" class="nav-link">Reservas</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de pista</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="src/Captura de pantalla 2026-04-15 171537.png">
+</head>
+
+<body>
+<header class="cabecera">
+    <div class="nav-grupo">
+        <a href="index.html" class="logo">&#127934 Premium Padel</a>
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="admin.html" class="nav-link">Panel Admin</a>
+        <a href="adminUsuarios.html" class="nav-link">Usuarios</a>
+        <a href="adminPistas.html" class="nav-link">Pistas</a>
+        <a href="adminReservas.html" class="nav-link">Reservas</a>
+    </div>
+
+    <div class="nav-grupo">
+        <span class="admin-badge">ÁREA ADMIN</span>
+        <a href="notificaciones.html" class="nav-link icono">&#128276</a>
+        <a href="perfil.html" class="nav-link icono">&#128100</a>
+    </div>
+</header>
+
+<div class="espacio"></div>
+
+<main class="contenedor-principal admin-dashboard">
+    <section class="intro">
+        <h2>Gestión de pista</h2>
+        <p>Crea una pista nueva o modifica los datos de una pista existente.</p>
+    </section>
+
+    <section class="admin-formulario-bloque">
+        <div class="admin-formulario-header">
+            <h3>Datos de la pista</h3>
+            <a href="adminPistas.html" class="btn-filtro">Volver a pistas</a>
+        </div>
+
+        <form class="admin-formulario-pista">
+            <div class="form-group">
+                <label for="idPista">ID de pista</label>
+                <input type="text" id="idPista" name="idPista" placeholder="Se asignará automáticamente" readonly>
             </div>
-            <div class="nav-grupo">
-                <span class="admin-badge">ÁREA ADMIN</span>
-                <a href="notificaciones.html" class="nav-link icono">&#128276</a>
-                <a href="perfil.html" class="nav-link icono">&#128100</a>
+
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej: Pista 01" required>
             </div>
-        </header>
-        <div class="espacio"></div>
-        <main class="contenedor-principal admin-dashboard">
-            <section class="intro">
-                <h2>Gestión de pista</h2>
-            </section>
-            <div class="espacio"></div>
-            <section class="admin-formulario-bloque">
-                <div class="admin-formulario-header">
-                    <h3>Datos de la pista</h3>
-                    <a href="adminPistas.html" class="btn-filtro">Volver a pistas</a>
-                </div>
-                <form class="admin-formulario-pista">
-                    <div class="form-group">
-                        <label for="idPista">ID de pista</label>
-                        <input type="text" id="idPista" name="idPista" value="03" readonly>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Pista 03" value="Pista 03" required>
-                    </div>
+            <div class="form-group">
+                <label for="ubicacion">Ubicación</label>
+                <input type="text" id="ubicacion" name="ubicacion" placeholder="Ej: Zona Exterior A" required>
+            </div>
 
-                    <div class="form-group">
-                        <label for="ubicacion">Ubicación</label>
-                        <input type="text" id="ubicacion" name="ubicacion" placeholder="Zona Exterior A" value="Zona Exterior A" required>
-                    </div>
+            <div class="form-group">
+                <label for="precioHora">Precio por hora (€)</label>
+                <input type="number" id="precioHora" name="precioHora" min="0" step="0.01" placeholder="15.00" required>
+            </div>
 
-                    <div class="form-group">
-                        <label for="precioHora">Precio por hora (€)</label>
-                        <input type="number" id="precioHora" name="precioHora" min="0" step="0.01" placeholder="15.00" value="15.00" required>
-                    </div>
+            <div class="form-group">
+                <label for="fechaAlta">Fecha de alta</label>
+                <input type="date" id="fechaAlta" name="fechaAlta" readonly>
+            </div>
 
-                    <div class="form-group">
-                        <label for="fechaAlta">Fecha de alta</label>
-                        <input type="date" id="fechaAlta" name="fechaAlta" value="2026-01-12">
-                    </div>
+            <div class="form-group">
+                <label for="activa">Estado</label>
+                <select id="activa" name="activa" class="select-admin">
+                    <option value="true">Activa</option>
+                    <option value="false">Inactiva</option>
+                </select>
+            </div>
 
-                    <div class="form-group">
-                        <label for="activa">Estado</label>
-                        <select id="activa" name="activa" class="select-admin">
-                            <option value="true">Activa</option>
-                            <option value="false">Inactiva</option>
-                        </select>
-                    </div>
+            <div class="admin-formulario-acciones">
+                <button type="button" class="cancelar-izquierda btn-cancelar">Eliminar pista</button>
+                <a href="adminPistas.html" class="btn-filtro">Cancelar</a>
+                <button type="submit" class="btn-login btn-guardar-pista">Guardar cambios</button>
+            </div>
+        </form>
+    </section>
+</main>
 
-                    <div class="admin-formulario-acciones">
-                        <button type="button" class="cancelar-izquierda btn-cancelar">Eliminar pista</button>
-                        <a href="adminPistas.html" class="btn-filtro">Cancelar</a>
-                        <button type="submit" class="btn-login btn-guardar-pista">Guardar cambios</button>
-                    </div>
-                </form>
-            </section>
-        </main>
-        <script src="adminFormularioPista.js"></script>
-        <script src="navbar.js"></script>
-    </body>        
-    <footer class="login-footer">
-        <p>@ 2026 Premium Padel Club</p>
-    </footer>
+<footer class="login-footer">
+    <p>@ 2026 Premium Padel Club</p>
+</footer>
+
+<script src="adminFormularioPista.js"></script>
+<script src="navbar.js"></script>
+</body>
 </html>
