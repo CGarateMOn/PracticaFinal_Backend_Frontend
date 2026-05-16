@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     marcarPaginaActual();
 
     const linkLogin = document.querySelector('a[href*="logIn.html"]');
-    const linkSignIn = document.querySelector('a[href*="SignIn.html"]');
+    const linkSignIn = document.querySelector('a[href*="signup.html"]');
     const adminBadge = document.querySelector(".admin-badge");
 
     try {
