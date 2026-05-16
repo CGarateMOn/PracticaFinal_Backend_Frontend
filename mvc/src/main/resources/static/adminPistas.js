@@ -1,4 +1,4 @@
-
+const API_BASE = "http://localhost:8080";
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function comprobarAdmin() {
 
-    const respuesta = await fetch("/pistaPadel/auth/me", {
+    const respuesta = await fetch(`${API_BASE}/pistaPadel/auth/me`, {
         credentials: "include"
     });
 
@@ -50,7 +50,7 @@ async function cargarPistas() {
     mensaje.textContent = "Cargando pistas...";
 
     try {
-        let url = "/pistaPadel/courts";
+        let url = `${API_BASE}/pistaPadel/courts`;
 
         if (document.getElementById("admin-activas").checked) {
             url += "?activa=true";
@@ -137,7 +137,7 @@ async function eliminarPista(idPista) {
     if (!confirmar) return;
 
     try {
-        const respuesta = await fetch(`/pistaPadel/courts/${idPista}`, {
+        const respuesta = await fetch(`${API_BASE}/pistaPadel/courts/${idPista}`, {
             method: "DELETE",
             credentials: "include"
         });
