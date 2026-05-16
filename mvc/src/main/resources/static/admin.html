@@ -1,131 +1,119 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Panel de admin</title>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="icon" type="image/png" href="src/Captura de pantalla 2026-04-15 171537.png">
-    </head>
-    <body>
-        <header class="cabecera">
-            <div class="nav-grupo">
-                <a href="index.html" class="logo">&#127934 Premium Padel</a>
-                <a href="index.html" class="nav-link">Inicio</a>
-                <a href="admin.html" class="nav-link">Panel Admin</a>
-                <a href="adminUsuarios.html" class="nav-link">Usuarios</a>
-                <a href="adminPistas.html" class="nav-link">Pistas</a>
-                <a href="adminReservas.html" class="nav-link">Reservas</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de admin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="src/Captura de pantalla 2026-04-15 171537.png">
+</head>
+
+<body>
+<header class="cabecera">
+    <div class="nav-grupo">
+        <a href="index.html" class="logo">&#127934 Premium Padel</a>
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="admin.html" class="nav-link">Panel Admin</a>
+        <a href="adminUsuarios.html" class="nav-link">Usuarios</a>
+        <a href="adminPistas.html" class="nav-link">Pistas</a>
+        <a href="adminReservas.html" class="nav-link">Reservas</a>
+    </div>
+
+    <div class="nav-grupo">
+        <span class="admin-badge">ÁREA ADMIN</span>
+        <a href="notificaciones.html" class="nav-link icono">&#128276</a>
+        <a href="perfil.html" class="nav-link icono">&#128100</a>
+    </div>
+</header>
+
+<div class="espacio"></div>
+
+<main class="contenedor-principal admin-dashboard">
+    <section class="intro">
+        <h2>Panel de administración</h2>
+        <p>Resumen general de usuarios, pistas y reservas del club.</p>
+    </section>
+
+    <section class="admin-resumen">
+        <article class="admin-card-resumen">
+            <h3>Usuarios registrados</h3>
+            <p class="dato-admin">...</p>
+        </article>
+
+        <article class="admin-card-resumen">
+            <h3>Pistas activas</h3>
+            <p class="dato-admin">...</p>
+        </article>
+
+        <article class="admin-card-resumen">
+            <h3>Reservas de hoy</h3>
+            <p class="dato-admin">...</p>
+        </article>
+
+        <article class="admin-card-resumen">
+            <h3>Cancelaciones recientes</h3>
+            <p class="dato-admin">...</p>
+        </article>
+    </section>
+
+    <section class="admin-panel-central">
+        <article class="admin-bloque">
+            <div class="admin-bloque-cabecera">
+                <h3>Accesos rápidos</h3>
             </div>
-            <div class="nav-grupo">
-                <span class="admin-badge">ÁREA ADMIN</span>
-                <a href="notificaciones.html" class="nav-link icono">&#128276</a>
-                <a href="perfil.html" class="nav-link icono">&#128100</a>
+
+            <div class="admin-acciones">
+                <a href="adminUsuarios.html" class="btn-filtro">Gestionar usuarios</a>
+                <a href="adminPistas.html" class="btn-filtro">Gestionar pistas</a>
+                <a href="adminReservas.html" class="btn-filtro">Ver reservas</a>
             </div>
-        </header>
-        <div class="espacio"></div>
-        <main class="contenedor-principal admin-dashboard">
-            <section class="intro">
-                <h2>Panel de administración</h2>
-            </section>
-            <div class="espacio"></div>
-            <section class="admin-resumen">
-                <article class="admin-card-resumen">
-                    <h3>Usuarios registrados</h3>
-                    <p class="dato-admin">128</p>
-                </article>
+        </article>
 
-                <article class="admin-card-resumen">
-                    <h3>Pistas activas</h3>
-                    <p class="dato-admin">12</p>
-                </article>
+        <article class="admin-bloque">
+            <div class="admin-bloque-cabecera">
+                <h3>Actividad reciente</h3>
+            </div>
 
-                <article class="admin-card-resumen">
-                    <h3>Reservas de hoy</h3>
-                    <p class="dato-admin">18</p>
-                </article>
+            <div class="admin-actividad">
+                <p>Cargando actividad reciente...</p>
+            </div>
+        </article>
+    </section>
 
-                <article class="admin-card-resumen">
-                    <h3>Cancelaciones recientes</h3>
-                    <p class="dato-admin">3</p>
-                </article>
-            </section>
+    <section class="admin-bloque admin-tabla-bloque">
+        <div class="admin-bloque-cabecera">
+            <h3>Últimas reservas</h3>
+            <a href="adminReservas.html" class="btn-filtro">Ver todas</a>
+        </div>
 
-            <section class="admin-panel-central">
-                <article class="admin-bloque">
-                    <div class="admin-bloque-cabecera">
-                        <h3>Accesos rápidos</h3>
-                    </div>
-                    <div class="admin-acciones">
-                        <a href="adminUsuarios.html" class="btn-filtro">Gestionar usuarios</a>
-                        <a href="adminPistas.html" class="btn-filtro">Gestionar pistas</a>
-                        <a href="adminReservas.html" class="btn-filtro">Ver reservas</a>
-                    </div>
-                </article>
+        <div class="tabla-admin-wrapper">
+            <table class="tabla-admin">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Usuario</th>
+                    <th>Pista</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Estado</th>
+                </tr>
+                </thead>
 
-                <article class="admin-bloque">
-                    <div class="admin-bloque-cabecera">
-                        <h3>Actividad reciente</h3>
-                    </div>
-                    <div class="admin-actividad">
-                        <p><strong>Reserva #245</strong> creada hoy a las 10:30</p>
-                        <p><strong>Usuario #18</strong> actualizado hoy a las 11:15</p>
-                        <p><strong>Pista 03</strong> desactivada ayer</p>
-                        <p><strong>Reserva #198</strong> cancelada ayer</p>
-                    </div>
-                </article>
-            </section>
-            <section class="admin-bloque admin-tabla-bloque">
-                <div class="admin-bloque-cabecera">
-                    <h3>Últimas reservas</h3>
-                    <a href="adminReservas.html" class="btn-filtro">Ver todas</a>
-                </div>
+                <tbody>
+                <tr>
+                    <td colspan="6">Cargando últimas reservas...</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
 
-                <div class="tabla-admin-wrapper">
-                    <table class="tabla-admin">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Usuario</th>
-                                <th>Pista</th>
-                                <th>Fecha</th>
-                                <th>Hora</th>
-                                <th>Estado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>#245</td>
-                                <td>María García</td>
-                                <td>Pista 02</td>
-                                <td>15/04/2026</td>
-                                <td>18:00</td>
-                                <td><span class="estado-admin estado-activa">ACTIVA</span></td>
-                            </tr>
-                            <tr>
-                                <td>#244</td>
-                                <td>Juan Pérez</td>
-                                <td>Pista 05</td>
-                                <td>15/04/2026</td>
-                                <td>19:30</td>
-                                <td><span class="estado-admin estado-cancelada">CANCELADA</span></td>
-                            </tr>
-                            <tr>
-                                <td>#243</td>
-                                <td>Lucía Martín</td>
-                                <td>Pista 01</td>
-                                <td>15/04/2026</td>
-                                <td>21:00</td>
-                                <td><span class="estado-admin estado-activa">ACTIVA</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </main>
-        <script src="admin.js"></script>
-    </body>        
-    <footer class="login-footer">
-        <p>@ 2026 Premium Padel Club</p>
-    </footer>
+<footer class="login-footer">
+    <p>@ 2026 Premium Padel Club</p>
+</footer>
+
+<script src="admin.js"></script>
+<script src="navbar.js"></script>
+</body>
 </html>
