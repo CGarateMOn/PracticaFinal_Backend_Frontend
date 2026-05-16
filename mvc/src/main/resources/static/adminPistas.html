@@ -30,17 +30,24 @@
             </section>
             <div class="espacio"></div>
 
-            <input type="radio" name="filtro-pistas-admin" id="admin-todas" checked class="filtro-oculto">
-            <input type="radio" name="filtro-pistas-admin" id="admin-activas" class="filtro-oculto">
-            <input type="radio" name="filtro-pistas-admin" id="admin-inactivas" class="filtro-oculto">
-
             <section class="admin-bloque">
                 <div class="admin-bloque-cabecera admin-toolbar">
-                    <div class="menu-filtros admin-menu-filtros">
-                        <label for="admin-todas" class="btn-filtro">Todas</label>
-                        <label for="admin-activas" class="btn-filtro">Activas</label>
-                        <label for="admin-inactivas" class="btn-filtro">Inactivas</label>
+                    <div class="form-group">
+                        <label for="filtroEstadoPistas">Estado</label>
+                        <select id="filtroEstadoPistas" class="select-admin">
+                            <option value="">Todas</option>
+                            <option value="true">Activas</option>
+                            <option value="false">Inactivas</option>
+                        </select>
                     </div>
+
+                    <button type="button" id="btnFiltrarPistas" class="btn-filtro btn-admin-principal">
+                        Filtrar
+                    </button>
+
+                    <button type="button" id="btnLimpiarFiltroPistas" class="btn-filtro">
+                        Limpiar
+                    </button>
 
                     <a href="adminFormularioPista.html" class="btn-filtro btn-admin-principal">Nueva pista</a>
                 </div>
